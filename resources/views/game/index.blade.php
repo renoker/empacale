@@ -172,7 +172,11 @@
         }
 
         function drop(event) {
-            event.preventDefault();
+            // Verificar si event.preventDefault está definido
+            if (event.preventDefault) {
+                event.preventDefault();
+            }
+
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
             if (draggedElement && event.target.classList.contains('droppable')) {
@@ -236,7 +240,8 @@
             const dropZone = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
             if (dropZone && dropZone.classList.contains('droppable')) {
                 drop({
-                    target: dropZone
+                    target: dropZone,
+                    preventDefault: function() {}
                 });
             }
         }
