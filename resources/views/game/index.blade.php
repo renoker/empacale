@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packing Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .game-container {
-            width: 1000px;
+            width: 100%;
+            max-width: 1000px;
             height: 600px;
             position: relative;
             border: 2px solid #000;
@@ -105,6 +105,7 @@
                 item.classList.add('draggable');
                 item.draggable = true;
                 item.ondragstart = drag;
+                item.ontouchstart = touchStart;
                 item.id = `draggable${index}`; // Asignar un ID único
                 item.src = config.src;
                 item.dataset.points = config.points; // Guardar los puntos que otorga
@@ -184,6 +185,53 @@
                     saveScore(time, score);
                 }
             }
+        }
+
+        function touchStart(event) {
+            const touch = event.touches[0];
+            const target = touch.target;
+            target.ontouchmove = touchMove;
+            target.ontouchend = touchEnd;
+            event.dataTransfer = {
+                setData: function(type, val) {
+                    this[type] = val;
+                },
+                getData: function(type) {
+                    return this[type];
+                }
+            };
+            event.dataTransfer.setData("text", target.id);
+        }
+
+        function touchMove(event) {
+            const touch = event.touches[0];
+            const target = touch.target;
+            const container = document.getElementById('gameContainer');
+            const rect = container.getBoundingClientRect();
+            let newLeft = touch.clientX - rect.left - (target.offsetWidth / 2);
+            let newTop = touch.clientY - rect.top - (target.offsetHeight / 2);
+
+            // Verifica los límites del contenedor
+            if (newLeft <= 0) {
+                newLeft = 0;
+            } else if (newLeft + target.offsetWidth >= container.offsetWidth) {
+                newLeft = container.offsetWidth - target.offsetWidth;
+            }
+            if (newTop <= 0) {
+                newTop = 0;
+            } else if (newTop + target.offsetHeight >= container.offsetHeight) {
+                newTop = container.offsetHeight - target.offsetHeight;
+            }
+
+            target.style.left = `${newLeft}px`;
+            target.style.top = `${newTop}px`;
+            event.preventDefault();
+        }
+
+        function touchEnd(event) {
+            const target = event.target;
+            target.ontouchmove = null;
+            target.ontouchend = null;
         }
 
         function updateSpeed() {
