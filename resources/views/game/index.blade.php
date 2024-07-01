@@ -125,11 +125,15 @@
                 const rect = item.getBoundingClientRect();
                 const containerRect = container.getBoundingClientRect();
                 // Cambio de dirección si alcanza los bordes del contenedor
-                if (rect.left <= containerRect.left || rect.right >= containerRect.right) {
-                    directionX *= -1;
+                if (rect.left <= containerRect.left) {
+                    directionX = 1;
+                } else if (rect.right >= containerRect.right) {
+                    directionX = -1;
                 }
-                if (rect.top <= containerRect.top || rect.bottom >= containerRect.bottom) {
-                    directionY *= -1;
+                if (rect.top <= containerRect.top) {
+                    directionY = 1;
+                } else if (rect.bottom >= containerRect.bottom) {
+                    directionY = -1;
                 }
                 item.style.left = `${rect.left - containerRect.left + speedX * directionX}px`;
                 item.style.top = `${rect.top - containerRect.top + speedY * directionY}px`;
