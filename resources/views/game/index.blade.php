@@ -6,19 +6,9 @@
     <title>Packing Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .game-container {
-            width: 100%;
-            max-width: 1000px;
-            height: 600px;
-            position: relative;
-            border: 2px solid #000;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
         .draggable {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             position: absolute;
             cursor: pointer;
         }
@@ -38,11 +28,6 @@
             transition: border 0.3s;
         }
 
-        .drop-hover {
-            border: 4px solid #00f;
-            /* Margen adicional */
-        }
-
         @keyframes shake {
             0% {
                 transform: translateX(-50%) translateY(0);
@@ -58,15 +43,16 @@
 
             75% {
                 transform: translateX(-50%) translateY(-10px);
-
-                100% {
-                    transform: translateX(-50%) translateY(0);
-                }
             }
 
-            .shake {
-                animation: shake 0.5s;
+            100% {
+                transform: translateX(-50%) translateY(0);
             }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
     </style>
 </head>
 
@@ -79,11 +65,10 @@
             <p id="timer">Time: 0</p>
             <p id="score">Score: 0</p>
             <p id="level">Level: 1</p>
+            <p id="lives">Lives: 3</p> <!-- Display lives -->
         </div>
-        <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
-                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)">
-            </div>
+        <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+
         </div>
     </div>
 
@@ -93,6 +78,7 @@
         let score = 0;
         let level = 1;
         let speedMultiplier = 1;
+        let lives = 3; // Initialize lives
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -131,9 +117,11 @@
             score = 0;
             level = 1;
             speedMultiplier = 1;
+            lives = 3; // Reset lives at the start of the game
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
             document.getElementById('level').innerText = `Level: ${level}`;
+            document.getElementById('lives').innerText = `Lives: ${lives}`;
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
@@ -145,7 +133,6 @@
         }
 
         function createMovingItems() {
-            const container = document.getElementById('gameContainer');
             itemsConfig.forEach((config, index) => {
                 const item = document.createElement('img');
                 item.classList.add('draggable');
@@ -156,19 +143,19 @@
                 item.src = config.src;
                 item.dataset.points = config.points;
 
-                let initialX = Math.random() * (container.offsetWidth - 50);
-                let initialY = Math.random() * (container.offsetHeight - 50);
+                let initialX = Math.random() * (window.innerWidth - 50);
+                let initialY = Math.random() * (window.innerHeight - 50);
 
                 item.style.left = `${initialX}px`;
                 item.style.top = `${initialY}px`;
 
-                container.appendChild(item);
+                document.body.appendChild(item);
                 items.push(item);
-                moveItem(item, container, speedMultiplier);
+                moveItem(item, speedMultiplier);
             });
         }
 
-        function moveItem(item, container, speedMultiplier) {
+        function moveItem(item, speedMultiplier) {
             let directionX = Math.random() < 0.5 ? 1 : -1;
             let directionY = Math.random() < 0.5 ? 1 : -1;
             let speedX = (Math.random() * 2 + 2) * speedMultiplier;
@@ -181,23 +168,22 @@
                 }
 
                 const rect = item.getBoundingClientRect();
-                const containerRect = container.getBoundingClientRect();
 
-                let newLeft = rect.left - containerRect.left + speedX * directionX;
-                let newTop = rect.top - containerRect.top + speedY * directionY;
+                let newLeft = rect.left + speedX * directionX;
+                let newTop = rect.top + speedY * directionY;
 
                 if (newLeft <= 0) {
                     newLeft = 0;
                     directionX = 1;
-                } else if (newLeft + rect.width >= containerRect.width) {
-                    newLeft = containerRect.width - rect.width;
+                } else if (newLeft + rect.width >= window.innerWidth) {
+                    newLeft = window.innerWidth - rect.width;
                     directionX = -1;
                 }
                 if (newTop <= 0) {
                     newTop = 0;
                     directionY = 1;
-                } else if (newTop + rect.height >= containerRect.height) {
-                    newTop = containerRect.height - rect.height;
+                } else if (newTop + rect.height >= window.innerHeight) {
+                    newTop = window.innerHeight - rect.height;
                     directionY = -1;
                 }
 
@@ -232,24 +218,34 @@
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
                 if (!isNaN(points)) {
-                    const previousScore = score;
-                    score += points;
-                    document.getElementById('score').innerText = `Score: ${score}`;
-                    if (score > previousScore) {
-                        level += 1;
-                        speedMultiplier = 1 + (level - 1) * 0.1;
-                        document.getElementById('level').innerText = `Level: ${level}`;
-                        updateSpeed();
+                    if (points === 0) {
+                        lives--;
+                        document.getElementById('lives').innerText = `Lives: ${lives}`;
+                        if (lives === 0) {
+                            clearInterval(timerInterval);
+                            alert(`Game over! Your score is ${score}.`);
+                            return; // Stop further execution if the game is over
+                        }
+                    } else {
+                        const previousScore = score;
+                        score += points;
+                        document.getElementById('score').innerText = `Score: ${score}`;
+                        if (score > previousScore) {
+                            level += 1;
+                            speedMultiplier = 1 + (level - 1) * 0.1;
+                            document.getElementById('level').innerText = `Level: ${level}`;
+                            updateSpeed();
 
-                        // Añadir la animación de sacudida
-                        const dropZone = document.getElementById('droppable');
-                        dropZone.classList.add('shake');
-                        setTimeout(() => {
-                            dropZone.classList.remove('shake');
-                        }, 500);
+                            // Añadir la animación de sacudida
+                            const dropZone = document.getElementById('droppable');
+                            dropZone.classList.add('shake');
+                            setTimeout(() => {
+                                dropZone.classList.remove('shake');
+                            }, 500);
+                        }
                     }
                 }
-                if (items.length === 0) {
+                if (items.length === 0 && lives > 0) {
                     clearInterval(timerInterval);
                     alert(`You have packed all items! Your score is ${score}.`);
                     saveScore(time, score);
@@ -274,34 +270,22 @@
 
             const touch = event.touches[0];
             const target = touchData.item;
-            const container = document.getElementById('gameContainer');
-            const rect = container.getBoundingClientRect();
-            let newLeft = touch.clientX - rect.left - touchData.offsetX;
-            let newTop = touch.clientY - rect.top - touchData.offsetY;
+            let newLeft = touch.clientX - touchData.offsetX;
+            let newTop = touch.clientY - touchData.offsetY;
 
             if (newLeft <= 0) {
                 newLeft = 0;
-            } else if (newLeft + target.offsetWidth >= container.offsetWidth) {
-                newLeft = container.offsetWidth - target.offsetWidth;
+            } else if (newLeft + target.offsetWidth >= window.innerWidth) {
+                newLeft = window.innerWidth - target.offsetWidth;
             }
             if (newTop <= 0) {
                 newTop = 0;
-            } else if (newTop + target.offsetHeight >= container.offsetHeight) {
-                newTop = container.offsetHeight - target.offsetHeight;
+            } else if (newTop + target.offsetHeight >= window.innerHeight) {
+                newTop = window.innerHeight - target.offsetHeight;
             }
 
             target.style.left = `${newLeft}px`;
             target.style.top = `${newTop}px`;
-
-            // Highlight drop zone if touching
-            const dropZone = document.getElementById('droppable');
-            const dropZoneRect = dropZone.getBoundingClientRect();
-            if (touch.clientX >= dropZoneRect.left && touch.clientX <= dropZoneRect.right && touch.clientY >= dropZoneRect
-                .top && touch.clientY <= dropZoneRect.bottom) {
-                dropZone.classList.add('drop-hover');
-            } else {
-                dropZone.classList.remove('drop-hover');
-            }
 
             event.preventDefault();
         }
@@ -313,7 +297,6 @@
             touchData.isDragging = false;
 
             const dropZone = document.getElementById('droppable');
-            dropZone.classList.remove('drop-hover'); // Ensure the highlight is removed when touch ends
 
             // Check if the touch end position is within the drop zone
             const touch = event.changedTouches[0];
@@ -330,23 +313,13 @@
                 });
             } else {
                 // Resume movement if touch ends outside the drop zone
-                moveItem(target, document.getElementById('gameContainer'), speedMultiplier);
+                moveItem(target, speedMultiplier);
             }
-        }
-
-        function highlightDropZone(event) {
-            const dropZone = document.getElementById('droppable');
-            dropZone.classList.add('drop-hover');
-        }
-
-        function unhighlightDropZone(event) {
-            const dropZone = document.getElementById('droppable');
-            dropZone.classList.remove('drop-hover');
         }
 
         function updateSpeed() {
             items.forEach(item => {
-                moveItem(item, document.getElementById('gameContainer'), speedMultiplier);
+                moveItem(item, speedMultiplier);
             });
         }
 
