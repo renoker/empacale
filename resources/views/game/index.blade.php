@@ -56,7 +56,7 @@
         let timerInterval;
         let time = 0;
         let score = 0;
-        let speedMultiplier = 0.5; // Inicializar el multiplicador de velocidad
+        let speedMultiplier = 0.1; // Inicializar el multiplicador de velocidad
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -92,7 +92,7 @@
         function startGame() {
             time = 0;
             score = 0;
-            speedMultiplier = 0.5; // Reiniciar el multiplicador de velocidad al iniciar el juego
+            speedMultiplier = 0.8; // Reiniciar el multiplicador de velocidad al iniciar el juego
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
             if (timerInterval) {
@@ -127,8 +127,8 @@
         function moveItem(item, container, speedMultiplier) {
             let directionX = Math.random() < 0.5 ? 1 : -1;
             let directionY = Math.random() < 0.5 ? 1 : -1;
-            let speedX = (Math.random() * 1 + 1) * speedMultiplier; // Reducir la velocidad base
-            let speedY = (Math.random() * 1 + 1) * speedMultiplier; // Reducir la velocidad base
+            let speedX = (Math.random() * 2 + 2) * speedMultiplier;
+            let speedY = (Math.random() * 2 + 2) * speedMultiplier;
 
             function animate() {
                 const rect = item.getBoundingClientRect();
@@ -184,11 +184,14 @@
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
-                if (!isNaN(points) && points > 0) {
+                if (!isNaN(points)) {
+                    const previousScore = score; // Guardar el puntaje anterior
                     score += points;
                     document.getElementById('score').innerText = `Score: ${score}`;
-                    speedMultiplier += 0.1; // Incrementar el multiplicador de velocidad en 0.1
-                    updateSpeed(); // Actualizar la velocidad de todos los elementos
+                    if (score > previousScore) { // Verificar si el puntaje ha aumentado
+                        speedMultiplier += 0.1; // Incrementar el multiplicador de velocidad en 1
+                        updateSpeed(); // Actualizar la velocidad de todos los elementos
+                    }
                 }
                 if (items.length === 0) {
                     clearInterval(timerInterval);
@@ -248,6 +251,7 @@
         }
 
         function updateSpeed() {
+            console.log(speedMultiplier);
             items.forEach(item => {
                 moveItem(item, document.getElementById('gameContainer'), speedMultiplier);
             });
