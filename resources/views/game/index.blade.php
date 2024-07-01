@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packing Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -46,7 +46,8 @@
             <p id="score">Score: 0</p>
         </div>
         <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
+                ondragenter="highlight(event)" ondragleave="unhighlight(event)">
                 Drop items here
             </div>
         </div>
@@ -58,6 +59,11 @@
         let score = 0;
         let itemsConfig = [];
         const items = [];
+        const touchData = {
+            item: null,
+            offsetX: 0,
+            offsetY: 0
+        };
 
         async function preloadData() {
             try {
@@ -162,13 +168,21 @@
             event.preventDefault();
         }
 
+        function highlight(event) {
+            event.currentTarget.style.borderColor = "green";
+        }
+
+        function unhighlight(event) {
+            event.currentTarget.style.borderColor = "#ccc";
+        }
+
         function drag(event) {
             event.dataTransfer.setData("text", event.target.id);
         }
 
         function drop(event) {
             event.preventDefault();
-            const data = event.dataTransfer.getData("text");
+            const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
             if (draggedElement) {
                 event.target.appendChild(draggedElement);
@@ -185,22 +199,18 @@
                     saveScore(time, score);
                 }
             }
+            unhighlight(event);
         }
 
         function touchStart(event) {
             const touch = event.touches[0];
             const target = touch.target;
+            touchData.item = target;
+            touchData.offsetX = touch.clientX - target.getBoundingClientRect().left;
+            touchData.offsetY = touch.clientY - target.getBoundingClientRect().top;
+
             target.ontouchmove = touchMove;
             target.ontouchend = touchEnd;
-            event.dataTransfer = {
-                setData: function(type, val) {
-                    this[type] = val;
-                },
-                getData: function(type) {
-                    return this[type];
-                }
-            };
-            event.dataTransfer.setData("text", target.id);
         }
 
         function touchMove(event) {
@@ -208,8 +218,8 @@
             const target = touch.target;
             const container = document.getElementById('gameContainer');
             const rect = container.getBoundingClientRect();
-            let newLeft = touch.clientX - rect.left - (target.offsetWidth / 2);
-            let newTop = touch.clientY - rect.top - (target.offsetHeight / 2);
+            let newLeft = touch.clientX - rect.left - touchData.offsetX;
+            let newTop = touch.clientY - rect.top - touchData.offsetY;
 
             // Verifica los límites del contenedor
             if (newLeft <= 0) {
@@ -232,6 +242,13 @@
             const target = event.target;
             target.ontouchmove = null;
             target.ontouchend = null;
+
+            const dropZone = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+            if (dropZone && dropZone.classList.contains('droppable')) {
+                drop({
+                    target: dropZone
+                });
+            }
         }
 
         function updateSpeed() {
