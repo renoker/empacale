@@ -14,38 +14,98 @@ class ImagesSeeder extends Seeder
     public function run(): void
     {
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/lentes.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
             'points'    => 10,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 10,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 10,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 10,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 10,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
+            'week_id'   => 1,
+        ]);
+
+        Images::create([
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'points'    => 0,
             'week_id'   => 1,
         ]);
     }
