@@ -46,8 +46,7 @@
             <p id="score">Score: 0</p>
         </div>
         <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
-                ondragenter="highlight(event)" ondragleave="unhighlight(event)">
+            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
                 Drop items here
             </div>
         </div>
@@ -168,14 +167,6 @@
             event.preventDefault();
         }
 
-        function highlight(event) {
-            event.currentTarget.style.borderColor = "green";
-        }
-
-        function unhighlight(event) {
-            event.currentTarget.style.borderColor = "#ccc";
-        }
-
         function drag(event) {
             event.dataTransfer.setData("text", event.target.id);
         }
@@ -184,7 +175,7 @@
             event.preventDefault();
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
-            if (draggedElement) {
+            if (draggedElement && event.target.classList.contains('droppable')) {
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
@@ -199,7 +190,6 @@
                     saveScore(time, score);
                 }
             }
-            unhighlight(event);
         }
 
         function touchStart(event) {
