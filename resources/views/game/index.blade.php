@@ -18,20 +18,21 @@
         }
 
         .draggable {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             position: absolute;
             cursor: pointer;
         }
 
         .droppable {
-            width: 300px;
-            height: 300px;
+            width: 100px;
+            height: 100px;
             border: 2px dashed #ccc;
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 1000;
         }
     </style>
 </head>
@@ -58,7 +59,7 @@
         let time = 0;
         let score = 0;
         let level = 1; // Inicializar el nivel
-        let speedMultiplier = 1; // Inicializar el multiplicador de velocidad
+        let speedMultiplier = 0.9; // Inicializar el multiplicador de velocidad
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -92,10 +93,6 @@
         }
 
         function startGame() {
-            time = 0;
-            score = 0;
-            level = 1; // Reiniciar el nivel al iniciar el juego
-            speedMultiplier = 1; // Reiniciar el multiplicador de velocidad al iniciar el juego
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
             document.getElementById('level').innerText = `Level: ${level}`;
@@ -178,9 +175,7 @@
         }
 
         function drop(event) {
-            if (typeof event.preventDefault === 'function') {
-                event.preventDefault();
-            }
+            event.preventDefault();
 
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
