@@ -17,8 +17,8 @@
         }
 
         .draggable {
-            width: 80px;
-            height: 30px;
+            width: 50px;
+            height: 50px;
             position: absolute;
             cursor: pointer;
         }
@@ -39,7 +39,7 @@
         }
 
         .drop-hover {
-            border: 1px solid #707070;
+            border: 4px solid #00f;
             /* Margen adicional */
         }
 
@@ -58,16 +58,15 @@
 
             75% {
                 transform: translateX(-50%) translateY(-10px);
+
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
             }
 
-            100% {
-                transform: translateX(-50%) translateY(0);
+            .shake {
+                animation: shake 0.5s;
             }
-        }
-
-        .shake {
-            animation: shake 0.5s;
-        }
     </style>
 </head>
 
@@ -83,9 +82,7 @@
         </div>
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
-                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)">
-
-            </div>
+                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)"></div>
         </div>
     </div>
 
@@ -317,10 +314,18 @@
             const dropZone = document.getElementById('droppable');
             dropZone.classList.remove('drop-hover'); // Ensure the highlight is removed when touch ends
 
-            const dropTarget = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-            if (dropTarget && dropTarget.classList.contains('droppable')) {
+            // Check if the touch end position is within the drop zone
+            const touch = event.changedTouches[0];
+            const dropZoneRect = dropZone.getBoundingClientRect();
+            if (
+                touch.clientX >= dropZoneRect.left &&
+                touch.clientX <= dropZoneRect.right &&
+                touch.clientY >= dropZoneRect.top &&
+                touch.clientY <= dropZoneRect.bottom
+            ) {
+                event.preventDefault(); // Prevent default action on drop
                 drop({
-                    target: dropTarget
+                    target: dropZone
                 });
             }
         }
