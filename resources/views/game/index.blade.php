@@ -76,7 +76,9 @@
             <p id="level">Level: 1</p>
         </div>
         <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+            </div>
         </div>
     </div>
 
@@ -138,7 +140,6 @@
 
         function createMovingItems() {
             const container = document.getElementById('gameContainer');
-            const dropZone = document.getElementById('droppable').getBoundingClientRect();
             itemsConfig.forEach((config, index) => {
                 const item = document.createElement('img');
                 item.classList.add('draggable');
@@ -149,14 +150,8 @@
                 item.src = config.src;
                 item.dataset.points = config.points;
 
-                let initialX, initialY;
-                do {
-                    initialX = Math.random() * (container.offsetWidth - 50);
-                    initialY = Math.random() * (container.offsetHeight - 50);
-                } while (
-                    initialX + 50 > dropZone.left && initialX < dropZone.right &&
-                    initialY + 50 > dropZone.top && initialY < dropZone.bottom
-                );
+                let initialX = Math.random() * (container.offsetWidth - 50);
+                let initialY = Math.random() * (container.offsetHeight - 50);
 
                 item.style.left = `${initialX}px`;
                 item.style.top = `${initialY}px`;
@@ -176,7 +171,6 @@
             function animate() {
                 const rect = item.getBoundingClientRect();
                 const containerRect = container.getBoundingClientRect();
-                const dropZone = document.getElementById('droppable').getBoundingClientRect();
 
                 let newLeft = rect.left - containerRect.left + speedX * directionX;
                 let newTop = rect.top - containerRect.top + speedY * directionY;
@@ -194,26 +188,6 @@
                 } else if (newTop + rect.height >= containerRect.height) {
                     newTop = containerRect.height - rect.height;
                     directionY = -1;
-                }
-
-                if (
-                    newLeft + rect.width > dropZone.left - containerRect.left &&
-                    newLeft < dropZone.right - containerRect.left &&
-                    newTop + rect.height > dropZone.top - containerRect.top &&
-                    newTop < dropZone.bottom - containerRect.top
-                ) {
-                    if (directionX === 1) {
-                        newLeft = dropZone.left - containerRect.left - rect.width;
-                    } else if (directionX === -1) {
-                        newLeft = dropZone.right - containerRect.left;
-                    }
-                    if (directionY === 1) {
-                        newTop = dropZone.top - containerRect.top - rect.height;
-                    } else if (directionY === -1) {
-                        newTop = dropZone.bottom - containerRect.top;
-                    }
-                    directionX = -directionX;
-                    directionY = -directionY;
                 }
 
                 item.style.left = `${newLeft}px`;
