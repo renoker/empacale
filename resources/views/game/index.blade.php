@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .draggable {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             position: absolute;
             cursor: pointer;
         }
@@ -25,7 +25,6 @@
             /* Reemplaza con la ruta a tu imagen */
             background-size: 100% 100%;
             background-position: center;
-            transition: border 0.3s;
         }
 
         @keyframes shake {
@@ -43,23 +42,22 @@
 
             75% {
                 transform: translateX(-50%) translateY(-10px);
+
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
             }
 
-            100% {
-                transform: translateX(-50%) translateY(0);
+            .shake {
+                animation: shake 0.5s;
             }
-        }
-
-        .shake {
-            animation: shake 0.5s;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1 class="text-center mt-5">Packing Game DESK</h1>
-        <div class="text-center mb-3 d-flex justify-content-between">
+        <div class="text-center mb-3">
             <button class="btn btn-primary" id="startButton" onclick="startGame()" style="display: none;">Start
                 Game</button>
             <p id="timer">Time: 0</p>
@@ -68,7 +66,7 @@
             <p id="lives">Lives: 3</p> <!-- Display lives -->
         </div>
         <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
-
+            Drop items here
         </div>
     </div>
 
@@ -77,7 +75,7 @@
         let time = 0;
         let score = 0;
         let level = 1;
-        let speedMultiplier = 1;
+        let speedMultiplier = 0.1; // Initial speed multiplier set to 0.1
         let lives = 3; // Initialize lives
         let itemsConfig = [];
         const items = [];
@@ -116,7 +114,7 @@
             time = 0;
             score = 0;
             level = 1;
-            speedMultiplier = 1;
+            speedMultiplier = 0.1; // Reset speed multiplier at the start of the game
             lives = 3; // Reset lives at the start of the game
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
@@ -232,8 +230,8 @@
                         document.getElementById('score').innerText = `Score: ${score}`;
                         if (score > previousScore) {
                             level += 1;
-                            speedMultiplier = 1 + (level - 1) * 0.1;
                             document.getElementById('level').innerText = `Level: ${level}`;
+                            speedMultiplier += 0.1; // Increase speed multiplier by 0.1
                             updateSpeed();
 
                             // Añadir la animación de sacudida
