@@ -17,8 +17,8 @@
         }
 
         .draggable {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             position: absolute;
             cursor: pointer;
         }
@@ -77,7 +77,7 @@
         </div>
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
-
+                Drop items here
             </div>
         </div>
     </div>
@@ -210,7 +210,9 @@
         }
 
         function drop(event) {
-            event.preventDefault();
+            if (event.preventDefault) {
+                event.preventDefault();
+            }
 
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
