@@ -9,5 +9,6 @@ Route::get('/', function () {
 });
 
 Route::get('/', [GameController::class, 'index']);
+
 Route::post('/save-score', [GameController::class, 'saveScore']);
 Route::get('/images', [ImagesController::class, 'getImages']);

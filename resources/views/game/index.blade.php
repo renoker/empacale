@@ -33,6 +33,11 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        .no-scroll {
+            overflow: hidden;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -66,6 +71,10 @@
             offsetX: 0,
             offsetY: 0
         };
+
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
 
         async function preloadData() {
             try {
@@ -175,10 +184,13 @@
             touchData.offsetX = (event.touches ? event.touches[0].clientX : event.clientX) - rect.left;
             touchData.offsetY = (event.touches ? event.touches[0].clientY : event.clientY) - rect.top;
 
-            document.addEventListener('mousemove', touchMove);
-            document.addEventListener('mouseup', touchEnd);
-            document.addEventListener('touchmove', touchMove);
-            document.addEventListener('touchend', touchEnd);
+            if (event.type === 'mousedown') {
+                document.addEventListener('mousemove', touchMove);
+                document.addEventListener('mouseup', touchEnd);
+            } else {
+                document.addEventListener('touchmove', touchMove);
+                document.addEventListener('touchend', touchEnd);
+            }
         }
 
         function touchMove(event) {
@@ -207,10 +219,13 @@
         }
 
         function touchEnd(event) {
-            document.removeEventListener('mousemove', touchMove);
-            document.removeEventListener('mouseup', touchEnd);
-            document.removeEventListener('touchmove', touchMove);
-            document.removeEventListener('touchend', touchEnd);
+            if (event.type === 'mouseup') {
+                document.removeEventListener('mousemove', touchMove);
+                document.removeEventListener('mouseup', touchEnd);
+            } else {
+                document.removeEventListener('touchmove', touchMove);
+                document.removeEventListener('touchend', touchEnd);
+            }
 
             const target = touchData.item;
             const dropZone = document.elementFromPoint(
@@ -270,7 +285,12 @@
         }
 
         // Preload data and images on window load
-        window.onload = preloadData;
+        window.onload = function() {
+            if (isMobile()) {
+                document.body.classList.add('no-scroll');
+            }
+            preloadData();
+        }
     </script>
 </body>
 

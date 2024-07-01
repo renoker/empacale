@@ -12,6 +12,11 @@ class GameController extends Controller
         return view('game.index');
     }
 
+    public function game_mobile()
+    {
+        return view('game.mobile');
+    }
+
     public function saveScore(Request $request)
     {
         $request->validate([
