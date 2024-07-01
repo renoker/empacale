@@ -119,8 +119,8 @@
         function moveItem(item, container, speedMultiplier) {
             let directionX = Math.random() < 0.5 ? 1 : -1;
             let directionY = Math.random() < 0.5 ? 1 : -1;
-            let speedX = 2 * speedMultiplier;
-            let speedY = 2 * speedMultiplier;
+            let speedX = (Math.random() * 2 + 2) * speedMultiplier;
+            let speedY = (Math.random() * 2 + 2) * speedMultiplier;
 
             function animate() {
                 const rect = item.getBoundingClientRect();
