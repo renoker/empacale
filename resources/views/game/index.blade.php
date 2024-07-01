@@ -44,6 +44,7 @@
                 Game</button>
             <p id="timer">Time: 0</p>
             <p id="score">Score: 0</p>
+            <p id="level">Level: 1</p>
         </div>
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -56,7 +57,8 @@
         let timerInterval;
         let time = 0;
         let score = 0;
-        let speedMultiplier = 0.1; // Inicializar el multiplicador de velocidad
+        let level = 1; // Inicializar el nivel
+        let speedMultiplier = 1; // Inicializar el multiplicador de velocidad
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -92,9 +94,11 @@
         function startGame() {
             time = 0;
             score = 0;
-            speedMultiplier = 0.8; // Reiniciar el multiplicador de velocidad al iniciar el juego
+            level = 1; // Reiniciar el nivel al iniciar el juego
+            speedMultiplier = 1; // Reiniciar el multiplicador de velocidad al iniciar el juego
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
+            document.getElementById('level').innerText = `Level: ${level}`;
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
@@ -189,7 +193,10 @@
                     score += points;
                     document.getElementById('score').innerText = `Score: ${score}`;
                     if (score > previousScore) { // Verificar si el puntaje ha aumentado
-                        speedMultiplier += 0.1; // Incrementar el multiplicador de velocidad en 1
+                        level += 1; // Incrementar el nivel
+                        speedMultiplier = 1 + (level - 1) *
+                            0.1; // Aumentar el multiplicador de velocidad en función del nivel
+                        document.getElementById('level').innerText = `Level: ${level}`;
                         updateSpeed(); // Actualizar la velocidad de todos los elementos
                     }
                 }
@@ -251,7 +258,6 @@
         }
 
         function updateSpeed() {
-            console.log(speedMultiplier);
             items.forEach(item => {
                 moveItem(item, document.getElementById('gameContainer'), speedMultiplier);
             });
