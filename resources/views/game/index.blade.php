@@ -17,8 +17,8 @@
         }
 
         .draggable {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             position: absolute;
             cursor: pointer;
         }
@@ -73,7 +73,7 @@
 <body>
     <div class="container">
         <h1 class="text-center mt-5">Packing Game DESK</h1>
-        <div class="text-center mb-3">
+        <div class="text-center mb-3 d-flex justify-content-between">
             <button class="btn btn-primary" id="startButton" onclick="startGame()" style="display: none;">Start
                 Game</button>
             <p id="timer">Time: 0</p>
@@ -82,7 +82,8 @@
         </div>
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
-                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)"></div>
+                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)">
+            </div>
         </div>
     </div>
 
@@ -327,6 +328,9 @@
                 drop({
                     target: dropZone
                 });
+            } else {
+                // Resume movement if touch ends outside the drop zone
+                moveItem(target, document.getElementById('gameContainer'), speedMultiplier);
             }
         }
 
