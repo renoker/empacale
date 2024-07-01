@@ -1,0 +1,90 @@
+@mixin __placeholder($color, $fontWeight: 400){
+  &::-webkit-input-placeholder{
+    color: $color;
+		font-weight: $fontWeight;
+  }
+		
+	&:-ms-input-placeholder{
+    color: $color;
+		font-weight: $fontWeight;
+  }
+
+	&::placeholder{
+    color: $color;
+		font-weight: $fontWeight;
+  }
+}
+
+@mixin fontSizeMobile($px, $lineHeight: 1.2) {
+	font-size: $px * 0.75;
+	line-height: $lineHeight;
+}
+
+@mixin __color($titulo, $color){
+	.bg-#{$titulo} {
+		background-color: $color !important
+	}
+	
+	.color-#{$titulo}{
+		color: $color !important
+	}
+
+	.border-#{$titulo} {
+		border-color: $color !important
+	}
+}
+
+$tablet-width: 768px;
+@mixin mobile {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin flex($display, $justify_content, $align, $gap) {
+    display: $display;
+    justify-content: $justify_content;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin width-custom($ancho) {
+    width: $ancho;
+    margin: 0 auto;
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1025px)  {
+        @content;
+    }
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_") );
+  $formats: ( otf: "opentype", ttf: "truetype" );
+  @each $ext in $exts {
+      $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+      $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+      $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+      font-family: quote($name);
+      font-style: $style;
+      font-weight: $weight;
+      src: $src;
+  }
+}
