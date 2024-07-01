@@ -44,7 +44,6 @@
                 Game</button>
             <p id="timer">Time: 0</p>
             <p id="score">Score: 0</p>
-            <p id="level">Level: 1</p>
         </div>
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -57,8 +56,7 @@
         let timerInterval;
         let time = 0;
         let score = 0;
-        let level = 1; // Inicializar el nivel
-        let speedMultiplier = 1; // Inicializar el multiplicador de velocidad
+        let speedMultiplier = 0.5; // Inicializar el multiplicador de velocidad
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -94,11 +92,9 @@
         function startGame() {
             time = 0;
             score = 0;
-            level = 1; // Reiniciar el nivel al iniciar el juego
-            speedMultiplier = 0.3; // Establecer una velocidad inicial más baja
+            speedMultiplier = 0.5; // Reiniciar el multiplicador de velocidad al iniciar el juego
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
-            document.getElementById('level').innerText = `Level: ${level}`;
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
@@ -188,11 +184,9 @@
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
-                if (!isNaN(points)) {
+                if (!isNaN(points) && points > 0) {
                     score += points;
                     document.getElementById('score').innerText = `Score: ${score}`;
-                    level += 1; // Incrementar el nivel en 1
-                    document.getElementById('level').innerText = `Level: ${level}`;
                     speedMultiplier += 0.1; // Incrementar el multiplicador de velocidad en 0.1
                     updateSpeed(); // Actualizar la velocidad de todos los elementos
                 }
