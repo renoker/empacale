@@ -17,8 +17,8 @@
         }
 
         .draggable {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
             position: absolute;
             cursor: pointer;
         }
