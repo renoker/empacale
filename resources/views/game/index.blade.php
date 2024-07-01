@@ -35,6 +35,12 @@
             /* Reemplaza con la ruta a tu imagen */
             background-size: 100% 100%;
             background-position: center;
+            transition: border 0.3s;
+        }
+
+        .drop-hover {
+            border: 4px solid #00f;
+            /* Margen adicional */
         }
 
         @keyframes shake {
@@ -76,7 +82,8 @@
             <p id="level">Level: 1</p>
         </div>
         <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
+                ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)">
                 Drop items here
             </div>
         </div>
@@ -278,6 +285,17 @@
 
             target.style.left = `${newLeft}px`;
             target.style.top = `${newTop}px`;
+
+            // Highlight drop zone if touching
+            const dropZone = document.getElementById('droppable');
+            const dropZoneRect = dropZone.getBoundingClientRect();
+            if (touch.clientX >= dropZoneRect.left && touch.clientX <= dropZoneRect.right && touch.clientY >= dropZoneRect
+                .top && touch.clientY <= dropZoneRect.bottom) {
+                dropZone.classList.add('drop-hover');
+            } else {
+                dropZone.classList.remove('drop-hover');
+            }
+
             event.preventDefault();
         }
 
@@ -286,12 +304,25 @@
             target.ontouchmove = null;
             target.ontouchend = null;
 
-            const dropZone = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-            if (dropZone && dropZone.classList.contains('droppable')) {
+            const dropZone = document.getElementById('droppable');
+            dropZone.classList.remove('drop-hover'); // Ensure the highlight is removed when touch ends
+
+            const dropTarget = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+            if (dropTarget && dropTarget.classList.contains('droppable')) {
                 drop({
-                    target: dropZone
+                    target: dropTarget
                 });
             }
+        }
+
+        function highlightDropZone(event) {
+            const dropZone = document.getElementById('droppable');
+            dropZone.classList.add('drop-hover');
+        }
+
+        function unhighlightDropZone(event) {
+            const dropZone = document.getElementById('droppable');
+            dropZone.classList.remove('drop-hover');
         }
 
         function updateSpeed() {

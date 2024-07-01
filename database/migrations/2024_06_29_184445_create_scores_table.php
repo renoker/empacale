@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
+            $table->string('time');
             $table->integer('score');
             $table->timestamps();
         });
