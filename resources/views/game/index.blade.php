@@ -135,8 +135,27 @@
                 } else if (rect.bottom >= containerRect.bottom) {
                     directionY = -1;
                 }
-                item.style.left = `${rect.left - containerRect.left + speedX * directionX}px`;
-                item.style.top = `${rect.top - containerRect.top + speedY * directionY}px`;
+                let newLeft = rect.left - containerRect.left + speedX * directionX;
+                let newTop = rect.top - containerRect.top + speedY * directionY;
+
+                // Asegurarse de que el elemento no salga del contenedor
+                if (newLeft < 0) {
+                    newLeft = 0;
+                    directionX = 1;
+                } else if (newLeft + rect.width > container.offsetWidth) {
+                    newLeft = container.offsetWidth - rect.width;
+                    directionX = -1;
+                }
+                if (newTop < 0) {
+                    newTop = 0;
+                    directionY = 1;
+                } else if (newTop + rect.height > container.offsetHeight) {
+                    newTop = container.offsetHeight - rect.height;
+                    directionY = -1;
+                }
+
+                item.style.left = `${newLeft}px`;
+                item.style.top = `${newTop}px`;
 
                 if (item.parentNode) {
                     requestAnimationFrame(animate);
