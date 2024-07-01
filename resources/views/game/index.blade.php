@@ -13,6 +13,8 @@
             position: relative;
             border: 2px solid #000;
             margin: 0 auto;
+            overflow: hidden;
+            /* Asegura que los elementos no se salgan visualmente del contenedor */
         }
 
         .draggable {
@@ -110,47 +112,37 @@
                 item.style.top = `${Math.random() * (container.offsetHeight - 50)}px`;
                 container.appendChild(item);
                 items.push(item);
-                moveItem(item);
+                moveItem(item, container, 1); // Start speed multiplier at 1
             });
         }
 
-        function moveItem(item) {
-            const container = document.getElementById('gameContainer');
+        function moveItem(item, container, speedMultiplier) {
             let directionX = Math.random() < 0.5 ? 1 : -1;
             let directionY = Math.random() < 0.5 ? 1 : -1;
-            const speedX = Math.random() * 2 + 1;
-            const speedY = Math.random() * 2 + 1;
+            let speedX = 2 * speedMultiplier;
+            let speedY = 2 * speedMultiplier;
 
             function animate() {
                 const rect = item.getBoundingClientRect();
                 const containerRect = container.getBoundingClientRect();
-                // Cambio de dirección si alcanza los bordes del contenedor
-                if (rect.left <= containerRect.left) {
-                    directionX = 1;
-                } else if (rect.right >= containerRect.right) {
-                    directionX = -1;
-                }
-                if (rect.top <= containerRect.top) {
-                    directionY = 1;
-                } else if (rect.bottom >= containerRect.bottom) {
-                    directionY = -1;
-                }
+
+                // Calcula las nuevas posiciones
                 let newLeft = rect.left - containerRect.left + speedX * directionX;
                 let newTop = rect.top - containerRect.top + speedY * directionY;
 
-                // Asegurarse de que el elemento no salga del contenedor
-                if (newLeft < 0) {
+                // Verifica los límites del contenedor
+                if (newLeft <= 0) {
                     newLeft = 0;
                     directionX = 1;
-                } else if (newLeft + rect.width > container.offsetWidth) {
-                    newLeft = container.offsetWidth - rect.width;
+                } else if (newLeft + rect.width >= containerRect.width) {
+                    newLeft = containerRect.width - rect.width;
                     directionX = -1;
                 }
-                if (newTop < 0) {
+                if (newTop <= 0) {
                     newTop = 0;
                     directionY = 1;
-                } else if (newTop + rect.height > container.offsetHeight) {
-                    newTop = container.offsetHeight - rect.height;
+                } else if (newTop + rect.height >= containerRect.height) {
+                    newTop = containerRect.height - rect.height;
                     directionY = -1;
                 }
 
@@ -176,7 +168,7 @@
         function drop(event) {
             event.preventDefault();
             const data = event.dataTransfer.getData("text");
-            const draggedElement = document.getElementById(data); // Obtener el elemento por ID
+            const draggedElement = document.getElementById(data);
             if (draggedElement) {
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
@@ -184,6 +176,7 @@
                 if (!isNaN(points)) {
                     score += points;
                     document.getElementById('score').innerText = `Score: ${score}`;
+                    updateSpeed(); // Update speed for all items
                 }
                 if (items.length === 0) {
                     clearInterval(timerInterval);
@@ -191,6 +184,13 @@
                     saveScore(time, score);
                 }
             }
+        }
+
+        function updateSpeed() {
+            const newSpeedMultiplier = 1 + score / 50; // Adjust this formula as needed
+            items.forEach(item => {
+                moveItem(item, document.getElementById('gameContainer'), newSpeedMultiplier);
+            });
         }
 
         function saveScore(time, score) {
