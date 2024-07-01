@@ -18,21 +18,20 @@
         }
 
         .draggable {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             position: absolute;
             cursor: pointer;
         }
 
         .droppable {
-            width: 100px;
-            height: 100px;
+            width: 300px;
+            height: 300px;
             border: 2px dashed #ccc;
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000;
         }
     </style>
 </head>
@@ -48,7 +47,7 @@
             <p id="level">Level: 1</p>
         </div>
         <div class="game-container" id="gameContainer">
-            <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="droppable" id="droppable">
                 Drop items here
             </div>
         </div>
@@ -59,7 +58,7 @@
         let time = 0;
         let score = 0;
         let level = 1; // Inicializar el nivel
-        let speedMultiplier = 0.9; // Inicializar el multiplicador de velocidad
+        let speedMultiplier = 1; // Inicializar el multiplicador de velocidad
         let itemsConfig = [];
         const items = [];
         const touchData = {
@@ -93,6 +92,10 @@
         }
 
         function startGame() {
+            time = 0;
+            score = 0;
+            level = 1; // Reiniciar el nivel al iniciar el juego
+            speedMultiplier = 1; // Reiniciar el multiplicador de velocidad al iniciar el juego
             document.getElementById('timer').innerText = `Time: ${time}`;
             document.getElementById('score').innerText = `Score: ${score}`;
             document.getElementById('level').innerText = `Level: ${level}`;
@@ -111,14 +114,13 @@
             itemsConfig.forEach((config, index) => {
                 const item = document.createElement('img');
                 item.classList.add('draggable');
-                item.draggable = true;
-                item.ondragstart = drag;
-                item.ontouchstart = touchStart;
                 item.id = `draggable${index}`; // Asignar un ID único
                 item.src = config.src;
                 item.dataset.points = config.points; // Guardar los puntos que otorga
                 item.style.left = `${Math.random() * (container.offsetWidth - 50)}px`;
                 item.style.top = `${Math.random() * (container.offsetHeight - 50)}px`;
+                item.addEventListener('mousedown', touchStart);
+                item.addEventListener('touchstart', touchStart);
                 container.appendChild(item);
                 items.push(item);
                 moveItem(item, container, speedMultiplier); // Inicializar la velocidad de los elementos
@@ -166,56 +168,21 @@
             requestAnimationFrame(animate);
         }
 
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-
-        function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function drop(event) {
-            event.preventDefault();
-
-            const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
-            const draggedElement = document.getElementById(data);
-            if (draggedElement && event.target.classList.contains('droppable')) {
-                event.target.appendChild(draggedElement);
-                items.splice(items.indexOf(draggedElement), 1);
-                const points = parseInt(draggedElement.dataset.points, 10);
-                if (!isNaN(points)) {
-                    const previousScore = score; // Guardar el puntaje anterior
-                    score += points;
-                    document.getElementById('score').innerText = `Score: ${score}`;
-                    if (score > previousScore) { // Verificar si el puntaje ha aumentado
-                        level += 1; // Incrementar el nivel
-                        speedMultiplier = 1 + (level - 1) *
-                            0.1; // Aumentar el multiplicador de velocidad en función del nivel
-                        document.getElementById('level').innerText = `Level: ${level}`;
-                        updateSpeed(); // Actualizar la velocidad de todos los elementos
-                    }
-                }
-                if (items.length === 0) {
-                    clearInterval(timerInterval);
-                    alert(`You have packed all items! Your score is ${score}.`);
-                    saveScore(time, score);
-                }
-            }
-        }
-
         function touchStart(event) {
-            const touch = event.touches[0];
-            const target = touch.target;
+            const target = event.target;
+            const rect = target.getBoundingClientRect();
             touchData.item = target;
-            touchData.offsetX = touch.clientX - target.getBoundingClientRect().left;
-            touchData.offsetY = touch.clientY - target.getBoundingClientRect().top;
+            touchData.offsetX = (event.touches ? event.touches[0].clientX : event.clientX) - rect.left;
+            touchData.offsetY = (event.touches ? event.touches[0].clientY : event.clientY) - rect.top;
 
-            target.ontouchmove = touchMove;
-            target.ontouchend = touchEnd;
+            document.addEventListener('mousemove', touchMove);
+            document.addEventListener('mouseup', touchEnd);
+            document.addEventListener('touchmove', touchMove);
+            document.addEventListener('touchend', touchEnd);
         }
 
         function touchMove(event) {
-            const touch = event.touches[0];
+            const touch = event.touches ? event.touches[0] : event;
             const target = touchData.item;
             const container = document.getElementById('gameContainer');
             const rect = container.getBoundingClientRect();
@@ -240,15 +207,38 @@
         }
 
         function touchEnd(event) {
-            const target = touchData.item;
-            target.ontouchmove = null;
-            target.ontouchend = null;
+            document.removeEventListener('mousemove', touchMove);
+            document.removeEventListener('mouseup', touchEnd);
+            document.removeEventListener('touchmove', touchMove);
+            document.removeEventListener('touchend', touchEnd);
 
-            const dropZone = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+            const target = touchData.item;
+            const dropZone = document.elementFromPoint(
+                event.changedTouches ? event.changedTouches[0].clientX : event.clientX,
+                event.changedTouches ? event.changedTouches[0].clientY : event.clientY
+            );
+
             if (dropZone && dropZone.classList.contains('droppable')) {
-                drop({
-                    target: dropZone
-                });
+                dropZone.appendChild(target);
+                items.splice(items.indexOf(target), 1);
+                const points = parseInt(target.dataset.points, 10);
+                if (!isNaN(points)) {
+                    const previousScore = score; // Guardar el puntaje anterior
+                    score += points;
+                    document.getElementById('score').innerText = `Score: ${score}`;
+                    if (score > previousScore) { // Verificar si el puntaje ha aumentado
+                        level += 1; // Incrementar el nivel
+                        speedMultiplier = 1 + (level - 1) *
+                            0.1; // Aumentar el multiplicador de velocidad en función del nivel
+                        document.getElementById('level').innerText = `Level: ${level}`;
+                        updateSpeed(); // Actualizar la velocidad de todos los elementos
+                    }
+                }
+                if (items.length === 0) {
+                    clearInterval(timerInterval);
+                    alert(`You have packed all items! Your score is ${score}.`);
+                    saveScore(time, score);
+                }
             }
         }
 
