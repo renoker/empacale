@@ -17,8 +17,8 @@
         }
 
         .draggable {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 30px;
             position: absolute;
             cursor: pointer;
         }
@@ -39,7 +39,7 @@
         }
 
         .drop-hover {
-            border: 4px solid #00f;
+            border: 1px solid #707070;
             /* Margen adicional */
         }
 
@@ -84,7 +84,7 @@
         <div class="game-container" id="gameContainer">
             <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"
                 ondragenter="highlightDropZone(event)" ondragleave="unhighlightDropZone(event)">
-                Drop items here
+
             </div>
         </div>
     </div>
@@ -100,7 +100,8 @@
         const touchData = {
             item: null,
             offsetX: 0,
-            offsetY: 0
+            offsetY: 0,
+            isDragging: false
         };
 
         async function preloadData() {
@@ -176,6 +177,11 @@
             let speedY = (Math.random() * 2 + 2) * speedMultiplier;
 
             function animate() {
+                if (touchData.isDragging && touchData.item === item) {
+                    // Stop movement if the item is being dragged
+                    return;
+                }
+
                 const rect = item.getBoundingClientRect();
                 const containerRect = container.getBoundingClientRect();
 
@@ -259,12 +265,15 @@
             touchData.item = target;
             touchData.offsetX = touch.clientX - target.getBoundingClientRect().left;
             touchData.offsetY = touch.clientY - target.getBoundingClientRect().top;
+            touchData.isDragging = true;
 
             target.ontouchmove = touchMove;
             target.ontouchend = touchEnd;
         }
 
         function touchMove(event) {
+            if (!touchData.isDragging) return;
+
             const touch = event.touches[0];
             const target = touchData.item;
             const container = document.getElementById('gameContainer');
@@ -303,6 +312,7 @@
             const target = touchData.item;
             target.ontouchmove = null;
             target.ontouchend = null;
+            touchData.isDragging = false;
 
             const dropZone = document.getElementById('droppable');
             dropZone.classList.remove('drop-hover'); // Ensure the highlight is removed when touch ends
