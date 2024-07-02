@@ -1,0 +1,29 @@
+// $font-family: "Cubano", sans-serif;
+
+$header-width: 1200px;
+$footer-width: 1200px;
+
+$width-general: 1200px;
+
+$colores: (
+  "blanco":#FFFFFF,
+  "negro": #000000,
+);
+
+:root{
+  @each $name, $value in $colores {
+      --#{$name}: #{$value};
+  }
+}
+  
+@each $name, $value in $colores {
+  @include __color('#{$name}', var(--#{$name}))
+}
+
+// Define a mixin for a border-radius
+@mixin flex($display, $justify, $align, $gap) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}

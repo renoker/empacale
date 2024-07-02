@@ -1,0 +1,19 @@
+@import './initial/reset';
+@import './initial/functions';
+@import './initial/variables';
+@import './initial/global';
+
+// components
+@import "components/text";
+@import "components/button";
+@import "components/popup";
+
+// Fuentes
+// @include font-face(Cubano, "../fonts/cubano/Cubano", normal, normal, ttf);
+
+// layouts
+@import "layouts/header";
+@import "layouts/footer";
+
+// pages
+@import "pages/general";
