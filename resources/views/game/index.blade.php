@@ -6,9 +6,21 @@
     <title>Packing Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background-image: url('../../assets/images/game/sem1/playamaruchan.png');
+            /* Reemplaza con la ruta a tu imagen */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
         .draggable {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             position: absolute;
             cursor: pointer;
         }
@@ -16,7 +28,6 @@
         .droppable {
             width: 140px;
             height: 100px;
-            background: #fff;
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -55,9 +66,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center mt-5">Packing Game DESK</h1>
-        <div class="text-center mb-3">
+    <div class="container mt-5">
+        <div class="text-center mb-3 d-flex justify-content-between">
             <button class="btn btn-primary" id="startButton" onclick="startGame()" style="display: none;">Start
                 Game</button>
             <p id="timer">Time: 0</p>
@@ -66,7 +76,7 @@
             <p id="lives">Lives: 3</p> <!-- Display lives -->
         </div>
         <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
-            Drop items here
+
         </div>
     </div>
 
@@ -239,7 +249,7 @@
                             dropZone.classList.add('shake');
                             setTimeout(() => {
                                 dropZone.classList.remove('shake');
-                            }, 500);
+                            }, 1500);
                         }
                     }
                 }
