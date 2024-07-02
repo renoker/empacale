@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .draggable {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             position: absolute;
             cursor: pointer;
         }
