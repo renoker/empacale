@@ -18,9 +18,10 @@
             overflow: hidden;
         }
 
+
         .draggable {
-            width: 120px;
-            height: 120px;
+            width: 50px;
+            height: 50px;
             position: absolute;
             cursor: pointer;
         }
@@ -36,6 +37,7 @@
             /* Reemplaza con la ruta a tu imagen */
             background-size: 100% 100%;
             background-position: center;
+            transition: border 0.3s;
         }
 
         @keyframes shake {
@@ -66,17 +68,18 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="text-center mb-3 d-flex justify-content-between">
+    <div class="container">
+        <h1 class="text-center mt-5">Packing Game DESK</h1>
+        <div class="text-center mb-3">
             <button class="btn btn-primary" id="startButton" onclick="startGame()" style="display: none;">Start
                 Game</button>
-            <p id="timer">Time: 0</p>
+            <p id="timer">Time: 00:00:00</p>
             <p id="score">Score: 0</p>
             <p id="level">Level: 1</p>
             <p id="lives">Lives: 3</p> <!-- Display lives -->
         </div>
         <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
-
+            Drop items here
         </div>
     </div>
 
@@ -126,7 +129,7 @@
             level = 1;
             speedMultiplier = 0.1; // Reset speed multiplier at the start of the game
             lives = 3; // Reset lives at the start of the game
-            document.getElementById('timer').innerText = `Time: ${time}`;
+            document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
             document.getElementById('score').innerText = `Score: ${score}`;
             document.getElementById('level').innerText = `Level: ${level}`;
             document.getElementById('lives').innerText = `Lives: ${lives}`;
@@ -135,9 +138,16 @@
             }
             timerInterval = setInterval(() => {
                 time++;
-                document.getElementById('timer').innerText = `Time: ${time}`;
+                document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
             }, 1000);
             createMovingItems();
+        }
+
+        function formatTime(seconds) {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
 
         function createMovingItems() {
@@ -249,7 +259,7 @@
                             dropZone.classList.add('shake');
                             setTimeout(() => {
                                 dropZone.classList.remove('shake');
-                            }, 1500);
+                            }, 500);
                         }
                     }
                 }
@@ -332,7 +342,7 @@
         }
 
         function saveScore(time, score) {
-            fetch('/save-score', {
+            fetch('/save_score', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

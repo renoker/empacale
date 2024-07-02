@@ -243,11 +243,10 @@ class UserController extends Controller
         $user = Auth::user();
 
         $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
-        dd($participation_day);
 
-        // if (!$participation_day) {
-        //     return redirect()->route('user.gracias_por_participar');
-        // }
+        if (!$participation_day) {
+            return redirect()->route('user.gracias_por_participar');
+        }
 
         $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
 

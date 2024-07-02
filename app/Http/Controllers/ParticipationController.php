@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Requests\ParticipationStoreRequest;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ParticipationsExport;
+use Illuminate\Support\Facades\Session;
 
 class ParticipationController extends Controller
 {
@@ -50,11 +51,14 @@ class ParticipationController extends Controller
             return redirect()->route('user.profile');
         }
 
-        Participation::create([
+        $participation = Participation::create([
             'user_id'               => $user->id,
             'participation_day_id'  => $participation_day->id,
             'codigo_lote'           => $request->codigo_lote,
+            'product_id'            => $request->product_id,
         ]);
+
+        Session::put('participation_id', $participation->id);
 
         return redirect()->route('user.profile');
     }

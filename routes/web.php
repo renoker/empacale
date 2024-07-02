@@ -22,7 +22,7 @@ Route::get('/bases',                    [UserController::class, 'bases'])->name(
 Route::get('/password_reset/{token}',   [UserController::class, 'password_reset'])->name('user.password_reset');
 Route::post('/password_reset',          [UserController::class, 'password_reset_complete'])->name('user.password_reset_complete');
 
-Route::post('/save-score', [GameController::class, 'saveScore']);
+Route::post('/save_score', [GameController::class, 'game_store_user']);
 Route::get('/images', [ImagesController::class, 'getImages']);
 
 Route::group(['middleware' => ['auth:user']], function () {

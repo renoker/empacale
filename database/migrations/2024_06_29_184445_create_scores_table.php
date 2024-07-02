@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('participation_id');
+            $table->foreign('participation_id')->references('id')->on('participations');
             $table->string('time');
             $table->integer('score');
             $table->timestamps();
