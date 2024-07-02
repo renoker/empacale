@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             WeekSeeder::class,
             ParticipationDaySeeder::class,
+            ProductSeeder::class,
+            UserSeeder::class,
+            AdminSeeder::class,
             ImagesSeeder::class,
         ]);
     }

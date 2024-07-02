@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,12 @@ Route::post('/password_reset',          [UserController::class, 'password_reset_
 
 Route::post('/save-score', [GameController::class, 'saveScore']);
 Route::get('/images', [ImagesController::class, 'getImages']);
+
+Route::group(['middleware' => ['auth:user']], function () {
+    Route::get('/thank_you_page',       [UserController::class, 'thank_you_page'])->name('user.thank_you_page');
+    Route::get('/gracias_por_participar', [UserController::class, 'gracias_por_participar'])->name('user.gracias_por_participar');
+    Route::get('/logout',               [UserController::class, 'logout'])->name('user.logout');
+    Route::get('/mi_perfil',            [UserController::class, 'profile'])->name('user.profile');
+    Route::get('/codigo_lote',          [ParticipationController::class, 'create'])->name('participation.create');
+    Route::post('/codigo_lote',         [ParticipationController::class, 'store'])->name('participation.store');
+});

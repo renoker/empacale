@@ -159,7 +159,6 @@ class UserController extends Controller
         }
     }
 
-
     /*
      * 
      * -------------------------------------------------------------------------------------------*/
@@ -234,6 +233,31 @@ class UserController extends Controller
         $password_reset->save();
 
         return redirect()->route('login')->withErrors(['password' => 'Tu contraseña ha sido restablecida con éxito.']);
+    }
+
+    /**
+     * Función que regresa la vista para que un suaurio inicie sesión
+     * -------------------------------------------------------------------------------------------*/
+    function profile()
+    {
+        $user = Auth::user();
+
+        $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
+        dd($participation_day);
+
+        // if (!$participation_day) {
+        //     return redirect()->route('user.gracias_por_participar');
+        // }
+
+        $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
+
+        $participation_day->day_status_class(0);
+
+        return view('pages.perfil', [
+            'user'                  => $user,
+            'participation_day'     => $participation_day,
+            'participation'         => $participation,
+        ]);
     }
 
     /*
