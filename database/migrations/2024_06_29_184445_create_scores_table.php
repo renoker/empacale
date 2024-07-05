@@ -17,8 +17,9 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('participation_id');
             $table->foreign('participation_id')->references('id')->on('participations');
-            $table->string('time');
-            $table->integer('score');
+            $table->timestamp('start', 3)->nullable();
+            $table->timestamp('end', 3)->nullable();
+            $table->bigInteger('score');
             $table->timestamps();
         });
     }

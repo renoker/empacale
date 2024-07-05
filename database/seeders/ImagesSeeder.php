@@ -14,97 +14,85 @@ class ImagesSeeder extends Seeder
     public function run(): void
     {
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/aletas_naranjas.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/aletasnaranjas-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/bikini_rosa.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/bikinisrosa-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/bloqueador_solar.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/bloqueadorsolar-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/camisa_amarrilla.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/camisa-triantes-amarrilla-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/camisa_hawaina.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/camisahawaina-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/chaleco_salvavidas.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/chalecosalvavidas-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/gafas_buceo.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/gafasde-buceo-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/inflabe_flamingo.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/inflabe-flamingo-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes_naranja.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/pelota-playa-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/pelota_playa.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/sandalia-min.svg',
             'points'    => 10,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/sandalia.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/sombrerodepaja-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/sombrero_paja.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/sombrilla-colores-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/sombrilla_playa_colores.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/tenedor-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);
 
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/tenedor.svg',
-            'points'    => 0,
-            'week_id'   => 1,
-        ]);
-
-        Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/traje_short_azul.svg',
-            'points'    => 0,
-            'week_id'   => 1,
-        ]);
-
-        Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem1/lentes.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/traje-short-azul-min.svg',
             'points'    => 0,
             'week_id'   => 1,
         ]);

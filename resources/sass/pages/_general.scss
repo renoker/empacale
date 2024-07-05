@@ -1,0 +1,57 @@
+// GAME
+.body_game {
+    background-image: url('../../../public/assets/images/game/sem1/playamaruchan.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.draggable {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.droppable {
+    width: 140px;
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('../../../public/assets/images/game/sem1/maleta.png');
+    background-size: 100% 100%;
+    background-position: center;
+    transition: border 0.3s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    25% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    75% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+}

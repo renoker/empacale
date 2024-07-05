@@ -20,17 +20,15 @@ class ParticipationController extends Controller
      * -------------------------------------------------------------------------------------------*/
     public function create()
     {
-        $user = Auth::user();
+        // $user = Auth::guard('user')->user();        
+        // $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
+        // $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
+        // // En el caso que el usuario ya ingreso un codigo lote para este día se redirige
+        // // a la pantalla del perfil
+        // if ($participation) {
+        //     return redirect()->route('user.profile');
+        // }
         $products = Product::all();
-
-        $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
-        $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
-
-        // En el caso que el usuario ya ingreso un codigo lote para este día se redirige
-        // a la pantalla del perfil
-        if ($participation) {
-            return redirect()->route('user.profile');
-        }
 
         return view('pages.codigo_lote', [
             'products'  => $products
@@ -42,7 +40,7 @@ class ParticipationController extends Controller
      * -------------------------------------------------------------------------------------------*/
     public function store(ParticipationStoreRequest $request)
     {
-        $user = Auth::user();
+        $user = Auth::guard('user')->user();
         $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
 
         // Si el usuario ya tiene participación para el día se quita
@@ -58,7 +56,7 @@ class ParticipationController extends Controller
             'product_id'            => $request->product_id,
         ]);
 
-        Session::put('participation_id', $participation->id);
+        Session::put('participation_id', $participation);
 
         return redirect()->route('user.profile');
     }

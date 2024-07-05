@@ -3,54 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GameRequest;
+use App\Models\Participation;
 use App\Models\ParticipationDay;
 use App\Models\Score;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class GameController extends Controller
 {
     public function index()
     {
-        return view('game.index');
+        return view('pages.game');
     }
 
-    public function game_store_user(GameRequest $request)
+    public function game_store_start(GameRequest $request)
     {
-        $participation_id = session('participation_id');
 
-        $user = Auth::user();
-        $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
+        $user = Auth::guard('user')->user();
+        $participation = Participation::where('user_id', $user->id)->latest()->first();
 
-        // Si la variable esta vacia lo mandamos a el perfil
-        if (empty($participation_id)) {
-            return redirect()->route('user.profile');
-        }
+        $now = Carbon::now();
 
-        // En el caso que se no se encuentre dentro del horario de participacion se notifica al usuario
-        if (!$participation_day->is_in_schedule()) {
-            return redirect()->back()->withErrors(['fail' => 'El horario de participación ha terminado']);
-        }
+        $row = new Score();
+        $row->user_id = $user->id;
+        $row->participation_id = $participation->id;
+        $row->start = $now->format('Y-m-d H:i:s.u');
+        $row->score = 0;
+        $row->save();
 
-        Score::create([
-            'user_id'               => $user->id,
-            'participation_id'      => $participation_id,
-            'time'                  => $request->time,
-            'score'                 => $request->score,
-        ]);
+
+        return response()->json(['participacion' => $row->id]);
     }
 
-    public function saveScore(Request $request)
+    public function game_store_end(GameRequest $request)
     {
         $request->validate([
+            'id' => 'required|integer',
             'score' => 'required|integer',
         ]);
 
-        Score::create([
-            'score' => $request->score,
-        ]);
+        $now = Carbon::now();
+        $score = Score::find($request->id);
+        $score->end = $now->format('Y-m-d H:i:s.u');
+        $score->score = $request->score;
+        $score->save();
 
-        return response()->json(['message' => 'Score saved successfully']);
+        return response()->json(['response' => 200]);
     }
 }
+
+
+// L8061206:09CADJUN

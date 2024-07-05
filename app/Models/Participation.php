@@ -12,11 +12,12 @@ class Participation extends Model
     protected $fillable = [
         'user_id',
         'participation_day_id',
-        'codigo_lote',        
+        'codigo_lote',
         'product_id'
     ];
 
-    public function participation_day(){
+    public function participation_day()
+    {
         return $this->belongsTo(ParticipationDay::class);
     }
 
@@ -25,31 +26,16 @@ class Participation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo(Product::class);
     }
 
-    public function photos(){
-        return $this->hasMany(Photo::class);
-    }
-
-    public function unchecked_photos()
+    public function vidas()
     {
-        return $this->hasMany(Photo::class)->where('photo_status_id', 1);
-    }
-    
-    public function approved_photos()
-    {
-        return $this->hasMany(Photo::class)->where('photo_status_id', 2);
-    }
-
-    public function denied_photos()
-    {
-        return $this->hasMany(Photo::class)->where('photo_status_id', 3);
-    }
-
-    public function last_photo()
-    {
-        return $this->hasOne(Photo::class)->orderBy('created_at', 'DESC');
+        $vidas = 3;
+        $score = Score::where('participation_id', $this->id)->count();
+        $vidas = $vidas - $score;
+        return $vidas;
     }
 }

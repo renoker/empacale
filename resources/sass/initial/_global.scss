@@ -18,13 +18,12 @@ body{
   // font-family: $font-tahoma;
   font-style: normal;
   font-weight: 400;
-  background: var(--fondo);
 }
 
 main{
   width: $width-general;
+  height: auto;
   margin: 0 auto;
-  position: relative;
 }
 
 @media only screen and (max-width: 600px) {

@@ -240,23 +240,21 @@ class UserController extends Controller
      * -------------------------------------------------------------------------------------------*/
     function profile()
     {
-        $user = Auth::user();
+        $user = Auth::guard('user')->user();
+        $participation = Participation::where('user_id', $user->id)->latest()->first();
 
-        $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
-
-        if (!$participation_day) {
-            return redirect()->route('user.gracias_por_participar');
+        if ($participation) {
+            $vidas = $participation->vidas();
+            return view('pages.perfil', [
+                'user'                  => $user,
+                'vidas'                 => $vidas,
+            ]);
+        } else {
+            return view('pages.perfil', [
+                'user'                  => $user,
+                'vidas'                 => 0,
+            ]);
         }
-
-        $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
-
-        $participation_day->day_status_class(0);
-
-        return view('pages.perfil', [
-            'user'                  => $user,
-            'participation_day'     => $participation_day,
-            'participation'         => $participation,
-        ]);
     }
 
     /*

@@ -10,7 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/',                         [GameController::class, 'index']);
 Route::get('/registro',                 [UserController::class, 'registro'])->name('user.registro');
 Route::post('/registro',                [UserController::class, 'sign_in'])->name('user.sign_in');
 Route::get('/login',                    [UserController::class, 'login_form'])->name('login');
@@ -22,8 +21,9 @@ Route::get('/bases',                    [UserController::class, 'bases'])->name(
 Route::get('/password_reset/{token}',   [UserController::class, 'password_reset'])->name('user.password_reset');
 Route::post('/password_reset',          [UserController::class, 'password_reset_complete'])->name('user.password_reset_complete');
 
-Route::post('/save_score', [GameController::class, 'game_store_user']);
-Route::get('/images', [ImagesController::class, 'getImages']);
+Route::post('/start',                   [GameController::class, 'game_store_start']);
+Route::post('/end',                     [GameController::class, 'game_store_end']);
+Route::get('/images',                   [ImagesController::class, 'getImages']);
 
 Route::group(['middleware' => ['auth:user']], function () {
     Route::get('/thank_you_page',       [UserController::class, 'thank_you_page'])->name('user.thank_you_page');
@@ -32,4 +32,5 @@ Route::group(['middleware' => ['auth:user']], function () {
     Route::get('/mi_perfil',            [UserController::class, 'profile'])->name('user.profile');
     Route::get('/codigo_lote',          [ParticipationController::class, 'create'])->name('participation.create');
     Route::post('/codigo_lote',         [ParticipationController::class, 'store'])->name('participation.store');
+    Route::get('/game',                 [GameController::class, 'index'])->name('game.index');
 });

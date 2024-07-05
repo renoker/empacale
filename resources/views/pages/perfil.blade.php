@@ -1,9 +1,15 @@
 @extends('layouts.main')
 @section('title', 'Maruchan - Mi Perfil')
 @section('content')
-    <p>{{ $participation_day }}</p>
-    <br>
-    <br>
-    <br>
-    <p>{{ $participation }}</p>
+
+    @if ($vidas < 1)
+        <a href="{{ route('participation.create') }}">Agregar código lote</a>
+    @else
+        <p>Vidas: {{ $vidas }}</p>
+        <br>
+        <br>
+        <br>
+        <a href="{{ route('game.index') }}">Jugar</a>
+    @endif
+
 @endsection
