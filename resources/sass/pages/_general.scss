@@ -10,21 +10,77 @@
     overflow: hidden;
 }
 
+.contenedor_juego {
+    width: 100%;
+    height: 100%;
+    .conten_tiempo {
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        width: 200px;
+        height: 110px;
+        background-size: 100% 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            transform: rotate(-10deg);
+            font-size: 3rem;
+            font-family: $font_poppins_extrabold;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;  
+            font-weight: bold;      
+        }
+    }
+    
+    .conten_puntos {
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        width: 200px;
+        height: 110px;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        p {
+            transform: rotate(-10deg);
+            font-size: 3rem;
+            font-family: $font_poppins_extrabold;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;   
+            font-weight: bold;     
+        }     
+        span {
+                font-weight: bold;
+                transform: rotate(-10deg);
+                font-size: 1.3rem;
+                font-family: $font_poppins_extrabold;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: white;        
+                  
+        }
+    }    
+}
+
+
 .draggable {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     position: absolute;
     cursor: pointer;
 }
 
 .droppable {
-    width: 140px;
-    height: 100px;
+    width: 340px;
+    height: 270px;
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../../../public/assets/images/game/sem1/maleta.png');
+    background-image: url('../../../public/assets/images/game/maleta.png');
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;

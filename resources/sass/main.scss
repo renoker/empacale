@@ -8,8 +8,20 @@
 @import "components/button";
 @import "components/popup";
 
-// Fuentes
-// @include font-face(Cubano, "../fonts/cubano/Cubano", normal, normal, ttf);
+// Importar la fuente
+@font-face {
+    font-family: 'POPPINS_EXTRABOLD';
+    src: url('../../resources/fonts/POPPINS-EXTRABOLD.TTF') format('woff2');
+    font-weight: bold;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'BEBASNEUE_BOLD';
+    src: url('../../resources/fonts/BEBASNEUE-BOLD.OTF') format('woff2');
+    font-weight: 600;
+    font-style: normal; 
+}
 
 // layouts
 @import "layouts/header";

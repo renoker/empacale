@@ -19,18 +19,6 @@
 
     @yield('popups')
 
-    @if ($errors->any())
-        <script>
-            alert("{{ $errors->first() }}");
-        </script>
-    @endif
-
-    @if (\Session::has('message'))
-        <script>
-            alert("{!! \Session::get('message') !!}");
-        </script>
-    @endif
-
     <main class="main">
         @yield('content')
     </main>
@@ -78,33 +66,31 @@
 
         function startGame() {
             saveStart()
-            document.getElementById('startButton').removeEventListener('click', startGame);
-            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('startButton').removeEventListener('click', startGame)
+            document.getElementById('startButton').style.display = 'none'
+            document.getElementById('popup_tiempo').classList.remove('active')
 
             time = 0;
             score = 0;
             level = 1;
             hits = 0; // Reset hits at the start of the game
             speedMultiplier = 0.1; // Reset speed multiplier at the start of the game
-            document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
-            document.getElementById('score').innerText = `Score: ${score}`;
-            document.getElementById('level').innerText = `Level: ${level}`;
+            document.getElementById('timer').innerText = `${formatTime(time)}`;
+            document.getElementById('score').innerText = `${score}`;
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
             timerInterval = setInterval(() => {
                 time += 10; // Increment by 10 milliseconds
-                document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
+                document.getElementById('timer').innerText = `${formatTime(time)}`;
             }, 10);
             createMovingItems();
         }
 
         function formatTime(milliseconds) {
-            const hrs = Math.floor(milliseconds / 3600000);
             const mins = Math.floor((milliseconds % 3600000) / 60000);
             const secs = Math.floor((milliseconds % 60000) / 1000);
-            const ms = milliseconds % 1000;
-            return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+            return `${String(mins).padStart(2)}:${String(secs).padStart(2, '0')}`;
         }
 
         function createMovingItems() {
@@ -201,14 +187,13 @@
                     const previousScore = score;
                     score += points;
                     hits++; // Increment hits
-                    document.getElementById('score').innerText = `Score: ${score}`;
+                    document.getElementById('score').innerText = `${score}`;
                     if (hits % 2 === 0) { // Every four hits, increase the speed multiplier
                         speedMultiplier += 0.1;
                         updateSpeed();
                     }
                     if (score > previousScore) {
                         level += 1;
-                        document.getElementById('level').innerText = `Level: ${level}`;
 
                         // Añadir la animación de sacudida
                         const dropZone = document.getElementById('droppable');

@@ -1,0 +1,32 @@
+#popup_tiempo {
+    display: none;
+    &.active {
+        display: block;
+    }
+    .opacidad {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        .content_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            .button_arranca_juego {
+                border: 5px solid #DB58DA;
+                background-color: var(--morado);
+                color: var(--blanco);
+                border-radius: 30px;
+                font-size: 1.6rem;
+                padding: 6px 60px 0px 60px;
+                font-family: $font_bebasneue_bold;
+            }
+        }
+    }
+}
