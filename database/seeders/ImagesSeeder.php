@@ -15,7 +15,7 @@ class ImagesSeeder extends Seeder
     {
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/aletasnaranjas-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
@@ -27,13 +27,13 @@ class ImagesSeeder extends Seeder
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/bloqueadorsolar-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/camisa-triantes-amarrilla-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
@@ -45,31 +45,31 @@ class ImagesSeeder extends Seeder
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/chalecosalvavidas-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/gafasde-buceo-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/inflabe-flamingo-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/pelota-playa-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/sandalia-min.svg',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 1,
         ]);
 

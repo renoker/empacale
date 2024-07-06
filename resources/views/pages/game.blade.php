@@ -22,6 +22,8 @@
             <p id="score">0</p>
             <span>PTS</span>
         </div>
-        <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="droppable">
+            <div class="zona" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
     </div>
 @endsection

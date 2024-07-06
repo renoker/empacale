@@ -15,8 +15,8 @@
     height: 100%;
     .conten_tiempo {
         background-image: url(../../../public/assets/images/game/back_medidor.png);
-        width: 200px;
-        height: 110px;
+        width: 180px;
+        height: 100px;
         background-size: 100% 100%;
         position: absolute;
         left: 0;
@@ -36,8 +36,8 @@
     
     .conten_puntos {
         background-image: url(../../../public/assets/images/game/back_medidor.png);
-        width: 200px;
-        height: 110px;
+        width: 180px;
+        height: 100px;
         background-size: 100% 100%;
         position: absolute;
         right: 0;
@@ -84,30 +84,15 @@
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(-50%) translateY(0);
+    z-index: 5;
+    .zona {
+        width: 86%;
+        height: 70px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 28px;
+        z-index: 20;
     }
-
-    25% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(10px);
-    }
-
-    75% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-.shake {
-    animation: shake 0.5s;
 }

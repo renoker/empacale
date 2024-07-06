@@ -179,32 +179,29 @@
 
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
-            if (draggedElement && event.target.classList.contains('droppable')) {
+            if (draggedElement && event.target.classList.contains('zona')) {
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
                 if (!isNaN(points)) {
                     const previousScore = score;
-                    score += points;
-                    hits++; // Increment hits
+                    if (points > 0) {
+                        score += points;
+                        hits++; // Increment hits
+                    } else {
+                        score -= 5; // Deduct 5 points if the item has 0 points
+                    }
                     document.getElementById('score').innerText = `${score}`;
-                    if (hits % 2 === 0) { // Every four hits, increase the speed multiplier
+                    if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
                         speedMultiplier += 0.1;
                         updateSpeed();
                     }
                     if (score > previousScore) {
                         level += 1;
-
-                        // Añadir la animación de sacudida
-                        const dropZone = document.getElementById('droppable');
-                        dropZone.classList.add('shake');
-                        setTimeout(() => {
-                            dropZone.classList.remove('shake');
-                        }, 500);
                     }
                 }
                 if (itemsWithPoints.length > 0 && itemsWithPoints.every(item => !item.parentNode || item.parentNode
-                        .classList.contains('droppable'))) {
+                        .classList.contains('zona'))) {
                     clearInterval(timerInterval);
                     saveScore(formatTime(time), score);
                 }

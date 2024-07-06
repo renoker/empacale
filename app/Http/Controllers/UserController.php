@@ -21,6 +21,7 @@ use App\Exports\UsersExport;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Mail\PasswordResetMail;
+use App\Models\Score;
 use Auth;
 
 class UserController extends Controller
@@ -242,17 +243,20 @@ class UserController extends Controller
     {
         $user = Auth::guard('user')->user();
         $participation = Participation::where('user_id', $user->id)->latest()->first();
+        $score = Score::where('user_id', $user->id)->get();
 
         if ($participation) {
             $vidas = $participation->vidas();
             return view('pages.perfil', [
                 'user'                  => $user,
                 'vidas'                 => $vidas,
+                'score'                 => $score,
             ]);
         } else {
             return view('pages.perfil', [
                 'user'                  => $user,
                 'vidas'                 => 0,
+                'score'                 => $score,
             ]);
         }
     }
