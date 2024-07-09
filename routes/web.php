@@ -6,10 +6,7 @@ use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/',                         [UserController::class, 'home'])->name('user.home');
 Route::get('/registro',                 [UserController::class, 'registro'])->name('user.registro');
 Route::post('/registro',                [UserController::class, 'sign_in'])->name('user.sign_in');
 Route::get('/login',                    [UserController::class, 'login_form'])->name('login');

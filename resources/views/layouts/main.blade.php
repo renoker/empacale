@@ -37,26 +37,17 @@
     </main>
 
     @include('layouts.footer')
-
     @yield('scripts')
     <script>
-        // document.getElementById('topCero').addEventListener('click', function() {
-        //     window.scrollTo({
-        //         top: 0,
-        //         behavior: 'smooth'
-        //     });
-        // });
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navList = document.querySelector('.nav-list');
 
-        // const menu_hamburguesa = document.getElementById('menu_hamburguesa')
-        // const box_menu = document.getElementById('menu_list')
-        // menu_hamburguesa.addEventListener('click', function() {
-        //     console.log('Entro');
-        //     box_menu.classList.add('active')
-        // })
-
-        // box_menu.addEventListener('click', function() {
-        //     box_menu.classList.remove('active')
-        // })
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 
