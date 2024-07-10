@@ -30,13 +30,15 @@
         </script>
     @endif
 
-    @include('layouts.header')
 
-    <main class="main">
+    <main class="main @yield('back')">
+        @include('layouts.header')
+
         @yield('content')
+
+        @include('layouts.footer')
     </main>
 
-    @include('layouts.footer')
     @yield('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {

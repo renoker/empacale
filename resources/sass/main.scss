@@ -8,17 +8,30 @@
 @import "components/button";
 @import "components/popup";
 
+// Required Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 // Importar la fuente
 @font-face {
     font-family: 'POPPINS_EXTRABOLD';
-    src: url('../../resources/fonts/POPPINS-EXTRABOLD.TTF') format('woff2');
-    font-weight: bold;
+    src: url('../../resources/fonts/POPPINS-EXTRABOLD.TTF');
+    font-weight: bolder;
     font-style: normal; 
 }
 
 @font-face {
     font-family: 'BEBASNEUE_BOLD';
-    src: url('../../resources/fonts/BEBASNEUE-BOLD.OTF') format('woff2');
+    src: url('../../resources/fonts/BEBASNEUE-BOLD.OTF');
+    font-weight: 600;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'BEBASNEUE_REGULAR';
+    src: url('../../resources/fonts/27231098576.TTF');
     font-weight: 600;
     font-style: normal; 
 }
