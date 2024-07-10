@@ -79,6 +79,10 @@
                 font-family: $font_bebasneue_regular;
                 font-size: 1.2rem;                   
             }  
+            .texto_small {
+                font-family: $font_bebasneue_regular;
+                font-size: 0.7rem;                   
+            }              
             .contenedor_imagenes_premios {
                 width: 100%;
                 height: 1120px;
@@ -109,8 +113,262 @@
     }
 }
 
+// REGISTRO
+.back_registro {
+    background-image: url('../../../public/assets/images/registro/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;    
+}
 
-// GAME
+.content_registro {
+    width: 80%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 350px;
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .cont_from_registro {
+            width: 40%;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }
+        .cont_imagen_ilustrativa {
+            width: 60%;
+            text-align: center;
+            .img_logo_registro {
+                width: 100%;
+            }
+        }        
+    }
+}
+
+// TYP --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
+.back_typ {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_typ {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 350px;
+            padding-top: 5rem;
+            padding-bottom: 1rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 10px;    
+        }  
+        .texto_small {
+            width: 60%;
+            margin: 0 auto;
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1rem;                   
+        }  
+        .cont_premios {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 6rem 0 14rem 0;
+            img {
+                width: 32%;
+            }
+        }        
+    }      
+}
+
+//------------------------------------------------------- LOGIN --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
+.back_login {
+    background-image: url('../../../public/assets/images/registro/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;    
+}
+
+.content_login {
+    width: 80%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 350px;
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .cont_from_registro {
+            width: 35%;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                
+            }   
+            .conten_contrasenia {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                a {
+                    text-align: left;
+                    font-family: $font_bebasneue_regular;
+                    font-size: 1rem;  
+                    text-decoration: underline;                    
+                }
+            }     
+            .cont_button {
+                width: 100%;
+                text-align: right;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }
+        .cont_imagen_ilustrativa {
+            width: 55%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+            .items {
+                width: 44%;
+                text-align: left; 
+                .img_step {                    
+                    width: 100%;
+                }
+                .text {
+                    font-family: $font_bebasneue_regular;
+                    font-size: 12px;
+                }
+            }
+        }        
+    }
+}
+
+// -------------------------------------------------------- OLVIDE MI CONTRASEÑA --------------------------------------------------------
+.back_olvide_contrasenia {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_olvide_contrasenia {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 500px;
+            padding-top: 5rem;
+            padding-bottom: 1rem;
+        }
+        .texto_small {
+            text-align: center;
+            font-family: $font_bebasneue_regular;
+            font-size: 1.2rem;   
+            margin-top: 3rem;                
+        }  
+        .cont_from_registro {
+            width: 50%;
+            margin: 4rem auto 0 auto;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }       
+    }      
+}
+
+// GAME --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .body_game {
     background-image: url('../../../public/assets/images/game/sem1/playamaruchan.png');
     background-size: cover;

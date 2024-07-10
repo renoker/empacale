@@ -28,29 +28,34 @@
             <div class="content_steps">
                 <div class="items">
                     <img src="{{ url('assets/images/home/1.png') }}" class="img_step" alt="">
-                    <p class="text">Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dorore mafna aliqua.</p>
+                    <p class="text">Registra el código de lote de cualquier producto de la Familia Maruchan para jugar a
+                        Empácale con Maruchan y convertirte en uno de nuestros 3 ganadores cada semana. Cada código de LOTE
+                        registrado te dará una sesión con 3 vidas para jugar. Cuantos más códigos registres, más
+                        oportunidades tendrás de mejorar tu tiempo y aumentar tu puntaje. </p>
                 </div>
                 <div class="items">
                     <img src="{{ url('assets/images/home/2.png') }}" class="img_step" alt="">
-                    <p class="text">Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dorore mafna aliqua.</p>
+                    <p class="text">En la parte inferior de la pantalla tendrás una maleta a la que tendrás que arrastrar
+                        todos los objetos de la lista del destino de cada semana. Cada objeto te sumará 5 puntos.</p>
                 </div>
                 <div class="items">
                     <img src="{{ url('assets/images/home/3.png') }}" class="img_step" alt="">
-                    <p class="text">Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dorore mafna aliqua.</p>
+                    <p class="text">Los productos de la familia Maruchan dorados te sumarán mayor puntaje, pero si te
+                        equivocas y empacas objetos erróneos, te restarán puntos. ¡Cuidado! Si empacas 3 objetos erróneos
+                        será GAME OVER y perderás una vida.</p>
                 </div>
                 <div class="items">
                     <img src="{{ url('assets/images/home/4.png') }}" class="img_step" alt="">
-                    <p class="text">Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dorore mafna aliqua.</p>
+                    <p class="text">Acumula la mayor cantidad de puntos empacando tu maleta en el menor tiempo posible, si
+                        eres de los 3 mejores de la semana, ¡ya ganaste increíbles premios!</p>
                 </div>
             </div>
             <div class="content_premios">
                 <img src="{{ url('assets/images/home/premios.png') }}" class="icon_premios" alt="">
                 <h6 class="h6">Imágenes de carácter ilustrativo</h6>
-                <h6 class="texto">Lorem ipson, Lorem ipson, Lorem ipson, Lorem ipson, Lorem ipson,</h6>
+                <h6 class="texto">¿Qué te falta para llenar tu maleta?</h6>
+                <h6 class="texto_small">¡Exacto, premios! Si eres de los 3 puntajes más altos en el menor tiempo de cada
+                    semana puedes llevarte uno de estos premios. (Si ya ganaste, no podrás volver a ganar).</h6>
                 <div class="contenedor_imagenes_premios">
                     <img src="{{ url('assets/images/home/polaroid1.png') }}" class="premio_1" alt="">
                     <img src="{{ url('assets/images/home/polaroid2.png') }}" class="premio_2" alt="">
