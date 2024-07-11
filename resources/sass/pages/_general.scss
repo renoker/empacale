@@ -625,6 +625,114 @@
     }    
 }
 
+// -------------------------------------------------------- PREGUNTAS FRECUENTES --------------------------------------------------------
+.back_faqs {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_faqs {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 4rem;
+        .img_titulo {
+            width: 500px;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 10px;    
+            text-align: left;
+        }  
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1rem;                   
+        }         
+    }
+    .content_faqs {
+        width: 100%;  
+        margin-top: 4rem;
+        margin-bottom: 12rem;
+        .cont_f {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            .content_item {
+                width: 48%;
+                position: relative;
+                .partTexto {
+                    width: 100%;
+                    background-color: var(--morado);
+                    text-align: center;
+                    padding: 15px 0px;
+                    border-radius: 10px;
+                    position: absolute;
+                    right: 15px;
+                    top: -15px;
+                    z-index: 10;
+                    .mas {
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        cursor: pointer;
+                        width: 44px;
+                    }
+                    span {
+                        font-family: $font_bebasneue_regular;
+                        color: #fff;color: var(--blanco);   
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                    }
+                }
+                .partDescripcion {
+                    width: 100%;
+                    min-height: 64px;
+                    background-color: #25021C;
+                    text-align: left;
+                    padding: 20px 2rem;
+                    border-radius: 10px;
+                    z-index: 5;
+                    p {
+                        font-family: $font_bebasneue_regular;
+                        display: none;
+                        color: #fff;color: var(--blanco);   
+                        font-weight: 500;
+                        font-size: 1.1rem;
+                        padding: 5rem 0 2rem 0px;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }        
+            }
+        }
+    }
+
+}
+
+// -------------------------------------------------------- GANADORES --------------------------------------------------------
+.back_ganadores {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_ganadores {
+    width: 100%;
+}
+
+
 // GAME --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .body_game {
     background-image: url('../../../public/assets/images/game/sem1/playamaruchan.png');

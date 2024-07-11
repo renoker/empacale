@@ -44,11 +44,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             const navToggle = document.querySelector('.nav-toggle');
             const navList = document.querySelector('.nav-list');
-
-            navToggle.addEventListener('click', function() {
-                navToggle.classList.toggle('active');
-                navList.classList.toggle('active');
-            });
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    navList.classList.toggle('active');
+                });
+            }
         });
     </script>
 </body>
