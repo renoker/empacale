@@ -1,6 +1,6 @@
 @extends('layouts.game')
 @section('title', 'Maruchan - Game')
-@section('body', 'body_game')
+@section('body', 'body_game_dos')
 
 @section('popups')
     <div id="popup_tiempo" class="active">
@@ -22,6 +22,10 @@
         <div class="conten_puntos">
             <p id="score">0</p>
             <span>PTS</span>
+        </div>
+        <div class="conten_errores">
+            <p id="lives">3</p>
+            <span>ERRORES</span>
         </div>
         <div class="droppable">
             <div class="zona" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>

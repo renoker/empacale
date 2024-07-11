@@ -20,14 +20,6 @@ class ParticipationController extends Controller
      * -------------------------------------------------------------------------------------------*/
     public function create()
     {
-        // $user = Auth::guard('user')->user();        
-        // $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
-        // $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
-        // // En el caso que el usuario ya ingreso un codigo lote para este día se redirige
-        // // a la pantalla del perfil
-        // if ($participation) {
-        //     return redirect()->route('user.profile');
-        // }
         $products = Product::all();
 
         return view('pages.codigo_lote', [
@@ -43,20 +35,12 @@ class ParticipationController extends Controller
         $user = Auth::guard('user')->user();
         $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
 
-        // Si el usuario ya tiene participación para el día se quita
-        $participation = Participation::where('user_id', $user->id)->where('participation_day_id', $participation_day->id)->first();
-        if ($participation) {
-            return redirect()->route('user.profile');
-        }
-
-        $participation = Participation::create([
+        Participation::create([
             'user_id'               => $user->id,
             'participation_day_id'  => $participation_day->id,
             'codigo_lote'           => $request->codigo_lote,
             'product_id'            => $request->product_id,
         ]);
-
-        Session::put('participation_id', $participation);
 
         return redirect()->route('user.profile');
     }

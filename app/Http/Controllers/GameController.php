@@ -6,6 +6,7 @@ use App\Http\Requests\GameRequest;
 use App\Models\Participation;
 use App\Models\ParticipationDay;
 use App\Models\Score;
+use App\Models\Week;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -14,7 +15,13 @@ class GameController extends Controller
 {
     public function index()
     {
-        return view('pages.game');
+        $week = Week::currentWeek();
+
+        if ($week && $week->id == 1) {
+            return view('pages.game');
+        } else if ($week && $week->id == 2) {
+            return view('pages.game_sem_dos');
+        }
     }
 
     public function game_store_start(GameRequest $request)

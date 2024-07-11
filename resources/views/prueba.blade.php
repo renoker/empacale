@@ -1,34 +1,88 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/png" href="{{ url('images/favicon.png') }}" />
-    <meta name="theme-color" content="#1EA24D">
+    <title>Maruchan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    @yield('head')
-    @vite('resources/css/app.css')
-    @vite('resources/sass/main.scss')
-    @yield('meta')
+    <style>
+        body {
+            background-image: url('../../assets/images/game/sem1/playamaruchan.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .draggable {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .droppable {
+            width: 140px;
+            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('../../assets/images/game/sem1/maleta.png');
+            background-size: 100% 100%;
+            background-position: center;
+            transition: border 0.3s;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            25% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+
+            75% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+    </style>
 </head>
 
-<body class="@yield('body')">
-
-    @yield('popups')
-
-    <main class="main_game">
-        @yield('content')
-    </main>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-3 d-flex justify-content-between">
+            <input type="hidden" id="partida">
+            <button class="btn btn-primary" id="startButton" onclick="startGame()">Iniciar</button>
+            <p id="timer">Time: 00:00</p>
+            <p id="score">Score: 0</p>
+            <p id="lives">Lives: 3</p> <!-- Added lives display -->
+        </div>
+        <div class="droppable" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
 
     <script>
         let timerInterval;
         let time = 0;
         let score = 0;
         let level = 1;
-        let lives = 3;
+        let lives = 3; // Initialize lives
         let speedMultiplier = 0.1; // Initial speed multiplier set to 0.1
         let itemsConfig = [];
         const items = [];
@@ -67,25 +121,24 @@
 
         function startGame() {
             saveStart()
-            document.getElementById('startButton').removeEventListener('click', startGame)
-            document.getElementById('startButton').style.display = 'none'
-            document.getElementById('popup_tiempo').classList.remove('active')
+            document.getElementById('startButton').removeEventListener('click', startGame);
+            document.getElementById('startButton').style.display = 'none';
 
             time = 0;
             score = 0;
             level = 1;
-            lives = 3;
+            lives = 3; // Reset lives at the start of the game
             hits = 0; // Reset hits at the start of the game
             speedMultiplier = 0.1; // Reset speed multiplier at the start of the game
-            document.getElementById('timer').innerText = `${formatTime(time)}`;
-            document.getElementById('score').innerText = `${score}`;
-            document.getElementById('lives').innerText = `${lives}`;
+            document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
+            document.getElementById('score').innerText = `Score: ${score}`;
+            document.getElementById('lives').innerText = `Lives: ${lives}`; // Display lives
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
             timerInterval = setInterval(() => {
                 time += 10; // Increment by 10 milliseconds
-                document.getElementById('timer').innerText = `${formatTime(time)}`;
+                document.getElementById('timer').innerText = `Time: ${formatTime(time)}`;
             }, 10);
             createMovingItems();
         }
@@ -93,7 +146,7 @@
         function formatTime(milliseconds) {
             const mins = Math.floor((milliseconds % 3600000) / 60000);
             const secs = Math.floor((milliseconds % 60000) / 1000);
-            return `${String(mins).padStart(2)}:${String(secs).padStart(2, '0')}`;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
 
         function createMovingItems() {
@@ -182,7 +235,7 @@
 
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
-            if (draggedElement && event.target.classList.contains('zona')) {
+            if (draggedElement && event.target.classList.contains('droppable')) {
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
@@ -190,31 +243,39 @@
                     const previousScore = score;
                     if (points > 0) {
                         score += points;
-                        hits++;
+                        hits++; // Increment hits
                     } else {
-                        score -= 5;
-                        lives--;
-                        document.getElementById('lives').innerText = `${lives}`;
+                        score -= 5; // Deduct 5 points if the item has 0 points
+                        lives--; // Deduct a life
+                        document.getElementById('lives').innerText = `Lives: ${lives}`; // Update lives display
                     }
-                    document.getElementById('score').innerText = `${score}`;
-                    if (hits % 2 === 0) { // Every four hits, increase the speed multiplier
+                    document.getElementById('score').innerText = `Score: ${score}`;
+                    if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
                         speedMultiplier += 0.1;
                         updateSpeed();
                     }
                     if (score > previousScore) {
                         level += 1;
+
+                        // Añadir la animación de sacudida
+                        const dropZone = document.getElementById('droppable');
+                        dropZone.classList.add('shake');
+                        setTimeout(() => {
+                            dropZone.classList.remove('shake');
+                        }, 500);
                     }
                 }
-                if (lives === 0) {
+                if (lives === 0) { // Check if lives are exhausted
                     clearInterval(timerInterval);
-                    saveScore(formatTime(time), score);
-                    return;
+                    alert(`Game over! Your score is ${score}.`);
+                    saveScore(formatTime(time), score); // Save score when lives are exhausted
+                    return; // Stop further execution if the game is over
                 }
                 if (itemsWithPoints.length > 0 && itemsWithPoints.every(item => !item.parentNode || item.parentNode
-                        .classList.contains('zona'))) {
+                        .classList.contains('droppable'))) {
                     clearInterval(timerInterval);
+                    alert(`You have packed all items with points! Your score is ${score}.`);
                     saveScore(formatTime(time), score);
-                    return;
                 }
             }
         }
@@ -302,7 +363,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('partida').value = data.participacion
+                    console.log(data);
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -317,15 +378,12 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                     },
                     body: JSON.stringify({
-                        id: document.getElementById('partida').value,
                         score: score
                     }),
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.response == 200) {
-                        window.location.href = '/mi_perfil'
-                    }
+                    console.log(data);
                 })
                 .catch(error => {
                     console.error('Error:', error);

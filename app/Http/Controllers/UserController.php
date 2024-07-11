@@ -243,7 +243,7 @@ class UserController extends Controller
     {
         $user = Auth::guard('user')->user();
         $participation = Participation::where('user_id', $user->id)->latest()->first();
-        $score = Score::where('user_id', $user->id)->get();
+        $score = Score::where('user_id', $user->id)->orderBy('score', 'desc')->first();
 
         if ($participation) {
             $vidas = $participation->vidas();

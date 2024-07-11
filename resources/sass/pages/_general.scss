@@ -637,6 +637,30 @@
     overflow: hidden;
 }
 
+.body_game_dos {
+    background-image: url('../../../public/assets/images/game/sem2/BACK-2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .body_game_dos {
+        background-image: url('../../../public/assets/images/game/sem2/PANTALLA-2-MOBILE.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }    
+}
+
 .contenedor_juego {
     width: 100%;
     height: 100%;
@@ -667,7 +691,7 @@
         height: 100px;
         background-size: 100% 100%;
         position: absolute;
-        right: 0;
+        right: 200px;
         top: 0;
         display: flex;
         justify-content: center;
@@ -690,6 +714,36 @@
                   
         }
     }    
+    
+    .conten_errores {
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        width: 200px;
+        height: 100px;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        p {
+            transform: rotate(-10deg);
+            font-size: 3rem;
+            font-family: $font_poppins_extrabold;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;   
+            font-weight: bold;     
+        }     
+        span {
+                font-weight: bold;
+                transform: rotate(-10deg);
+                font-size: 1.3rem;
+                font-family: $font_poppins_extrabold;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: white;        
+                  
+        }
+    }      
 }
 
 .draggable {
@@ -697,6 +751,7 @@
     height: 80px;
     position: absolute;
     cursor: pointer;
+    z-index: 7;
 }
 
 .droppable {

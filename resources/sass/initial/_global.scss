@@ -22,11 +22,17 @@ body{
   background-color: var(--amarillo);  
 }
 
-main{
+.main{
   width: $width-general;
   height: auto;
   margin: 0 auto;  
   position: relative;
+}
+
+.main_global {
+  width: $width-general;
+  height: auto;
+  margin: 0 auto;  
 }
 
 @media only screen and (max-width: 600px) {

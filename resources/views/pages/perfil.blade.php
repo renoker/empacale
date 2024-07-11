@@ -22,7 +22,7 @@
                     <div class="cont_informacion">
                         <h1 class="h1">{{ $user->name }}</h1>
                         <div class="content_blanco">
-                            <p class="text">TU MEJOR PUNTAJE: </p>
+                            <p class="text">TU MEJOR PUNTAJE: {{ $score->score ?? 0 }}</p>
                         </div>
                         <div class="content_blanco">
                             <p class="text">VIDAS: {{ $vidas }}</p>
