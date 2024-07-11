@@ -198,7 +198,7 @@
                     }
                     document.getElementById('score').innerText = `${score}`;
                     if (hits % 2 === 0) { // Every four hits, increase the speed multiplier
-                        speedMultiplier += 0.1;
+                        speedMultiplier += 0.3;
                         updateSpeed();
                     }
                     if (score > previousScore) {

@@ -23,6 +23,10 @@
             <p id="score">0</p>
             <span>PTS</span>
         </div>
+        <div class="conten_errores">
+            <p id="lives">3</p>
+            <span>ERRORES</span>
+        </div>
         <div class="droppable">
             <div class="zona" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
