@@ -36,6 +36,13 @@
     font-style: normal; 
 }
 
+@font-face {
+    font-family: 'bold_regular';
+    src: url('../../resources/fonts/25696234645.TTF');
+    font-weight: bold;
+    font-style: normal; 
+}
+
 // layouts
 @import "layouts/header";
 @import "layouts/footer";

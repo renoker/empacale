@@ -14,6 +14,7 @@ Route::post('/login',                   [UserController::class, 'login'])->name(
 Route::get('/recuperar_contrasenia',    [UserController::class, 'olvideMiContrasenia'])->name('user.olvide_contrasenia');
 Route::post('/recuperar_contrasenia',   [UserController::class, 'password_reset_request'])->name('user.password_reset_request');
 Route::get('/ganadores',                [UserController::class, 'ganadores'])->name('user.ganadores');
+Route::get('/faqs',                     [UserController::class, 'faqs'])->name('user.faqs');
 Route::get('/bases',                    [UserController::class, 'bases'])->name('user.bases');
 Route::get('/password_reset/{token}',   [UserController::class, 'password_reset'])->name('user.password_reset');
 Route::post('/password_reset',          [UserController::class, 'password_reset_complete'])->name('user.password_reset_complete');

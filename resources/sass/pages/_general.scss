@@ -178,7 +178,7 @@
     }
 }
 
-// TYP --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
+// -------------------------------------------------------- TYP --------------------------------------------------------
 .back_typ {
     background-image: url('../../../public/assets/images/typ/back.png');
     background-size: cover;
@@ -319,7 +319,7 @@
     height: auto;      
 }
 .content_olvide_contrasenia {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     .cont_imgen_titulo {
         width: 100%;
@@ -327,13 +327,12 @@
         .img_titulo {
             width: 500px;
             padding-top: 5rem;
-            padding-bottom: 1rem;
-        }
+            padding-bottom: 4rem;
+        }      
         .texto_small {
-            text-align: center;
+            text-align: left;
             font-family: $font_bebasneue_regular;
-            font-size: 1.2rem;   
-            margin-top: 3rem;                
+            font-size: 1.2rem;                  
         }  
         .cont_from_registro {
             width: 50%;
@@ -353,7 +352,7 @@
                     &::placeholder {
                         color: var(--blanco);
                     }
-                }                
+                }                               
             }        
             .cont_button {
                 width: 100%;
@@ -366,6 +365,264 @@
             }         
         }       
     }      
+}
+
+// -------------------------------------------------------- CÓDIGO LOTE --------------------------------------------------------
+.back_codigo_lote {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_codigo_lote {
+    width: 80%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 500px;
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }
+        .texto {
+            text-align: left;
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 5px;    
+        }         
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1.2rem;                  
+        }  
+        .cont_from_lote {
+            width: 90%;
+            margin: 4rem auto 0 auto;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 50%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }
+                select {
+                    width: 50%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                }                                
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }   
+            .content_advertencias {
+                width: 100%;
+                .popup_active {
+                    font-family: $font_bold;
+                    color: var(--morado);
+                    padding-top: 2rem;
+                    padding-bottom: 4rem;
+                    font-size: 1rem;
+                    cursor: pointer;
+                }
+                .descripcion {
+                    text-align: left;
+                    font-family: $font_bold;
+                    color: var(--negro);
+                    padding-top: 2rem;
+                    font-size: 1rem;
+                }                
+            }      
+        }       
+    }      
+}
+
+.barra_naranja {
+    margin-top: 6rem;
+    width: 100%;
+    padding: 2rem 0;
+    background-color: #E78331;
+    .h1 {
+        position: relative;
+        text-align: center;
+        font-family: $font_poppins_extrabold;
+        font-size: 1.3rem;
+        width: 80%;
+        margin: 0 auto;
+        color: var(--blanco);
+        &::after {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            content: '';
+            width: 60px; /* Ajusta el ancho de la imagen */
+            height: 46px; /* Ajusta la altura de la imagen */
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+        }
+        &::before {
+            position: absolute;
+            top: 0;
+            left: -50px;
+            content: '';
+            width: 60px; /* Ajusta el ancho de la imagen */
+            height: 46px; /* Ajusta la altura de la imagen */
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+        }        
+    }
+}
+
+
+// -------------------------------------------------------- PERFIL --------------------------------------------------------
+.back_perfil {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_perfil {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 4rem;
+        .img_titulo {
+            width: 500px;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 10px;    
+            text-align: left;
+        }  
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1rem;                   
+        }         
+    }
+    .content_title {
+        width: 75%;
+        margin: 0 auto;
+        text-align: right;
+        .titulo {
+            width: 300px;
+            padding-bottom: 2rem;
+        }        
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10rem;
+        .cont_detalle {
+            width: 50%;
+            .cont_cuadros {
+                width: 90%;
+                height: 435px;
+                background-image: url('../../../public/assets/images/mi_perfil/caja.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;   
+                .cont_informacion {
+                    width: 90%;
+                    height: 100px;
+                    margin: 0 auto;
+                    padding-top: 2.5rem;
+                    .h1 {
+                        font-family: $font_bebasneue_bold;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        padding-bottom: 1rem;
+                    }
+                    .content_blanco {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: var(--blanco);
+                        margin-bottom: 1rem;
+                        .text {
+                            font-family: $font_bebasneue_bold;
+                        }
+                    }
+                    .content_button {
+                        width: 100%;
+                        text-align: right;
+                        &.pt {
+                            padding-top: 1rem;
+                        }
+                        .texto {
+                            font-family: $font_bebasneue_bold;
+                            font-size: 1rem;   
+                            padding-bottom: 10px;    
+                            text-align: left;
+                        }  
+                        .texto_small {
+                            text-align: left;
+                            font-family: $font_bebasneue_regular;
+                            font-size: 0.8rem;   
+                            padding-bottom: 1rem;                
+                        }                          
+                        img {
+                            width: 140px;
+                        }
+                    }
+                }             
+            }
+
+        }
+        .cont_instrucciones {
+            width: 50%;
+            .cont {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;                    
+                    .img_item {
+                        width: 200px;
+                    }
+                    .txt {
+                        text-align: left;
+                        font-family: $font_bebasneue_regular;
+                        font-size: 12px;                        
+                    }
+                }
+            }
+        }        
+    }    
 }
 
 // GAME --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
@@ -434,7 +691,6 @@
         }
     }    
 }
-
 
 .draggable {
     width: 80px;
