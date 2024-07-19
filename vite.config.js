@@ -9,7 +9,6 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/codigo_lote.js',
                 'resources/js/home.js',
-                'resources/js/login.js',
                 'resources/js/registro.js',
                 'resources/js/global.js',
             ],

@@ -61,6 +61,3 @@
         </div>
     </div>
 @endsection
-@section('scripts')
-    @vite('resources/js/login.js')
-@endsection
