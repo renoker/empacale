@@ -10,7 +10,6 @@ export default defineConfig({
                 'resources/js/codigo_lote.js',
                 'resources/js/home.js',
                 'resources/js/registro.js',
-                'resources/js/global.js',
             ],
             refresh: true,
         }),
