@@ -1,6 +1,6 @@
 // HOME
 .back_home {
-    background-image: url('../../../public/assets/images/home/back.png');
+    background-image: url('../../../assets/images/home/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,7 +38,7 @@
             .content_video_back {
                 width: 100%;
                 height: 568px;
-                background-image: url('../../../public/assets/images/home/video.png');
+                background-image: url('../../../assets/images/home/video.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;                
@@ -115,7 +115,7 @@
 
 // REGISTRO
 .back_registro {
-    background-image: url('../../../public/assets/images/registro/back.png');
+    background-image: url('../../../assets/images/registro/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,7 +180,7 @@
 
 // -------------------------------------------------------- TYP --------------------------------------------------------
 .back_typ {
-    background-image: url('../../../public/assets/images/typ/back.png');
+    background-image: url('../../../assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -224,7 +224,7 @@
 
 //------------------------------------------------------- LOGIN --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .back_login {
-    background-image: url('../../../public/assets/images/registro/back.png');
+    background-image: url('../../../assets/images/registro/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -312,7 +312,7 @@
 
 // -------------------------------------------------------- OLVIDE MI CONTRASEÑA --------------------------------------------------------
 .back_olvide_contrasenia {
-    background-image: url('../../../public/assets/images/typ/back.png');
+    background-image: url('../../../assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -369,7 +369,7 @@
 
 // -------------------------------------------------------- CÓDIGO LOTE --------------------------------------------------------
 .back_codigo_lote {
-    background-image: url('../../../public/assets/images/typ/back.png');
+    background-image: url('../../../assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -478,7 +478,7 @@
             content: '';
             width: 60px; /* Ajusta el ancho de la imagen */
             height: 46px; /* Ajusta la altura de la imagen */
-            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-image: url('../../../assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
             background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
         }
         &::before {
@@ -488,7 +488,7 @@
             content: '';
             width: 60px; /* Ajusta el ancho de la imagen */
             height: 46px; /* Ajusta la altura de la imagen */
-            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-image: url('../../../assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
             background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
         }        
     }
@@ -497,7 +497,7 @@
 
 // -------------------------------------------------------- PERFIL --------------------------------------------------------
 .back_perfil {
-    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-image: url('../../../assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -548,7 +548,7 @@
             .cont_cuadros {
                 width: 90%;
                 height: 435px;
-                background-image: url('../../../public/assets/images/mi_perfil/caja.png');
+                background-image: url('../../../assets/images/mi_perfil/caja.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;   
@@ -627,7 +627,7 @@
 
 // -------------------------------------------------------- PREGUNTAS FRECUENTES --------------------------------------------------------
 .back_faqs {
-    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-image: url('../../../assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -721,7 +721,7 @@
 
 // -------------------------------------------------------- GANADORES --------------------------------------------------------
 .back_ganadores {
-    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-image: url('../../../assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -735,7 +735,7 @@
 
 // GAME --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .body_game {
-    background-image: url('../../../public/assets/images/game/sem1/playamaruchan.png');
+    background-image: url('../../../assets/images/game/sem1/playamaruchan.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -746,7 +746,7 @@
 }
 
 .body_game_dos {
-    background-image: url('../../../public/assets/images/game/sem2/BACK-2.png');
+    background-image: url('../../../assets/images/game/sem2/BACK-2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -758,7 +758,7 @@
 
 @media (max-width: 768px) {
     .body_game_dos {
-        background-image: url('../../../public/assets/images/game/sem2/PANTALLA-2-MOBILE.png');
+        background-image: url('../../../assets/images/game/sem2/PANTALLA-2-MOBILE.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -773,7 +773,7 @@
     width: 100%;
     height: 100%;
     .conten_tiempo {
-        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        background-image: url(../../../assets/images/game/back_medidor.png);
         width: 180px;
         height: 100px;
         background-size: 100% 100%;
@@ -794,7 +794,7 @@
     }
     
     .conten_puntos {
-        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        background-image: url(../../../assets/images/game/back_medidor.png);
         width: 180px;
         height: 100px;
         background-size: 100% 100%;
@@ -824,7 +824,7 @@
     }    
     
     .conten_errores {
-        background-image: url(../../../public/assets/images/game/back_medidor.png);
+        background-image: url(../../../assets/images/game/back_medidor.png);
         width: 200px;
         height: 100px;
         background-size: 100% 100%;
@@ -869,7 +869,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../../../public/assets/images/game/maleta.png');
+    background-image: url('../../../assets/images/game/maleta.png');
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;
@@ -906,7 +906,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../../../public/assets/images/game/cerrada.png');
+    background-image: url('../../../assets/images/game/cerrada.png');
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;
