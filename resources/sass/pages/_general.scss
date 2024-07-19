@@ -756,19 +756,6 @@
     overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .body_game_dos {
-        background-image: url('../../../assets/images/game/sem2/PANTALLA-2-MOBILE.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-    }    
-}
-
 .contenedor_juego {
     width: 100%;
     height: 100%;
@@ -925,4 +912,187 @@
         padding-top: 6px;
         font-family: $font_bebasneue_bold;
     }    
+}
+
+@media (max-width: 768px) {
+
+    .body_game {
+        background-image: url('../../../assets/images/game/sem1/playa-back-mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }    
+
+    .body_game_dos {
+        background-image: url('../../../assets/images/game/sem2/PANTALLA-2-MOBILE.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }    
+    
+    .contenedor_juego {
+        width: 100%;
+        height: 100%;
+        .conten_tiempo {
+            background-image: url(../../../assets/images/game/back_medidor.png);
+            width: 100px;
+            height: 60px;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                transform: rotate(-10deg);
+                font-size: 1.6rem;
+                font-family: $font_poppins_extrabold;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: white;  
+                font-weight: bold;      
+            }
+        }
+        
+        .conten_puntos {
+            background-image: url(../../../assets/images/game/back_medidor.png);
+            width: 100px;
+            height: 60px;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 110px;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            p {
+                transform: rotate(-10deg);
+                font-size: 1.6rem;
+                font-family: $font_poppins_extrabold;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: white;   
+                font-weight: bold;     
+            }     
+            span {
+                    font-weight: bold;
+                    transform: rotate(-10deg);
+                    font-size: 0.7rem;
+                    font-family: $font_poppins_extrabold;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: white;        
+                      
+            }
+        }    
+        
+        .conten_errores {
+            background-image: url(../../../assets/images/game/back_medidor.png);
+            width: 110px;
+            height: 60px;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            p {
+                transform: rotate(-10deg);
+                font-size: 1.6rem;
+                font-family: $font_poppins_extrabold;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: white;   
+                font-weight: bold;     
+            }     
+            span {
+                    font-weight: bold;
+                    transform: rotate(-10deg);
+                    font-size: 0.7rem;
+                    font-family: $font_poppins_extrabold;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: white;        
+                      
+            }
+        }      
+    }    
+
+    .draggable {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        cursor: pointer;
+        z-index: 7;
+    }
+    
+    .droppable {
+        width: 180px;
+        height: 120px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('../../../assets/images/game/maleta.png');
+        background-size: 100% 100%;
+        background-position: center;
+        transition: border 0.3s;
+        z-index: 5;
+        .zona {
+            width: 86%;
+            height: 35px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 11px;
+            z-index: 20;
+        }
+        .guardar_productos {
+            display: none;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            border: 3px solid #DB58DA;
+            background-color: var(--morado);
+            color: var(--blanco);
+            border-radius: 10px;
+            font-size: 1rem;
+            padding-top: 6px;
+            font-family: $font_bebasneue_bold;
+        }    
+    }
+    
+    .droppable_gif {
+        width: 180px;
+        height: 100px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('../../../assets/images/game/cerrada.png');
+        background-size: 100% 100%;
+        background-position: center;
+        transition: border 0.3s;
+        z-index: 5;
+        .guardar_productos {
+            display: none;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            border: 3px solid #DB58DA;
+            background-color: var(--morado);
+            color: var(--blanco);
+            border-radius: 10px;
+            font-size: 1rem;
+            padding-top: 6px;
+            font-family: $font_bebasneue_bold;
+        }    
+    }    
+
 }

@@ -15,7 +15,7 @@ html{
 }
 
 body{
-  // background-image: url('../../../public/assets/images/mi_perfil/back.png');
+  // background-image: url('../../../assets/images/mi_perfil/back.png');
   // background-size: cover;
   // background-repeat: no-repeat;  
   background-color: var(--amarillo);  
@@ -37,6 +37,7 @@ body{
 @media only screen and (max-width: 600px) {
   main{
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     position: relative;
   }

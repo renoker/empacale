@@ -193,8 +193,8 @@
                         agregarProducto(id);
                         score += points;
                         hits++;
-                        if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
-                            speedMultiplier += 0.3;
+                        if (hits % 20 === 0) { // Every four hits, increase the speed multiplier
+                            speedMultiplier += 0.2;
                             updateSpeed();
                         }
                     } else {
@@ -357,7 +357,7 @@
                         var maleta = document.getElementById('maleta')
                         maleta.classList.remove('droppable')
                         maleta.classList.add('droppable_gif')
-                        setTimeout(activaCierre, 5000);
+                        setTimeout(activaCierre, 2000);
                     }
                 })
                 .catch(error => {
