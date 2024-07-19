@@ -6,8 +6,8 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/sass/main.scss',
                 'resources/js/app.js',
+                'resources/sass/main.scss',                
                 'resources/js/codigo_lote.js',
                 'resources/js/home.js',
                 'resources/js/registro.js',
