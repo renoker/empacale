@@ -193,8 +193,8 @@
                         agregarProducto(id);
                         score += points;
                         hits++;
-                        if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
-                            speedMultiplier += 0.2;
+                        if (hits % 5 === 0) { // Every four hits, increase the speed multiplier
+                            speedMultiplier += 0.3;
                             updateSpeed();
                         }
                     } else {
