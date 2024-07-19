@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GameRequest;
+use App\Models\AddPoints;
+use App\Models\ListProduct;
 use App\Models\Participation;
 use App\Models\ParticipationDay;
 use App\Models\Score;
@@ -16,11 +18,43 @@ class GameController extends Controller
     public function index()
     {
         $week = Week::currentWeek();
+        $listas = ListProduct::where('week_id', $week->id)->get();
 
-        if ($week && $week->id == 1) {
-            return view('pages.game');
-        } else if ($week && $week->id == 2) {
-            return view('pages.game_sem_dos');
+        $user = Auth::guard('user')->user();
+        $participation = Participation::where('user_id', $user->id)->latest()->first();
+        $vidas = Score::where('user_id', $user->id)->where('participation_id', $participation->id)->count();
+
+        if ($vidas <= 3) {
+            if ($week && $week->id == 1) {
+                return view('pages.game', [
+                    'lista' => $listas,
+                    'week' => $week
+                ]);
+            } else if ($week && $week->id == 2) {
+                return view('pages.game_sem_dos', [
+                    'lista' => $listas,
+                    'week' => $week
+                ]);
+            }
+        } else {
+            return redirect()->route('mi_perfil');
+        }
+    }
+
+    public function addProductos(Request $request)
+    {
+        $user = Auth::guard('user')->user();
+        $participation = Score::where('user_id', $user->id)->where('id', $request->idPartida)->first();
+
+        if (!$participation) {
+            return response()->json(['Response' => 'No se encontró la participación'], 404);
+        } else {
+            $row = new AddPoints();
+            $row->user_id = $user->id;
+            $row->score_id = $participation->id;
+            $row->image_id = $request->id;
+            $row->save();
+            return response()->json(['Response' => $row->id]);
         }
     }
 
@@ -29,18 +63,21 @@ class GameController extends Controller
 
         $user = Auth::guard('user')->user();
         $participation = Participation::where('user_id', $user->id)->latest()->first();
-
         $now = Carbon::now();
 
-        $row = new Score();
-        $row->user_id = $user->id;
-        $row->participation_id = $participation->id;
-        $row->start = $now->format('Y-m-d H:i:s.u');
-        $row->score = 0;
-        $row->save();
+        $vidas = Score::where('user_id', $user->id)->where('participation_id', $participation->id)->count();
 
-
-        return response()->json(['participacion' => $row->id]);
+        if ($vidas >= 3) {
+            return response()->json(['Response' => 'Has superado el número de intentos'], 403);
+        } else {
+            $row = new Score();
+            $row->user_id = $user->id;
+            $row->participation_id = $participation->id;
+            $row->start = $now->format('Y-m-d H:i:s.u');
+            $row->score = 0;
+            $row->save();
+            return response()->json(['Response' => $row->id]);
+        }
     }
 
     public function game_store_end(GameRequest $request)

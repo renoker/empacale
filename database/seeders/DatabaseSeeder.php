@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminSeeder::class,
             ImagesSeeder::class,
+            ListProductSeeder::class,
         ]);
     }
 }

@@ -106,6 +106,7 @@
                 item.id = `draggable${index}`;
                 item.src = config.src;
                 item.dataset.points = config.points;
+                item.dataset.id = config.id;
 
                 let initialX = Math.random() * (window.innerWidth - 50);
                 let initialY = Math.random() * (window.innerHeight - 50);
@@ -179,41 +180,47 @@
             if (event.preventDefault) {
                 event.preventDefault();
             }
-
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
             if (draggedElement && event.target.classList.contains('zona')) {
                 event.target.appendChild(draggedElement);
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
+                const id = parseInt(draggedElement.dataset.id);
                 if (!isNaN(points)) {
                     const previousScore = score;
                     if (points > 0) {
+                        agregarProducto(id);
                         score += points;
                         hits++;
+                        if (hits % 20 === 0) { // Every four hits, increase the speed multiplier
+                            speedMultiplier += 0.1;
+                            updateSpeed();
+                        }
                     } else {
+                        agregarProducto(id);
                         score -= 5;
                         lives--;
                         document.getElementById('lives').innerText = `${lives}`;
                     }
                     document.getElementById('score').innerText = `${score}`;
-                    if (hits % 2 === 0) { // Every four hits, increase the speed multiplier
-                        speedMultiplier += 0.3;
-                        updateSpeed();
-                    }
                     if (score > previousScore) {
                         level += 1;
                     }
                 }
                 if (lives === 0) {
                     clearInterval(timerInterval);
-                    saveScore(formatTime(time), score);
+                    // Popup de termiono el juego por que se terminaron sus vidas
+                    document.getElementById('cerrarMaleta').style.display = 'block';
+                    document.getElementById('droppable').style.display = 'none';
                     return;
                 }
                 if (itemsWithPoints.length > 0 && itemsWithPoints.every(item => !item.parentNode || item.parentNode
                         .classList.contains('zona'))) {
                     clearInterval(timerInterval);
-                    saveScore(formatTime(time), score);
+                    // Function
+                    document.getElementById('cerrarMaleta').style.display = 'block';
+                    document.getElementById('droppable').style.display = 'none';
                     return;
                 }
             }
@@ -289,6 +296,27 @@
             });
         }
 
+        function agregarProducto(id) {
+            fetch('/prod', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    body: JSON.stringify({
+                        idPartida: document.getElementById('partida').value,
+                        id: id
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.Response);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
         function saveStart() {
             fetch('/start', {
                     method: 'POST',
@@ -302,7 +330,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('partida').value = data.participacion
+                    document.getElementById('partida').value = data.Response
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -324,13 +352,33 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.response == 200) {
-                        window.location.href = '/mi_perfil'
+                        // window.location.href = '/mi_perfil'
+                        document.getElementById('cerrarMaleta').style.display = 'none'
+                        var maleta = document.getElementById('maleta')
+                        maleta.classList.remove('droppable')
+                        maleta.classList.add('droppable_gif')
+                        setTimeout(activaCierre, 5000);
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
         }
+
+        function activaCierre() {
+            const popup_final_game = document.getElementById("popup_final_game");
+            popup_final_game.classList.add('active')
+            setTimeout(redireccionar, 5000);
+        }
+
+        function redireccionar() {
+            window.location.href = "/mi_perfil"; // Cambia la URL al destino deseado
+        }
+
+        function cerrarM() {
+            saveScore(formatTime(time), score);
+        }
+
 
         window.onload = preloadData;
     </script>

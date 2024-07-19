@@ -15,8 +15,28 @@ class ImagesSeeder extends Seeder
     {
         // Dorados
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem1/maruchan_InstantLunch_V3.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_InstantLunch_V3.svg',
             'points'    => 10,
+            'week_id'   => 1,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_ramen_dorado.svg',
+            'points'    => 20,
+            'week_id'   => 1,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_bowl_dorado.svg',
+            'points'    => 30,
+            'week_id'   => 1,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_yakisoba_dorado.svg',
+            'points'    => 40,
+            'week_id'   => 1,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_ottima_dorado.svg',
+            'points'    => 50,
             'week_id'   => 1,
         ]);
         // Dorados END
@@ -257,99 +277,119 @@ class ImagesSeeder extends Seeder
         // ---------------------------------------------------------------- SEMANA 2 --------------------------------------------------------------------------------------------------------------------------------
         // Dorados
         Images::create([
-            'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/maruchan_InstantLunch_V3.svg',
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_InstantLunch_V3.svg',
             'points'    => 10,
+            'week_id'   => 2,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_ramen_dorado.svg',
+            'points'    => 20,
+            'week_id'   => 2,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_bowl_dorado.svg',
+            'points'    => 30,
+            'week_id'   => 2,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_yakisoba_dorado.svg',
+            'points'    => 40,
+            'week_id'   => 2,
+        ]);
+        Images::create([
+            'src'     => 'http://127.0.0.1:8000/assets/images/game/maruchan_ottima_dorado.svg',
+            'points'    => 50,
             'week_id'   => 2,
         ]);
         // Dorados END
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/1.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/2.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/3.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/4.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/6.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/7.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/8.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/9.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/10.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/11.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/12.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/13.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/14.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/15.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
 
         Images::create([
             'src'     => 'http://127.0.0.1:8000/assets/images/game/sem2/16.png',
-            'points'    => 10,
+            'points'    => 5,
             'week_id'   => 2,
         ]);
     }

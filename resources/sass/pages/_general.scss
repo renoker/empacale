@@ -884,4 +884,45 @@
         bottom: 28px;
         z-index: 20;
     }
+    .guardar_productos {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        border: 5px solid #DB58DA;
+        background-color: var(--morado);
+        color: var(--blanco);
+        border-radius: 30px;
+        font-size: 1.6rem;
+        padding-top: 6px;
+        font-family: $font_bebasneue_bold;
+    }    
+}
+
+.droppable_gif {
+    width: 340px;
+    height: 170px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('../../../public/assets/images/game/cerrada.png');
+    background-size: 100% 100%;
+    background-position: center;
+    transition: border 0.3s;
+    z-index: 5;
+    .guardar_productos {
+        display: none;
+        position: absolute;
+        z-index: 40;
+        bottom: 30px;
+        width: 100%;
+        border: 5px solid #DB58DA;
+        background-color: var(--morado);
+        color: var(--blanco);
+        border-radius: 30px;
+        font-size: 1.6rem;
+        padding-top: 6px;
+        font-family: $font_bebasneue_bold;
+    }    
 }
