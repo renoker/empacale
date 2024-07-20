@@ -289,29 +289,29 @@ class ImagesSeeder extends Seeder
         // ---------------------------------------------------------------- SEMANA 2 --------------------------------------------------------------------------------------------------------------------------------
         // Dorados
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem2/objetos_dorados/maruchan_bowl_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_InstantLunch_V3.svg',
             'points'    => 10,
-            'week_id'   => 2,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem2/objetos_dorados/maruchan_ottimabolsa_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ramen_dorado.svg',
             'points'    => 20,
-            'week_id'   => 2,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem2/objetos_dorados/maruchan_ramen_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_bowl_dorado.svg',
             'points'    => 30,
-            'week_id'   => 2,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem2/objetos_dorados/maruchan_vaso_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_yakisoba_dorado.svg',
             'points'    => 40,
-            'week_id'   => 2,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem2/objetos_dorados/maruchan_yakisoba_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ottima_dorado.svg',
             'points'    => 50,
-            'week_id'   => 2,
+            'week_id'   => 1,
         ]);
         // Dorados END
 
@@ -599,29 +599,29 @@ class ImagesSeeder extends Seeder
         // ---------------------------------------------------------------- SEMANA 3 --------------------------------------------------------------------------------------------------------------------------------
         // Dorados
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem3/objetos_dorados/maruchan_bowl_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_InstantLunch_V3.svg',
             'points'    => 10,
-            'week_id'   => 3,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem3/objetos_dorados/maruchan_ottimabolsa_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ramen_dorado.svg',
             'points'    => 20,
-            'week_id'   => 3,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem3/objetos_dorados/maruchan_ramen_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_bowl_dorado.svg',
             'points'    => 30,
-            'week_id'   => 3,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem3/objetos_dorados/maruchan_vaso_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_yakisoba_dorado.svg',
             'points'    => 40,
-            'week_id'   => 3,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem3/objetos_dorados/maruchan_yakisoba_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ottima_dorado.svg',
             'points'    => 50,
-            'week_id'   => 3,
+            'week_id'   => 1,
         ]);
         // Dorados END
 
@@ -904,29 +904,29 @@ class ImagesSeeder extends Seeder
         // ---------------------------------------------------------------- SEMANA 4 --------------------------------------------------------------------------------------------------------------------------------
         // Dorados
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem4/objetos_dorados/maruchan_bowl_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_InstantLunch_V3.svg',
             'points'    => 10,
-            'week_id'   => 4,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem4/objetos_dorados/maruchan_ottimabolsa_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ramen_dorado.svg',
             'points'    => 20,
-            'week_id'   => 4,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem4/objetos_dorados/maruchan_ramen_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_bowl_dorado.svg',
             'points'    => 30,
-            'week_id'   => 4,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem4/objetos_dorados/maruchan_vaso_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_yakisoba_dorado.svg',
             'points'    => 40,
-            'week_id'   => 4,
+            'week_id'   => 1,
         ]);
         Images::create([
-            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/sem4/objetos_dorados/maruchan_yakisoba_dorado.svg',
+            'src'     => 'https://phpstack-731537-4677517.cloudwaysapps.com/assets/images/game/maruchan_ottima_dorado.svg',
             'points'    => 50,
-            'week_id'   => 4,
+            'week_id'   => 1,
         ]);
         // Dorados END
 
