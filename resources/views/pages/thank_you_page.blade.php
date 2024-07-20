@@ -11,7 +11,7 @@
                 puntos extra con los productos Maruchan dorados! </h6>
             <div class="cont_button">
                 <a href="{{ route('user.profile') }}">
-                    <button type="button" class="empaca">Empeca tu maleta</button>
+                    <button type="button" class="empaca">EMPACA TU MALETA</button>
                 </a>
             </div>
             <div class="cont_premios">
