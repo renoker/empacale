@@ -846,6 +846,28 @@
     overflow: hidden;
 }
 
+.body_game_tres {
+    background-image: url('../../../assets/images/game/sem3/back/BACK.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.body_game_cuatro {
+    background-image: url('../../../assets/images/game/sem4/back/BACK.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
 .contenedor_juego {
     width: 100%;
     height: 100%;
@@ -1853,7 +1875,29 @@
         height: 100%;
         margin: 0;
         overflow: hidden;
-    }    
+    }  
+    
+    .body_game_tres {
+        background-image: url('../../../assets/images/game/sem3/back/BACK-MOBILE.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }  
+    
+    .body_game_cuatro {
+        background-image: url('../../../assets/images/game/sem4/back/BACK-MOBILE.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }      
     
     .contenedor_juego {
         width: 100%;
