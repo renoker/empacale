@@ -24,58 +24,13 @@
             </li>
             <li>
                 <a href="#" title="Elements">
-                    <i class="glyph-icon icon-photo"></i>
-                    <span>Fotos Semana 1</span>
-                </a>
-                <div class="sidebar-submenu">
-                    <ul>
-
-                    </ul>
-                </div>
-            </li>
-
-            <li>
-                <a href="#" title="Elements">
-                    <i class="glyph-icon icon-photo"></i>
-                    <span>Fotos Semana 2</span>
-                </a>
-                <div class="sidebar-submenu">
-                    <ul>
-
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a href="#" title="Elements">
-                    <i class="glyph-icon icon-photo"></i>
-                    <span>Fotos Semana 3</span>
-                </a>
-                <div class="sidebar-submenu">
-                    <ul>
-                        <li><a href="" title=""><span>AQUI</span></a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a href="#" title="Elements">
-                    <i class="glyph-icon icon-photo"></i>
-                    <span>Fotos Semana 4</span>
-                </a>
-                <div class="sidebar-submenu">
-                    <ul>
-
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a href="#" title="Elements">
                     <i class="glyph-icon icon-calendar"></i>
                     <span>Participaciones Semana 1</span>
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
                         <li><a href="{{ route('participation.index', 1) }}"
-                                title="2024-05-27"><span>2024-05-27</span></a></li>
+                                title="Participaciones Semana 1"><span>Ver</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -87,8 +42,8 @@
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('participation.index', 8) }}"
-                                title="2024-06-03"><span>2024-06-03</span></a></li>
+                        <li><a href="{{ route('participation.index', 2) }}"
+                                title="Participaciones Semana 2"><span>Ver</span></a></li>
 
                     </ul>
                 </div>
@@ -100,8 +55,8 @@
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('participation.index', 15) }}"
-                                title="2024-06-10"><span>2024-06-10</span></a></li>
+                        <li><a href="{{ route('participation.index', 3) }}"
+                                title="Participaciones Semana 3"><span>Ver</span></a></li>
                     </ul>
                 </div>
             </li>
@@ -112,8 +67,8 @@
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('participation.index', 22) }}"
-                                title="2024-06-17"><span>2024-06-17</span></a></li>
+                        <li><a href="{{ route('participation.index', 4) }}"
+                                title="Participaciones Semana 4"><span>Ver</span></a></li>
 
                     </ul>
                 </div>
