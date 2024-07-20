@@ -13,14 +13,27 @@
                         class="nav-link @if (Route::currentRouteName() == 'user.faqs') active @endif">FAQ</a></li>
                 <li class="nav-item"><a href="{{ route('user.ganadores') }}"
                         class="nav-link @if (Route::currentRouteName() == 'user.ganadores') active @endif">GANADORES</a></li>
+                @if (Auth::guard('user')->check())
+                    <li class="nav-item">
+                        <a href="{{ route('user.logout') }}" class="nav-link">
+                            <span class="font-cubano span_menu_list text-xl">CERRAR SESIÓN</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
-            @if (!Auth::guard('user')->check())
-                <a href="{{ route('login') }}" class="login">
-                    <img src="{{ url('assets/images/home/login.png') }}" class="login-icon" alt="">
+            @if (Auth::guard('user')->check())
+                <a href="{{ route('user.profile') }}">
+                    <div class="flex_desktop">
+                        <h1 class="h1">MI PERFIL</h1>
+                        <img src="{{ url('assets/images/perfil.png') }}" alt="" class="avatar_header">
+                    </div>
                 </a>
             @else
-                <a href="{{ route('user.profile') }}" class="login">
-                    <img src="{{ url('assets/images/home/login.png') }}" class="login-icon" alt="">
+                <a href="{{ route('login') }}">
+                    <div class="flex_desktop">
+                        <h1 class="h1">INICIAR SESIÓN</h1>
+                        <img src="{{ url('assets/images/perfil.png') }}" alt="" class="avatar_header">
+                    </div>
                 </a>
             @endif
         </nav>
@@ -37,8 +50,40 @@
     <div class="menu">
         <div class="item_mobile">
             <a href="{{ url('/') }}">
-                <img src="{{ url('images/faqs/LOGO.png') }}" alt="">
+                <img src="{{ url('assets/images/game/logo.png') }}" alt="">
             </a>
+
+            <ul>
+                <li>
+                    <a href="{{ route('user.home') }}">
+                        <span class="font-cubano span_menu_list text-xl">home</span>
+                    </a>
+                </li>
+                @if (!Auth::guard('user')->check())
+                    <li>
+                        <a href="{{ route('user.registro') }}">
+                            <span class="font-cubano span_menu_list text-xl">registro</span>
+                        </a>
+                    </li>
+                @endif
+                <li>
+                    <a href="{{ route('user.faqs') }}">
+                        <span class="font-cubano span_menu_list text-xl">faqs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.ganadores') }}">
+                        <span class="font-cubano span_menu_list text-xl">ganadores</span>
+                    </a>
+                </li>
+                @if (Auth::guard('user')->check())
+                    <li>
+                        <a href="{{ route('user.logout') }}">
+                            <span class="font-cubano span_menu_list text-xl">cerrar sesión</span>
+                        </a>
+                    </li>
+                @endif
+            </ul>
             @if (Auth::guard('user')->check())
                 <a href="{{ route('user.profile') }}">
                     <div class="flex_mobile">
@@ -54,28 +99,6 @@
                     </div>
                 </a>
             @endif
-            <ul>
-                <li>
-                    <a href="{{ route('user.home') }}">
-                        <span class="font-cubano span_menu_list text-xl">home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('user.registro') }}">
-                        <span class="font-cubano span_menu_list text-xl">registro</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('user.faqs') }}">
-                        <span class="font-cubano span_menu_list text-xl">faqs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('user.ganadores') }}">
-                        <span class="font-cubano span_menu_list text-xl">ganadores</span>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>

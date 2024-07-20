@@ -35,6 +35,16 @@ class GameController extends Controller
                     'lista' => $listas,
                     'week' => $week
                 ]);
+            } else if ($week && $week->id == 3) {
+                return view('pages.game_sem_tres', [
+                    'lista' => $listas,
+                    'week' => $week
+                ]);
+            } else if ($week && $week->id == 4) {
+                return view('pages.game_sem_cuatro', [
+                    'lista' => $listas,
+                    'week' => $week
+                ]);
             }
         } else {
             return redirect()->route('mi_perfil');

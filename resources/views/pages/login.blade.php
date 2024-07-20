@@ -42,7 +42,7 @@
                         acumulan al usar las 3 vidas.</p>
                 </div>
                 <div class="items">
-                    <img src="{{ url('assets/images/home/2.png') }}" class="img_step" alt="">
+                    <img src="{{ url('assets/images/home/2_new.png') }}" class="img_step" alt="">
                     <p class="text">En la parte inferior de la pantalla tendrás una maleta a la que tendrás que arrastrar
                         todos los objetos de la lista al destino de cada semana. Cada objeto te sumará 5 puntos.</p>
                 </div>

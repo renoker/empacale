@@ -211,8 +211,7 @@
                 if (lives === 0) {
                     clearInterval(timerInterval);
                     // Popup de termiono el juego por que se terminaron sus vidas
-                    document.getElementById('cerrarMaleta').style.display = 'block';
-                    document.getElementById('droppable').style.display = 'none';
+                    saveScoreErrors(formatTime(time), score);
                     return;
                 }
                 if (itemsWithPoints.length > 0 && itemsWithPoints.every(item => !item.parentNode || item.parentNode
@@ -365,9 +364,42 @@
                 });
         }
 
+        function saveScoreErrors(time, score) {
+            fetch('/end', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    body: JSON.stringify({
+                        id: document.getElementById('partida').value,
+                        score: score
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.response == 200) {
+                        document.getElementById('cerrarMaleta').style.display = 'none'
+                        var maleta = document.getElementById('maleta')
+                        maleta.classList.remove('droppable')
+                        maleta.classList.add('droppable_gif')
+                        setTimeout(activaCierreError, 2000);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
         function activaCierre() {
             const popup_final_game = document.getElementById("popup_final_game");
             popup_final_game.classList.add('active')
+            setTimeout(redireccionar, 5000);
+        }
+
+        function activaCierreError() {
+            const popup_final_game_errores = document.getElementById("popup_final_game_errores");
+            popup_final_game_errores.classList.add('active')
             setTimeout(redireccionar, 5000);
         }
 

@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="content_btn_registro">
-                <a href="">
+                <a href="{{ route('user.registro') }}">
                     <img src="{{ url('assets/images/home/botonregistro.png') }}" class="btn_registro" alt="">
                 </a>
             </div>
@@ -39,7 +39,7 @@
                         oportunidades tendrás de mejorar tu tiempo y aumentar tu puntaje. </p>
                 </div>
                 <div class="items">
-                    <img src="{{ url('assets/images/home/2.png') }}" class="img_step" alt="">
+                    <img src="{{ url('assets/images/home/2_new.png') }}" class="img_step" alt="">
                     <p class="text">En la parte inferior de la pantalla tendrás una maleta a la que tendrás que arrastrar
                         todos los objetos de la lista del destino de cada semana. Cada objeto te sumará 5 puntos.</p>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="contenedor_imagenes_premios">
                     <img src="{{ url('assets/images/home/polaroid1.png') }}" class="premio_1" alt="">
                     <img src="{{ url('assets/images/home/polaroid2.png') }}" class="premio_2" alt="">
-                    <img src="{{ url('assets/images/home/polaroid3.png') }}" class="premio_3" alt="">
+                    <img src="{{ url('assets/images/home/polaroid3_new.png') }}" class="premio_3" alt="">
                 </div>
             </div>
         </div>

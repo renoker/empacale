@@ -5,8 +5,8 @@
 @section('content')
     <div class="content_perfil">
         <div class="cont_imgen_titulo">
-            <img src="{{ url('assets/images/mi_perfil/titulo.png') }}" class="img_titulo" alt="">
-            <h6 class="texto">¡Listo, completaste tu registro!</h6>
+            <img src="{{ url('assets/images/mi_perfil/titulo_new.png') }}" class="img_titulo" alt="">
+            <h6 class="texto">¡VAMOS POR LOS PREMIOS!</h6>
             <h6 class="texto_small">Prepárate para arrastrar los 16 objetos que te pediremos al iniciar el juego, cada uno te
                 sumará 5 puntos ¡MUCHO CUIDADO con los objetos erróneos porque te restarán 5 puntos cada uno! y si empacas 3
                 será GAME OVER. Abre bien los ojos y ponte buzo para atrapar los productos Maruchan dorados, ¡esos te dan

@@ -9,10 +9,15 @@
             <h6 class="texto">¡Listo, completaste tu registro!</h6>
             <h6 class="texto_small">¡Ahora empaca tu maleta para hacer todos los puntos que puedas, evita errores y suma
                 puntos extra con los productos Maruchan dorados! </h6>
+            <div class="cont_button">
+                <a href="{{ route('user.profile') }}">
+                    <button type="button" class="empaca">Empeca tu maleta</button>
+                </a>
+            </div>
             <div class="cont_premios">
                 <img src="{{ url('assets/images/typ/polaroid1.png') }}" alt="">
                 <img src="{{ url('assets/images/typ/polaroid2.png') }}" alt="">
-                <img src="{{ url('assets/images/typ/polaroid3.png') }}" alt="">
+                <img src="{{ url('assets/images/typ/polaroid3_new.png') }}" alt="">
             </div>
         </div>
     </div>

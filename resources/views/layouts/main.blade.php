@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/png" href="{{ url('images/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ url('web.png') }}" />
     <meta name="theme-color" content="#1EA24D">
     @yield('head')
     @vite('resources/css/app.css')

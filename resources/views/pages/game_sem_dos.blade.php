@@ -6,8 +6,45 @@
     <div id="popup_tiempo" class="active">
         <div class="opacidad">
             <div class="content_button">
-                <img src="{{ url('assets/images/game/logo.png') }}" alt="">
-                <button class="button_arranca_juego" id="startButton" onclick="startGame()">Iniciar</button>
+                <img src="{{ url('assets/images/game/precarga/titulo.png') }}" class="titulo_pop" alt="">
+                <div class="cont_cuadros">
+                    <div class="cont_informacion">
+                        @if ($week->id == 1)
+                            <img src="{{ url('assets/images/game/precarga/PLAYA.png') }}" class="titulo_de" alt="">
+                        @elseif ($week->id == 2)
+                            <img src="{{ url('assets/images/game/precarga/MAGICO.png') }}" class="titulo_de" alt="">
+                        @elseif ($week->id == 3)
+                            <img src="{{ url('assets/images/game/precarga/BOSQUE.png') }}" class="titulo_de" alt="">
+                        @elseif ($week->id == 4)
+                            <img src="{{ url('assets/images/game/precarga/CIUDAD.png') }}" class="titulo_de" alt="">
+                        @endif
+                        <ol class="ol">
+                            @foreach ($lista as $item)
+                                <li>{{ $item->name }}</li>
+                            @endforeach
+                        </ol>
+                        <div class="center">
+                            <img src="{{ url('assets/images/game/precarga/jugar.png') }}" id="startButton"
+                                class="button_arranca_juego" onclick="startGame()" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_final_game" class="">
+        <div class="opacidad">
+            <div class="popup_productos">
+                <h1 class="encabezado">¡FELICIDADES METISTE A LA <br> MALETA TODOS LOS OBJETOS!</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_final_game_errores" class="">
+        <div class="opacidad">
+            <div class="popup_productos">
+                <h1 class="encabezado">¡FELICIDADES METISTE A LA <br> MALETA TODOS LOS OBJETOS!</h1>
             </div>
         </div>
     </div>
@@ -27,8 +64,9 @@
             <p id="lives">3</p>
             <span>ERRORES</span>
         </div>
-        <div class="droppable">
+        <div class="droppable" id="maleta">
             <div class="zona" id="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <button class="guardar_productos" id="cerrarMaleta" onclick="cerrarM()">Cerrar maleta</button>
         </div>
     </div>
 @endsection

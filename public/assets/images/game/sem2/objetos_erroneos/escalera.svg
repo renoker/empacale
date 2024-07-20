@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1 1">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: .0074px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #e92e00;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: .01px;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-2" points=".6054 .0212 .6054 .9894 .64 .9792 .64 .0151 .6054 .0212"/>
+  <polygon class="cls-1" points=".3867 .2042 .6312 .2042 .6236 .1801 .3822 .1801 .3867 .2042"/>
+  <polygon class="cls-1" points=".3867 .0836 .623 .0836 .6236 .0595 .3822 .0595 .3867 .0836"/>
+  <polygon class="cls-1" points=".3867 .4565 .6312 .4565 .6236 .4324 .3822 .4324 .3867 .4565"/>
+  <polygon class="cls-1" points=".3867 .3358 .6258 .3344 .6236 .3117 .3822 .3117 .3867 .3358"/>
+  <polygon class="cls-1" points=".3867 .6979 .6244 .6979 .6236 .6738 .3822 .6738 .3867 .6979"/>
+  <polygon class="cls-1" points=".3867 .5772 .6258 .5758 .6236 .5531 .3822 .5531 .3867 .5772"/>
+  <polygon class="cls-1" points=".3867 .9501 .6258 .9474 .6236 .926 .3822 .926 .3867 .9501"/>
+  <polygon class="cls-1" points=".3867 .8294 .6312 .8294 .6236 .8053 .3822 .8053 .3867 .8294"/>
+  <polygon class="cls-2" points=".3545 .0212 .3545 .9894 .3891 .9792 .3891 .0151 .3545 .0212"/>
+</svg>
