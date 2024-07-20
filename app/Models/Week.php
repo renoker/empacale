@@ -71,7 +71,7 @@ class Week extends Model
     public static function currentWeek()
     {
         // $now = Carbon::now()->format('Y-m-d H:i:s');
-        $now = Carbon::create('2024-08-12 00:00:00')->format('Y-m-d H:i:s');
+        $now = Carbon::create('2024-07-20 00:00:00')->format('Y-m-d H:i:s');
         $week = Week::whereRaw("'$now' between start_date and end_date")
             ->first();
 
