@@ -44,7 +44,7 @@
     <div id="popup_final_game_errores" class="">
         <div class="opacidad">
             <div class="popup_productos">
-                <h1 class="encabezado">¡FELICIDADES METISTE A LA <br> MALETA TODOS LOS OBJETOS!</h1>
+                <h1 class="encabezado">¡JUEGO FINALIZADO! <br> METISTE 3 OBJETOS ERRÓNEOS A TU MALETA</h1>
             </div>
         </div>
     </div>
