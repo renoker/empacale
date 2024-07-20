@@ -42,15 +42,7 @@ class UserController extends Controller
      * -------------------------------------------------------------------------------------------*/
     function home()
     {
-        $now = Carbon::now();
-        $first_participation_day = ParticipationDay::find(1);
-        $start_promo_time = Carbon::createFromFormat('Y-m-d H:i:s', $first_participation_day->date . " " .  $first_participation_day->start_time);
-
-        if ($now->format('Y-m-d H:i:s') >= $start_promo_time->format('Y-m-d H:i:s')) {
-            return view('pages.home');
-        } else {
-            return view('pages.preview');
-        }
+        return view('pages.home');
     }
 
     /**
