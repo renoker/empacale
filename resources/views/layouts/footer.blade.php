@@ -1,6 +1,6 @@
 <footer>
     <div class="flecha_sube">
-        <img src="{{ url('assets/images/home/subir.png') }}" class="flecha_arriba" alt="">
+        <img src="{{ url('assets/images/home/subir.png') }}" id="topCero" class="flecha_arriba" alt="">
     </div>
     <div class="footer">
         <h6 class="vigencia">VIGENCIA DEL 22 DE JULIO AL 18 DE AGOSTO DE 2024</h6>

@@ -1,4 +1,4 @@
-<header>
+<header class="desk">
     <header class="header">
         <nav class="nav">
             <div class="spacio"></div>
@@ -26,3 +26,56 @@
         </nav>
     </header>
 </header>
+
+
+<header class="mobile">
+    <div class="header">
+        <img src="{{ url('assets/images/hamburguesa_blanco.png') }}" id="menu_hamburguesa" alt="">
+    </div>
+</header>
+<div class="box_menu_mobile mobile" id="menu_list">
+    <div class="menu">
+        <div class="item_mobile">
+            <a href="{{ url('/') }}">
+                <img src="{{ url('images/faqs/LOGO.png') }}" alt="">
+            </a>
+            @if (Auth::guard('user')->check())
+                <a href="{{ route('user.profile') }}">
+                    <div class="flex_mobile">
+                        <h1 class="h1">MI PERFIL</h1>
+                        <img src="{{ url('assets/images/perfil.png') }}" alt="" class="avatar_header">
+                    </div>
+                </a>
+            @else
+                <a href="{{ route('login') }}">
+                    <div class="flex_mobile">
+                        <h1 class="h1">INICIAR SESIÓN</h1>
+                        <img src="{{ url('assets/images/perfil.png') }}" alt="" class="avatar_header">
+                    </div>
+                </a>
+            @endif
+            <ul>
+                <li>
+                    <a href="{{ route('user.home') }}">
+                        <span class="font-cubano span_menu_list text-xl">home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.registro') }}">
+                        <span class="font-cubano span_menu_list text-xl">registro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.faqs') }}">
+                        <span class="font-cubano span_menu_list text-xl">faqs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.ganadores') }}">
+                        <span class="font-cubano span_menu_list text-xl">ganadores</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -46,12 +46,31 @@ footer {
 
 @media only screen and (max-width: 600px) {
     footer {
+        .flecha_sube {
+            width: 100%;
+            .flecha_arriba {
+                cursor: pointer;
+                position: absolute;
+                top: -80px;
+                right: 20px;
+                width: 35px;
+            }
+        }        
         .footer {
+            margin: 0 auto;
             .img_producto {
                 width: 50%;
                 margin: 0 auto;
             }
-            margin: 0 auto;
+            .vigencia {
+                font-family: $font_bebasneue_bold;
+                font-size: 1rem;
+            }
+            .bases {
+                font-family: $font_bebasneue_bold;
+                padding-top: 1rem;
+                font-size: 1rem;
+            }             
             .img_icon_footer {
                 width: 27px;
             }

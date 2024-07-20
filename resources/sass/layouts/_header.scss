@@ -59,22 +59,82 @@ header {
     }
 }
 
-// Media queries para responsividad
-@media (max-width: 768px) {
-    .nav {
-        flex-direction: column;
-
-        .nav-list {
-            flex-direction: column;
+@media (max-width: 600px) {
+    header {
+        top: 0px;
+        width: 100%;
+        margin: 5px auto;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        border-radius: 10px;        
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
-
-            .nav-item {
-                margin: 0.5rem 0;
-            }
+            padding: 2px 0;
+        }     
+        #menu_hamburguesa {
+            padding: 10px 10px 10px 0;
+            width: 40px;
+        }   
+    }
+    .box_menu_mobile {
+        width: 100%;
+        height: calc(100% - 0px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #7437F7, $alpha: 0.7);
+        text-align: center;
+        display: none;
+        z-index: 100;
+        &.active {
+            display: block;
         }
-
-        .login {
-            margin-top: 1rem;
+        .logo_mobile {
+            padding-top: 48px;
+            width: 190px;
+        }
+        .menu {
+            width: 80%;
+            margin: 4rem auto 0 auto;
+            text-align: center;
+            .item_mobile {
+                width: 100%;
+                img {
+                    margin: 0 auto;
+                }
+                ul {
+                    width: 100%;
+                    padding-top: 1rem;
+                    li {
+                        padding-bottom: 20px;
+                        a {
+                            span {
+                                color: #FFF;
+                                font-size: 30px;        
+                                font-family: $font_bebasneue_bold;                        
+                            }
+                        }
+                    }
+                }
+                .flex_mobile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    gap: 10px;
+                    .h1 {
+                        color: #FFF;
+                        font-size: 30px;        
+                        font-family: $font_bebasneue_bold;                                 
+                    }
+                    .avatar_header {
+                        width: 35px;
+                        margin: 0;
+                    }
+                }
+            }
         }
     }
 }

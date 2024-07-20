@@ -23,7 +23,12 @@
         <div class="back_to_home">
             <div class="content_video">
                 <img src="{{ url('assets/images/home/mecanica.png') }}" class="icon_mecanica" alt="">
-                <div class="content_video_back"></div>
+                <div class="content_video_back">
+                    <iframe class="iframe" src="https://www.youtube.com/embed/T7hU-dG7nk0?si=LjP2fan_d9DwO0ev&amp;start=1"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="content_steps">
                 <div class="items">

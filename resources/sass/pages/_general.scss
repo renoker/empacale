@@ -1,6 +1,6 @@
 // HOME
 .back_home {
-    background-image: url('../../../assets/images/home/back.png');
+    background-image: url('../../../public/assets/images/home/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,11 +38,17 @@
             .content_video_back {
                 width: 100%;
                 height: 568px;
-                background-image: url('../../../assets/images/home/video.png');
+                background-image: url('../../../public/assets/images/home/video.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;                
                 margin-bottom: 4rem;
+                .iframe {
+                    width: 96%;
+                    height: 97%;
+                    margin: 0 auto;      
+                    padding-top: 19px;          
+                }                
             }
         }
         .content_steps {
@@ -115,7 +121,7 @@
 
 // REGISTRO
 .back_registro {
-    background-image: url('../../../assets/images/registro/back.png');
+    background-image: url('../../../public/assets/images/registro/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,7 +186,7 @@
 
 // -------------------------------------------------------- TYP --------------------------------------------------------
 .back_typ {
-    background-image: url('../../../assets/images/typ/back.png');
+    background-image: url('../../../public/assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -224,7 +230,7 @@
 
 //------------------------------------------------------- LOGIN --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .back_login {
-    background-image: url('../../../assets/images/registro/back.png');
+    background-image: url('../../../public/assets/images/registro/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -312,7 +318,7 @@
 
 // -------------------------------------------------------- OLVIDE MI CONTRASEÑA --------------------------------------------------------
 .back_olvide_contrasenia {
-    background-image: url('../../../assets/images/typ/back.png');
+    background-image: url('../../../public/assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -369,7 +375,7 @@
 
 // -------------------------------------------------------- CÓDIGO LOTE --------------------------------------------------------
 .back_codigo_lote {
-    background-image: url('../../../assets/images/typ/back.png');
+    background-image: url('../../../public/assets/images/typ/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -478,7 +484,7 @@
             content: '';
             width: 60px; /* Ajusta el ancho de la imagen */
             height: 46px; /* Ajusta la altura de la imagen */
-            background-image: url('../../../assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
             background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
         }
         &::before {
@@ -488,7 +494,7 @@
             content: '';
             width: 60px; /* Ajusta el ancho de la imagen */
             height: 46px; /* Ajusta la altura de la imagen */
-            background-image: url('../../../assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
             background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
         }        
     }
@@ -497,7 +503,7 @@
 
 // -------------------------------------------------------- PERFIL --------------------------------------------------------
 .back_perfil {
-    background-image: url('../../../assets/images/mi_perfil/back.png');
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -548,7 +554,7 @@
             .cont_cuadros {
                 width: 90%;
                 height: 435px;
-                background-image: url('../../../assets/images/mi_perfil/caja.png');
+                background-image: url('../../../public/assets/images/mi_perfil/caja.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;   
@@ -627,7 +633,7 @@
 
 // -------------------------------------------------------- PREGUNTAS FRECUENTES --------------------------------------------------------
 .back_faqs {
-    background-image: url('../../../assets/images/mi_perfil/back.png');
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -666,6 +672,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
             .content_item {
                 width: 48%;
                 position: relative;
@@ -673,10 +681,10 @@
                     width: 100%;
                     background-color: var(--morado);
                     text-align: center;
-                    padding: 15px 0px;
+                    padding: 15px 30px 15px 15px;
                     border-radius: 10px;
                     position: absolute;
-                    right: 15px;
+                    right: 10px;
                     top: -15px;
                     z-index: 10;
                     .mas {
@@ -684,23 +692,26 @@
                         right: 10px;
                         top: 10px;
                         cursor: pointer;
-                        width: 44px;
+                        width: 35px;
                     }
                     span {
                         font-family: $font_bebasneue_regular;
                         color: #fff;color: var(--blanco);   
                         font-weight: bold;
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                     }
                 }
                 .partDescripcion {
                     width: 100%;
-                    min-height: 64px;
+                    min-height: 54px;
                     background-color: #25021C;
                     text-align: left;
-                    padding: 20px 2rem;
+                    padding: 15px 2rem;
                     border-radius: 10px;
                     z-index: 5;
+                    &.alto {
+                        min-height: 74px;
+                    }
                     p {
                         font-family: $font_bebasneue_regular;
                         display: none;
@@ -721,7 +732,7 @@
 
 // -------------------------------------------------------- GANADORES --------------------------------------------------------
 .back_ganadores {
-    background-image: url('../../../assets/images/mi_perfil/back.png');
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -735,7 +746,7 @@
 
 // GAME --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
 .body_game {
-    background-image: url('../../../assets/images/game/sem1/playamaruchan.png');
+    background-image: url('../../../public/assets/images/game/sem1/playamaruchan.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -746,7 +757,7 @@
 }
 
 .body_game_dos {
-    background-image: url('../../../assets/images/game/sem2/BACK-2.png');
+    background-image: url('../../../public/assets/images/game/sem2/BACK-2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -760,7 +771,7 @@
     width: 100%;
     height: 100%;
     .conten_tiempo {
-        background-image: url(../../../assets/images/game/back_medidor.png);
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
         width: 180px;
         height: 100px;
         background-size: 100% 100%;
@@ -781,7 +792,7 @@
     }
     
     .conten_puntos {
-        background-image: url(../../../assets/images/game/back_medidor.png);
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
         width: 180px;
         height: 100px;
         background-size: 100% 100%;
@@ -811,7 +822,7 @@
     }    
     
     .conten_errores {
-        background-image: url(../../../assets/images/game/back_medidor.png);
+        background-image: url(../../../public/assets/images/game/back_medidor.png);
         width: 200px;
         height: 100px;
         background-size: 100% 100%;
@@ -856,7 +867,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../../../assets/images/game/maleta.png');
+    background-image: url('../../../public/assets/images/game/maleta.png');
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;
@@ -893,7 +904,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../../../assets/images/game/cerrada.png');
+    background-image: url('../../../public/assets/images/game/cerrada.png');
     background-size: 100% 100%;
     background-position: center;
     transition: border 0.3s;
@@ -914,10 +925,767 @@
     }    
 }
 
+// ----------------------------------------------------------------- MOBILE ----------------------------------------------------------------- -----------------------------------------------------------------
+
 @media (max-width: 768px) {
+    
+// HOME
+.back_home {
+    background-image: url('../../../public/assets/images/home/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;    
+}
+.content_home {    
+    width: 100%;
+    .contenedor_banner {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        padding-top: 49px;
+        .img_gif {
+            width: 100%;
+        }
+        .content_btn_registro {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: -20px;
+            .btn_registro {
+                width: 130px;
+            }
+        }        
+    }
+    .back_to_home {
+        width: 80%;
+        margin: 0 auto;
+        .content_video {
+            width: 100%;
+            text-align: center;
+            .icon_mecanica {
+                width: 200px;
+                padding: 3rem 0 1rem 0;
+            }
+            .content_video_back {
+                width: 300px;
+                height: 162px;
+                background-image: url('../../../public/assets/images/home/video.png');
+                background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;                
+                margin-bottom: 4rem;
+                .iframe {
+                    width: 287px;
+                    margin: 0 auto;      
+                    padding-top: 6px;          
+                }
+            }
+        }
+        .content_steps {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            .items {
+                width: 45%;
+                text-align: left; 
+                .img_step {                    
+                    width: 100%;
+                }
+                .text {
+                    font-family: $font_bebasneue_regular;
+                    font-size: 12px;
+                }
+            }
+        }
+        .content_premios {
+            width: 100%;
+            text-align: center;
+            .icon_premios {
+                width: 200px;
+                padding: 4rem 0 1rem 0;
+            }    
+            .h6 {
+                font-family: $font_bebasneue_bold;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }    
+            .texto {
+                font-family: $font_bebasneue_regular;
+                font-size: 1rem;    
+                padding: 5px 0;               
+            }  
+            .texto_small {
+                font-family: $font_bebasneue_regular;
+                font-size: 0.7rem;                   
+            }              
+            .contenedor_imagenes_premios {
+                width: 100%;
+                height: 375px;
+                position: relative;
+                .premio_1 {
+                    width: 70%;
+                    position: absolute;
+                    left: 0;
+                    top: 20px;
+                    z-index: 1;
+                }
+                .premio_2 {
+                    width: 65%;
+                    position: absolute;
+                    right: 0;
+                    top: 140px;
+                    z-index: 2;
+                }      
+                .premio_3 {
+                    width: 65%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0px;
+                    z-index: 1;
+                }                          
+            }  
+        }
+    }
+}
+
+// ------------------------------------------------------------------- REGISTRO -------------------------------------------------------------------
+.back_registro {
+    background-image: url('../../../public/assets/images/registro/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;    
+}
+
+.content_registro {
+    width: 80%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 200px;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+        }
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        .cont_from_registro {
+            width: 100%;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }
+        .cont_imagen_ilustrativa {
+            width: 100%;
+            text-align: center;
+            padding-top: 3rem;
+            .img_logo_registro {
+                width: 100%;
+            }
+        }        
+    }
+}
+
+// -------------------------------------------------------- TYP --------------------------------------------------------
+.back_typ {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_typ {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 200px;
+            padding-top: 4rem;
+            padding-bottom: 1rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 10px;    
+        }  
+        .texto_small {
+            width: 90%;
+            margin: 0 auto;
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 0.8rem;                   
+        }  
+        .cont_premios {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            margin: 4rem 0 8rem 0;
+            img {
+                width: 80%;
+            }
+        }        
+    }      
+}
+
+//------------------------------------------------------- LOGIN --------- -------------- ----------------- ------------------------ -------------------------------- --------------------------------------------------------
+.back_login {
+    background-image: url('../../../public/assets/images/registro/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;    
+}
+
+.content_login {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 200px;
+            padding: 4rem 0 1rem 0;
+        }
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        .cont_from_registro {
+            width: 100%;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                
+            }   
+            .conten_contrasenia {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                a {
+                    text-align: left;
+                    font-family: $font_bebasneue_regular;
+                    font-size: 1rem;  
+                    text-decoration: underline;                    
+                }
+            }     
+            .cont_button {
+                width: 100%;
+                text-align: right;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }
+        .cont_imagen_ilustrativa {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding-top: 3rem;
+            .items {
+                width: 44%;
+                text-align: left; 
+                .img_step {                    
+                    width: 100%;
+                }
+                .text {
+                    font-family: $font_bebasneue_regular;
+                    font-size: 12px;
+                }
+            }
+        }        
+    }
+}
+
+// -------------------------------------------------------- OLVIDE MI CONTRASEÑA --------------------------------------------------------
+.back_olvide_contrasenia {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_olvide_contrasenia {
+    width: 80%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 500px;
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }      
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1.2rem;                  
+        }  
+        .cont_from_registro {
+            width: 50%;
+            margin: 4rem auto 0 auto;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }                               
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }         
+        }       
+    }      
+}
+
+// -------------------------------------------------------- CÓDIGO LOTE --------------------------------------------------------
+.back_codigo_lote {
+    background-image: url('../../../public/assets/images/typ/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+.content_codigo_lote {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        .img_titulo {
+            width: 300px;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+        }
+        .texto {
+            text-align: left;
+            font-family: $font_bebasneue_bold;
+            font-size: 1rem;   
+            padding-bottom: 5px;    
+        }         
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 0.8rem;                  
+        }  
+        .cont_from_lote {
+            width: 90%;
+            margin: 2rem auto 0 auto;
+            .input-container {
+                position: relative;
+                margin-bottom: 1rem;
+                input {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                    &::placeholder {
+                        color: var(--blanco);
+                    }
+                }
+                select {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: var(--morado); /* Fondo morado */
+                    color: var(--blanco);
+                    font-size: 14px;
+                    outline: none;
+                }                                
+            }        
+            .cont_button {
+                width: 100%;
+                text-align: center;
+                .btn_image {
+                    border: none; 
+                    padding: 0;
+                    width: 130px;
+                }
+            }   
+            .content_advertencias {
+                width: 100%;
+                .popup_active {
+                    font-family: $font_bold;
+                    color: var(--morado);
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                    font-size: 0.7rem;
+                    cursor: pointer;
+                }
+                .descripcion {
+                    text-align: left;
+                    font-family: $font_bold;
+                    color: var(--negro);
+                    padding-top: 0.5rem;
+                    font-size: 0.8rem;
+                }                
+            }      
+        }       
+    }      
+}
+
+.barra_naranja {
+    margin-top: 4rem;
+    width: 100%;
+    padding: 2rem 0;
+    background-color: #E78331;
+    .h1 {
+        position: relative;
+        text-align: center;
+        font-family: $font_poppins_extrabold;
+        font-size: 15px;
+        width: 60%;
+        margin: 0 auto;
+        color: var(--blanco);
+        &::after {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            content: '';
+            width: 34px;
+            height: 26px; 
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+        }
+        &::before {
+            position: absolute;
+            top: 0;
+            left: -50px;
+            content: '';
+            width: 34px;
+            height: 26px; 
+            background-image: url('../../../public/assets/images/codigo_lote/alerta.png'); /* Ruta de la imagen */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+        }        
+    }
+}
+
+
+// -------------------------------------------------------- PERFIL --------------------------------------------------------
+.back_perfil {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_perfil {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+        .img_titulo {
+            width: 200px;
+            padding-top: 5rem;
+            padding-bottom: 1rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1.4rem;   
+            padding-bottom: 10px;    
+            text-align: left;
+        }  
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 0.8rem;                   
+        }         
+    }
+    .content_title {
+        width: 75%;
+        margin: 0 auto;
+        text-align: right;
+        .titulo {
+            width: 300px;
+            padding-bottom: 1rem;
+        }        
+    }
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        .cont_detalle {
+            width: 100%;
+            .cont_cuadros {
+                width: 100%;
+                height: 306px;
+                background-image: url('../../../public/assets/images/mi_perfil/caja.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;   
+                .cont_informacion {
+                    width: 90%;
+                    height: 100px;
+                    margin: 0 auto;
+                    padding-top: 1rem;
+                    .h1 {
+                        font-family: $font_bebasneue_bold;
+                        text-align: center;
+                        font-size: 1rem;
+                        padding-bottom: 1rem;
+                    }
+                    .content_blanco {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: var(--blanco);
+                        margin-bottom: 0.6rem;
+                        .text {
+                            font-family: $font_bebasneue_bold;
+                        }
+                    }
+                    .content_button {
+                        width: 100%;
+                        text-align: right;
+                        &.pt {
+                            padding-top: 0.3rem;
+                        }
+                        .texto {
+                            font-family: $font_bebasneue_bold;
+                            font-size: 0.8rem;   
+                            padding-bottom: 5px;    
+                            text-align: left;
+                        }  
+                        .texto_small {
+                            text-align: left;
+                            font-family: $font_bebasneue_regular;
+                            font-size: 0.8rem;   
+                            padding-bottom: 1rem;                
+                        }                          
+                        img {
+                            width: 100px;
+                        }
+                    }
+                }             
+            }
+
+        }
+        .cont_instrucciones {
+            width: 100%;
+            padding-top: 5rem;
+            .cont {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;                    
+                    .img_item {
+                        width: 200px;
+                    }
+                    .txt {
+                        text-align: left;
+                        font-family: $font_bebasneue_regular;
+                        font-size: 12px;                        
+                    }
+                }
+            }
+        }        
+    }    
+}
+
+// -------------------------------------------------------- PREGUNTAS FRECUENTES --------------------------------------------------------
+.back_faqs {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_faqs {
+    width: 90%;
+    margin: 0 auto;
+    .cont_imgen_titulo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 4rem;
+        .img_titulo {
+            width: 300px;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+        }
+        .texto {
+            font-family: $font_bebasneue_bold;
+            font-size: 1rem;   
+            padding-bottom: 10px;    
+            text-align: left;
+        }  
+        .texto_small {
+            text-align: left;
+            font-family: $font_bebasneue_regular;
+            font-size: 1rem;                   
+        }         
+    }
+    .content_faqs {
+        width: 100%;  
+        margin-top: 1rem;
+        margin-bottom: 10rem;
+        .cont_f {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 30px;
+            .content_item {
+                width: 100%;
+                position: relative;
+                .partTexto {
+                    width: 100%;
+                    background-color: var(--morado);
+                    text-align: center;
+                    padding: 10px 30px 10px 10px;
+                    border-radius: 10px;
+                    position: absolute;
+                    right: 10px;
+                    top: -10px;
+                    z-index: 10;
+                    .mas {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        cursor: pointer;
+                        width: 20px;
+                    }
+                    span {
+                        font-family: $font_bebasneue_regular;
+                        color: #fff;color: var(--blanco);   
+                        font-weight: bold;
+                        font-size: 11px;
+                    }
+                }
+                .partDescripcion {
+                    width: 100%;
+                    min-height: 40px;
+                    background-color: #25021C;
+                    text-align: left;
+                    padding: 20px 2rem;
+                    border-radius: 10px;
+                    z-index: 5;
+                    &.alto {
+                        min-height: 59px;
+                    }                    
+                    p {
+                        font-family: $font_bebasneue_regular;
+                        display: none;
+                        color: #fff;color: var(--blanco);   
+                        font-weight: 500;
+                        font-size: 12px;
+                        padding: 2rem 0 1rem 0px;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }        
+            }
+        }
+    }
+
+}
+
+// -------------------------------------------------------- GANADORES --------------------------------------------------------
+.back_ganadores {
+    background-image: url('../../../public/assets/images/mi_perfil/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;      
+}
+
+.content_ganadores {
+    width: 100%;
+    .img_playa {
+        padding-top: 49px;
+    }
+}    
 
     .body_game {
-        background-image: url('../../../assets/images/game/sem1/playa-back-mobile.png');
+        background-image: url('../../../public/assets/images/game/sem1/playa-back-mobile.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -928,7 +1696,7 @@
     }    
 
     .body_game_dos {
-        background-image: url('../../../assets/images/game/sem2/PANTALLA-2-MOBILE.png');
+        background-image: url('../../../public/assets/images/game/sem2/PANTALLA-2-MOBILE.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -942,7 +1710,7 @@
         width: 100%;
         height: 100%;
         .conten_tiempo {
-            background-image: url(../../../assets/images/game/back_medidor.png);
+            background-image: url(../../../public/assets/images/game/back_medidor.png);
             width: 100px;
             height: 60px;
             background-size: 100% 100%;
@@ -963,7 +1731,7 @@
         }
         
         .conten_puntos {
-            background-image: url(../../../assets/images/game/back_medidor.png);
+            background-image: url(../../../public/assets/images/game/back_medidor.png);
             width: 100px;
             height: 60px;
             background-size: 100% 100%;
@@ -993,7 +1761,7 @@
         }    
         
         .conten_errores {
-            background-image: url(../../../assets/images/game/back_medidor.png);
+            background-image: url(../../../public/assets/images/game/back_medidor.png);
             width: 110px;
             height: 60px;
             background-size: 100% 100%;
@@ -1038,7 +1806,7 @@
         bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
-        background-image: url('../../../assets/images/game/maleta.png');
+        background-image: url('../../../public/assets/images/game/maleta.png');
         background-size: 100% 100%;
         background-position: center;
         transition: border 0.3s;
@@ -1075,7 +1843,7 @@
         bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
-        background-image: url('../../../assets/images/game/cerrada.png');
+        background-image: url('../../../public/assets/images/game/cerrada.png');
         background-size: 100% 100%;
         background-position: center;
         transition: border 0.3s;
