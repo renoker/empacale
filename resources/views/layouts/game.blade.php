@@ -117,7 +117,7 @@
                 document.body.appendChild(item);
                 items.push(item);
 
-                if (config.points > 0) {
+                if (config.points == 5) {
                     itemsWithPoints.push(item);
                 }
 
@@ -293,6 +293,10 @@
             items.forEach(item => {
                 moveItem(item, speedMultiplier);
             });
+        }
+
+        function countItemsWithFivePoints() {
+            return itemsConfig.filter(config => config.points === 5).length;
         }
 
         function agregarProducto(id) {
