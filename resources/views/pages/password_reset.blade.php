@@ -13,6 +13,7 @@
                     @csrf
                     @method('POST')
                     <div class="input-container">
+                        <input type="hidden" name="token" value="{{ $password_reset->token }}">
                         <input type="password" id="password" name="password" placeholder="Contraseña">
                     </div>
 
