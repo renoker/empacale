@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\ParticipationController;
@@ -32,4 +33,24 @@ Route::group(['middleware' => ['auth:user']], function () {
     Route::post('/end',                     [GameController::class, 'game_store_end']);
     Route::post('/prod',                    [GameController::class, 'addProductos']);
     Route::get('/images',                   [ImagesController::class, 'getImages']);
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| PANEL DE ADMNISTRACION
+|--------------------------------------------------------------------------
+*/
+Route::get('/backoffice',           [AdminController::class, 'index'])->name('admin.index');
+Route::post('/backoffice/login',    [AdminController::class, 'login'])->name('admin.login');
+
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/backoffice/logout',                                                [AdminController::class, 'logout'])->name('admin.logout');
+
+    Route::get('/backoffice/participation/participation_day/{participation_day}',   [ParticipationController::class, 'index'])->name('participation.index');
+    Route::get('/backoffice/participation/{participation}',                         [ParticipationController::class, 'show'])->name('participation.show');
+    Route::get('/backoffice/participation/{participation_day}/export',              [ParticipationController::class, 'export'])->name('participation.export');
+
+    Route::get('/backoffice/users/{week}',                                          [UserController::class, 'index'])->name('users.index');
+    Route::get('/backoffice/users/{week}/export',                                   [UserController::class, 'export'])->name('users.export');
 });
