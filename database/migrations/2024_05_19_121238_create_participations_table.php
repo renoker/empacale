@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('week_id');
+            $table->foreign('week_id')->references('id')->on('weeks');
             $table->unsignedBigInteger('participation_day_id');
+            $table->foreign('participation_day_id')->references('id')->on('participation_days');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('participation_day_id')->references('id')->on('participation_days');
             $table->string('codigo_lote');
             $table->timestamps();
         });

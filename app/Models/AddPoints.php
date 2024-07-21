@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AddPoints extends Model
 {
     use HasFactory;
+
+    public function image()
+    {
+        return $this->belongsTo(Images::class);
+    }
 }

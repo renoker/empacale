@@ -1,15 +1,15 @@
 @extends('backoffice.commons.layout')
 
 @section('head')
-    <title>Detalle de vidas</title>
+    <title>Detalle del juego</title>
     <meta name="description" content="Categorias Blog">
 @endsection
 
 @section('content')
     <div id="page-title">
         <div>
-            <h2>Vidas</h2>
-            <p>Listada de vidas</p>
+            <h2>Detalles</h2>
+            <p>Listada de imagenes</p>
         </div>
     </div>
 
@@ -33,23 +33,19 @@
                     id="datatable-example">
                     <thead>
                         <tr>
-                            <th>Usuario</th>
-                            <th>Inició</th>
-                            <th>Fin</th>
+                            <th>ID</th>
+                            <th>Imagen</th>
                             <th>Puntos</th>
-                            <th>Detalle</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($partidas as $item)
+                        @foreach ($lista as $item)
                             <tr>
-                                <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->start }}</td>
-                                <td>{{ $item->end }}</td>
-                                <td>{{ $item->score }}</td>
-                                <td><a href="{{ route('score.detalle', $item) }}"><button
-                                            class="btn btn-alt btn-hover btn-info"><span>Detalle</span><i
-                                                class="glyph-icon icon-eye"></i></button></a></td>
+                                <td>{{ $item->id }}</td>
+                                <td>
+                                    <img src="{{ $item->image->src }}" style="width: 40px" alt="">
+                                </td>
+                                <td>{{ $item->image->points }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -6,10 +6,10 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use App\Models\Participation;
-use App\Models\ParticipationDay;
 use App\Models\Week;
+use Illuminate\Support\Facades\DB;
 
-class ParticipationsExport implements FromCollection, WithMapping, WithHeadings
+class GanadoresExport implements FromCollection, WithMapping, WithHeadings
 {
     protected Week $week;
 
@@ -20,7 +20,18 @@ class ParticipationsExport implements FromCollection, WithMapping, WithHeadings
 
     public function collection()
     {
-        $participations = Participation::where('week_id', $this->week->id)->get();
+        $participations = Participation::join('scores', 'participations.id', '=', 'scores.participation_id')
+            ->where('participations.week_id', $this->week->id)
+            ->whereNotNull('scores.start')
+            ->whereNotNull('scores.end')
+            ->select(
+                'participations.*',
+                'scores.score as score',
+                'scores.start as start',
+                'scores.end as end'
+            )
+            ->orderBy('score', 'desc')
+            ->get();
 
         return $participations;
     }

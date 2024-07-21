@@ -9,4 +9,9 @@ class Images extends Model
 {
     use HasFactory;
     protected $fillable = ['images'];
+
+    public function score()
+    {
+        return $this->belongsTo(Score::class);
+    }
 }

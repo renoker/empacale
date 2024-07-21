@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\GanadoresExport;
 use Illuminate\Http\Request;
 use App\Models\Participation;
 use App\Models\ParticipationDay;
@@ -11,6 +12,10 @@ use Illuminate\Support\Carbon;
 use App\Http\Requests\ParticipationStoreRequest;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ParticipationsExport;
+use App\Models\AddPoints;
+use App\Models\Score;
+use App\Models\Week;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ParticipationController extends Controller
@@ -33,10 +38,12 @@ class ParticipationController extends Controller
     public function store(ParticipationStoreRequest $request)
     {
         $user = Auth::guard('user')->user();
+        $week = Week::currentWeek();
         $participation_day = ParticipationDay::where('date', Carbon::now()->format('Y-m-d'))->first();
 
         Participation::create([
             'user_id'               => $user->id,
+            'week_id'               => $week->id,
             'participation_day_id'  => $participation_day->id,
             'codigo_lote'           => $request->codigo_lote,
             'product_id'            => $request->product_id,
@@ -53,12 +60,12 @@ class ParticipationController extends Controller
     /**
      *
      * -------------------------------------------------------------------------------------------*/
-    public function index(ParticipationDay $participation_day)
+    public function index(Week $week)
     {
-        $participations = Participation::where('participation_day_id', $participation_day->id)->get();
+        $participations = Participation::where('week_id', $week->id)->get();
 
         return view('backoffice.participations.index', [
-            'participation_day' => $participation_day,
+            'week' => $week,
             'participations'    => $participations,
         ]);
     }
@@ -66,9 +73,9 @@ class ParticipationController extends Controller
     /**
      *
      * -------------------------------------------------------------------------------------------*/
-    public function export(ParticipationDay $participation_day)
+    public function export(Week $week)
     {
-        return Excel::download(new ParticipationsExport($participation_day), 'participaciones_' . $participation_day->date . '.xlsx');
+        return Excel::download(new ParticipationsExport($week), 'participaciones_' . $week->name . '.xlsx');
     }
 
     /**
@@ -76,8 +83,54 @@ class ParticipationController extends Controller
      * -------------------------------------------------------------------------------------------*/
     public function show(Participation $participation)
     {
+        $partidas = Score::where('participation_id', $participation->id)->get();
         return view('backoffice.participations.show', [
-            'participation'    => $participation,
+            'partidas'    => $partidas,
         ]);
+    }
+
+    public function list_score(Score $score)
+    {
+        $lista = AddPoints::where('score_id', $score->id)->get();
+        return view('backoffice.participations.detalle', [
+            'lista'    => $lista,
+        ]);
+    }
+
+    /**
+     *
+     * -------------------------------------------------------------------------------------------*/
+    public function ganadores(Week $week)
+    {
+        $participations = Participation::join('scores', 'participations.id', '=', 'scores.participation_id')
+            ->where('participations.week_id', $week->id)
+            ->whereNotNull('scores.start')
+            ->whereNotNull('scores.end')
+            ->select(
+                'participations.*',
+                'scores.score as score',
+                'scores.start as start',
+                'scores.end as end',
+                DB::raw('TIMESTAMPDIFF(SECOND, scores.start, scores.end) as duration_seconds'),
+                DB::raw('CONCAT(FLOOR(TIMESTAMPDIFF(SECOND, scores.start, scores.end) / 60), "m ", MOD(TIMESTAMPDIFF(SECOND, scores.start, scores.end), 60), "s") as duration_minutes_seconds'),
+                DB::raw('SEC_TO_TIME(TIMESTAMPDIFF(SECOND, scores.start, scores.end)) as duration_hms')
+            )
+            ->orderBy('score', 'desc')
+            ->get();
+
+
+
+        return view('backoffice.participations.ganadores', [
+            'week'              => $week,
+            'participations'    => $participations,
+        ]);
+    }
+
+    /**
+     *
+     * -------------------------------------------------------------------------------------------*/
+    public function ganadoresExport(Week $week)
+    {
+        return Excel::download(new GanadoresExport($week), 'ranking_' . $week->name . '.xlsx');
     }
 }

@@ -46,10 +46,13 @@ Route::post('/backoffice/login',    [AdminController::class, 'login'])->name('ad
 
 Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/backoffice/logout',                                                [AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('/backoffice/ganadores/week/{week}',                                 [ParticipationController::class, 'ganadores'])->name('ganadores.index');
+    Route::get('/backoffice/ganadores/{week}/export',                               [ParticipationController::class, 'ganadoresExport'])->name('ganadores.export');
 
-    Route::get('/backoffice/participation/participation_day/{participation_day}',   [ParticipationController::class, 'index'])->name('participation.index');
+    Route::get('/backoffice/participation/week/{week}',                             [ParticipationController::class, 'index'])->name('participation.index');
     Route::get('/backoffice/participation/{participation}',                         [ParticipationController::class, 'show'])->name('participation.show');
-    Route::get('/backoffice/participation/{participation_day}/export',              [ParticipationController::class, 'export'])->name('participation.export');
+    Route::get('/backoffice/participation/game/{score}',                            [ParticipationController::class, 'list_score'])->name('score.detalle');
+    Route::get('/backoffice/participation/{week}/export',                           [ParticipationController::class, 'export'])->name('participation.export');
 
     Route::get('/backoffice/users/{week}',                                          [UserController::class, 'index'])->name('users.index');
     Route::get('/backoffice/users/{week}/export',                                   [UserController::class, 'export'])->name('users.export');

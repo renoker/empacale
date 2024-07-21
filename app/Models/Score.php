@@ -12,6 +12,16 @@ class Score extends Model
 
     protected $fillable = ['scores'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Images::class);
+    }
+
     public function calcularDiferencia($start, $end)
     {
         // Fecha de inicio

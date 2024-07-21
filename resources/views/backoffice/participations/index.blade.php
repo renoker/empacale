@@ -1,15 +1,15 @@
 @extends('backoffice.commons.layout')
 
 @section('head')
-    <title>Participaciones día {{ $participation_day->date }}</title>
+    <title>Participaciones {{ $week->name }}</title>
     <meta name="description" content="Categorias Blog">
 @endsection
 
 @section('content')
     <div id="page-title">
         <div>
-            <h2>Participaciones día {{ $participation_day->date }}</h2>
-            <p>Listado de Participaciones {{ $participation_day->date }}</p>
+            <h2>Participaciones {{ $week->name }}</h2>
+            <p>Listado de Participaciones {{ $week->name }}</p>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
 
                 </h3>
                 <div class="col-sm-7 float-right text-right">
-                    <a href="{{ route('participation.export', $participation_day) }}">
+                    <a href="{{ route('participation.export', $week) }}">
                         <button class="btn btn-alt btn-hover btn-info">
                             <span>Descargar</span>
                             <i class="glyph-icon icon-pencil"></i>
@@ -38,7 +38,8 @@
                             <th>Usuario</th>
                             <th>Código Lote</th>
                             <th>Producto</th>
-                            <th>Ver imágenes</th>
+                            <th>Vidas usadas</th>
+                            <th>Ver juegos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +50,9 @@
                                 <td>{{ $participation->user->name }}</td>
                                 <td>{{ $participation->codigo_lote }}</td>
                                 <td>{{ $participation->product->name }}</td>
+                                <td>{{ $participation->no_vidas() }}</td>
                                 <td><a href="{{ route('participation.show', $participation) }}"><button
-                                            class="btn btn-alt btn-hover btn-info"><span>Ver imágenes</span><i
+                                            class="btn btn-alt btn-hover btn-info"><span>Ver juegos</span><i
                                                 class="glyph-icon icon-eye"></i></button></a></td>
                             </tr>
                         @endforeach

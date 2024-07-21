@@ -1,15 +1,15 @@
 @extends('backoffice.commons.layout')
 
 @section('head')
-    <title>Detalle de vidas</title>
+    <title>Participaciones {{ $week->name }}</title>
     <meta name="description" content="Categorias Blog">
 @endsection
 
 @section('content')
     <div id="page-title">
         <div>
-            <h2>Vidas</h2>
-            <p>Listada de vidas</p>
+            <h2>Participaciones {{ $week->name }}</h2>
+            <p>Listado de Participaciones {{ $week->name }}</p>
         </div>
     </div>
 
@@ -19,14 +19,14 @@
                 <h3 class="title-hero col-sm-5">
 
                 </h3>
-                {{-- <div class="col-sm-7 float-right text-right">
-                    <a href="{{ route('participation.export', $participation_day) }}">
+                <div class="col-sm-7 float-right text-right">
+                    <a href="{{ route('ganadores.export', $week) }}">
                         <button class="btn btn-alt btn-hover btn-info">
                             <span>Descargar</span>
                             <i class="glyph-icon icon-pencil"></i>
                         </button>
                     </a>
-                </div> --}}
+                </div>
             </div>
             <div class="example-box-wrapper">
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
@@ -34,22 +34,21 @@
                     <thead>
                         <tr>
                             <th>Usuario</th>
-                            <th>Inició</th>
-                            <th>Fin</th>
-                            <th>Puntos</th>
-                            <th>Detalle</th>
+                            <th>Semana</th>
+                            <th>Score</th>
+                            <th>Duración</th>
+                            <th>D</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($partidas as $item)
+                        @foreach ($participations as $item)
                             <tr>
                                 <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->start }}</td>
-                                <td>{{ $item->end }}</td>
+                                <td>{{ $week->name }}</td>
                                 <td>{{ $item->score }}</td>
-                                <td><a href="{{ route('score.detalle', $item) }}"><button
-                                            class="btn btn-alt btn-hover btn-info"><span>Detalle</span><i
-                                                class="glyph-icon icon-eye"></i></button></a></td>
+                                <td>{{ $item->calcularDiferencia($item->start, $item->end) }}
+                                </td>
+                                <td>{{ $item->duration_hms }}</td>
                             </tr>
                         @endforeach
                     </tbody>
