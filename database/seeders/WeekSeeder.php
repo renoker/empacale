@@ -16,7 +16,7 @@ class WeekSeeder extends Seeder
 
         Week::create([
             'name'          => 'Semana 1',
-            'start_date'    => '2024-07-20 00:00:00',
+            'start_date'    => '2024-07-22 00:00:00',
             'end_date'      => '2024-07-28 23:59:59',
         ]);
 
