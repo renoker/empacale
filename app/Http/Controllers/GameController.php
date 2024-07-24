@@ -6,7 +6,6 @@ use App\Http\Requests\GameRequest;
 use App\Models\AddPoints;
 use App\Models\ListProduct;
 use App\Models\Participation;
-use App\Models\ParticipationDay;
 use App\Models\Score;
 use App\Models\Week;
 use Carbon\Carbon;
@@ -56,15 +55,19 @@ class GameController extends Controller
         $user = Auth::guard('user')->user();
         $participation = Score::where('user_id', $user->id)->where('id', $request->idPartida)->first();
 
+
         if (!$participation) {
             return response()->json(['Response' => 'No se encontró la participación'], 404);
         } else {
-            $row = new AddPoints();
-            $row->user_id = $user->id;
-            $row->score_id = $participation->id;
-            $row->image_id = $request->id;
-            $row->save();
-            return response()->json(['Response' => $row->id]);
+            $validation = AddPoints::where('user_id', $user->id)->where('score_id', $participation->id)->where('image_id', $request->id)->first();
+            if (empty($validation->id)) {
+                $row = new AddPoints();
+                $row->user_id = $user->id;
+                $row->score_id = $participation->id;
+                $row->image_id = $request->id;
+                $row->save();
+                return response()->json(['Response' => $row->id]);
+            }
         }
     }
 

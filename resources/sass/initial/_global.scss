@@ -1,82 +1,80 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 a:hover {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-html{
-  scroll-behavior: smooth;
-  font-size: 16px;
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-body{
-  // background-image: url('../../../assets/images/mi_perfil/back.png');
-  // background-size: cover;
-  // background-repeat: no-repeat;  
-  background-color: var(--amarillo);  
+body {
+    // background-image: url('../../../assets/images/mi_perfil/back.png');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-color: var(--amarillo);
 }
 
-.main{
-  width: $width-general;
-  height: auto;
-  margin: 0 auto;  
-  position: relative;
+.main {
+    width: $width-general;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
 }
 
 .main_global {
-  width: $width-general;
-  height: auto;
-  margin: 0 auto;  
+    width: $width-general;
+    height: auto;
+    margin: 0 auto;
 }
 
 .desk {
-  display: block;
+    display: block;
 }
 
 .mobile {
-  display: none;
+    display: none;
 }
 
 @media only screen and (max-width: 600px) {
-  
-  .desk {
-      display: none;
-  }
-  .mobile {
-      display: block;
-  }    
+    .desk {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
 
-  .main{
-    width: 100%;
-    height: auto;
-    margin: 0 auto;  
-    position: relative;
-  }
-  
-  .main_global {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;  
-  }  
+    .main {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+    }
 
-  main{
-    width: 100%;
+    .main_global {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
     height: 100%;
-    margin: 0 auto;
-    position: relative;
-  }
-
 }
-
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
