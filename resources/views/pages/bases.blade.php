@@ -259,21 +259,22 @@
             </h1>
             <h1 class="text-normal pb-5">
                 <span class="font-bold">X. SELECCIÓN DE GANADORES</span> <br>
-                a) Cada día durante la vigencia de la PROMOCIÓN ganará el participante que haya subido primero a LA PÁGINA
-                las 10 fotografías más creativas y que cumplan con todos los requisitos del del reto respectivo de la Semana
-                1, Semana 2 y Semana 3, mientras que ganará el participante que haya subido primero a LA PÁGINA las 3
-                fotografías más creativas y que cumplan con todos los requisitos del del reto respectivo de la Semana 4.
+                a) Cada semana durante la vigencia de la PROMOCIÓN ganarán los 3 usuarios que hayan participado en el juego
+                de la PÁGINA web empacale.maruchan.com.mx y que hayan conseguido completar la lista de objetos y la mayor
+                cantidad de puntos en el menor tiempo posible.
                 <br>
                 b) En caso de empate se tomarán en cuenta los siguientes factores para el desempate:
                 <br>
-                1) En caso de empate en cuanto a la hora en que las fotografías fueron subidas a LA PÁGINA, se seleccionarán
-                como
-                ganador al participante que haya subido las fotografías más creativas y divertidas.
-
-                c) En total podrán ser 28 ganadores al finalizar la PROMOCIÓN.
+                1) Se toma en cuenta la hora del registro y/o la participación en el juego.
+                <br>
+                2) Se tomará quien haya registrado el código lote del producto Maruchan con mayor anticipación.
+                <br>
+                c) En total son 12 ganadores al finalizar la PROMOCIÓN.
+                <br>
                 d) Los ganadores de los premios NO podrán volver a ganar dentro de la PROMOCIÓN en las semanas posteriores a
-                su
-                triunfo.
+                su triunfo.
+                <br>
+                e) No podrán ser ganadores quienes hayan ganado en las promociones y dinámicas de Maruchan durante el 2024.
             </h1>
             <h1 class="text-normal pb-5">
                 <span class="font-bold">XI. DESIGNACIÓN DE GANADORES</span> <br>
