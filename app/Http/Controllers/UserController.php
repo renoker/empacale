@@ -31,10 +31,12 @@ class UserController extends Controller
      * -------------------------------------------------------------------------------------------*/
     function faqs()
     {
+        $now = Carbon::now()->format('Y-m-d H:i:s');
         $week = Week::currentWeek();
 
         return view('pages.faqs', [
             'week'  => $week,
+            'now' => $now
         ]);
     }
     /**

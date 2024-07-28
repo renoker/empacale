@@ -12,6 +12,7 @@
                 <div class="cont_f">
                     <div class="content_item">
                         <div class="partTexto">
+                            <input type="hidden" value="{{ $now }}">
                             <img src="{{ url('assets/images/faqs/pregunta2.png') }}" class="mas" alt=""
                                 id="img_1" onclick="openFaqs(1)">
                             <span>¿Cómo participo en Empácale con Maruchan?</span>
