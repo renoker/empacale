@@ -48,13 +48,16 @@
                         <input type="text" id="text" name="codigo_lote" placeholder="INGRESA TU CÓDIGO LOTE">
                     </div>
 
+                    <div class="content_advertencias">
+                        <h6 class="popup_active" id="btnOpen"><u>¿NO SABES EN DÓNDE ENCONTRAR EL CÓDIGO LOTE?</u></h6>
+                    </div>
+
                     <div class="cont_button">
                         <input type="image" src="{{ url('assets/images/registro/boton.png') }}" alt="Enviar"
                             class="btn_image">
                     </div>
 
                     <div class="content_advertencias">
-                        <h6 class="popup_active" id="btnOpen">¿NO SABES EN DÓNDE ENCONTRAR EL CÓDIGO LOTE?</h6>
                         <h6 class="descripcion">
                             Registra el código LOTE de cualquier producto de la Familia Maruchan para poder jugar a Empácale
                             con Maruchan y convertirte en uno de nuestros ganadores. Cada código LOTE que registres te dará
