@@ -27,7 +27,7 @@
                         <div class="content_blanco">
                             <p class="text">VIDAS: {{ $vidas }}</p>
                         </div>
-                        @if ($vidas > 0)
+                        {{-- @if ($vidas > 0)
                             <div class="content_button">
                                 <a href="{{ route('game.index') }}">
                                     <img src="{{ url('assets/images/mi_perfil/jugar.png') }}" alt="">
@@ -43,7 +43,7 @@
                                     <img src="{{ url('assets/images/mi_perfil/lote.png') }}" alt="">
                                 </a>
                             </div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
