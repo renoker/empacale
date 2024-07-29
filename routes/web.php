@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth:user']], function () {
     Route::get('/codigo_lote',          [ParticipationController::class, 'create'])->name('participation.create');
     Route::post('/codigo_lote',         [ParticipationController::class, 'store'])->name('participation.store');
     Route::get('/game',                 [GameController::class, 'index'])->name('game.index');
+    Route::get('/game_over',                 [GameController::class, 'index_over'])->name('game_over.index');
     // API
     Route::post('/start',                   [GameController::class, 'game_store_start']);
     Route::post('/end',                     [GameController::class, 'game_store_end']);

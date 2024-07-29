@@ -50,6 +50,17 @@ class GameController extends Controller
         }
     }
 
+    public function index_over()
+    {
+        $week = Week::currentWeek();
+        $listas = ListProduct::where('week_id', $week->id)->get();
+
+        return view('pages.game_over', [
+            'lista' => $listas,
+            'week' => $week
+        ]);
+    }
+
     public function addProductos(Request $request)
     {
         $user = Auth::guard('user')->user();
