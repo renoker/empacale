@@ -44,7 +44,10 @@ class UserController extends Controller
      * -------------------------------------------------------------------------------------------*/
     function home()
     {
-        return view('pages.home');
+        $week = Week::currentWeek();
+        return view('pages.home', [
+            'week'  => $week
+        ]);
     }
 
     /**

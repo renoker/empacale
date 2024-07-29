@@ -8,9 +8,15 @@
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
-                        <li class="glide__slide">
-                            <img src="{{ url('assets/images/home/PLAYA.gif') }}" class="img_gif" alt="">
-                        </li>
+                        @if ($week && $week->id == 1)
+                            <li class="glide__slide">
+                                <img src="{{ url('assets/images/home/PLAYA.gif') }}" class="img_gif" alt="">
+                            </li>
+                        @elseif($week && $week->id == 2)
+                            <li class="glide__slide">
+                                <img src="{{ url('assets/images/home/pueblo.gif') }}" class="img_gif" alt="">
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
