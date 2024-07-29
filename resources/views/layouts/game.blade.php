@@ -77,7 +77,6 @@
             isDragging: false
         };
         let hits = 0; // Initialize hits
-
         async function preloadData() {
             try {
                 const response = await fetch('/images');
@@ -217,6 +216,7 @@
             if (event.preventDefault) {
                 event.preventDefault();
             }
+
             const data = event.dataTransfer ? event.dataTransfer.getData("text") : touchData.item.id;
             const draggedElement = document.getElementById(data);
             if (draggedElement && event.target.classList.contains('zona')) {
@@ -224,6 +224,20 @@
                 items.splice(items.indexOf(draggedElement), 1);
                 const points = parseInt(draggedElement.dataset.points, 10);
                 const id = parseInt(draggedElement.dataset.id);
+
+                if (id == 65) {
+                    document.getElementById('draggable14').style.display = 'none';
+                    let index = itemsWithPoints.findIndex(elemento => elemento.id === 'draggable14');
+                    if (index !== -1) {
+                        itemsWithPoints.splice(index, 1);
+                    }
+                } else if (id == 66) {
+                    document.getElementById('draggable13').style.display = 'none';
+                    let index = itemsWithPoints.findIndex(elemento => elemento.id === 'draggable13');
+                    if (index !== -1) {
+                        itemsWithPoints.splice(index, 1);
+                    }
+                }
                 if (!isNaN(points)) {
                     const previousScore = score;
                     if (points > 0) {
@@ -231,7 +245,7 @@
                         score += points;
                         hits++;
                         if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
-                            speedMultiplier += 0.2;
+                            speedMultiplier += 0.3;
                             updateSpeed();
                         }
                     } else {
@@ -253,6 +267,7 @@
                 }
                 if (itemsWithPoints.length > 0 && itemsWithPoints.every(item => !item.parentNode || item.parentNode
                         .classList.contains('zona'))) {
+
                     clearInterval(timerInterval);
                     // Function
                     document.getElementById('cerrarMaleta').style.display = 'block';
@@ -350,7 +365,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.Response);
+
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -458,3 +473,4 @@
 </body>
 
 </html>
+{{-- 65, 66 --}}
