@@ -11,7 +11,6 @@
     @yield('head')
     @vite('resources/css/app.css')
     @vite('resources/sass/main.scss')
-    @yield('meta')
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX4ZY8V2DS"></script>
     <script>
@@ -43,12 +42,13 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1543087713181176');
+        fbq('init', '783826973679476');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1543087713181176&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id=783826973679476&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    @yield('meta')
 </head>
 
 <body>

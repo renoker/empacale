@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title', 'Maruchan - thank you page')
 @section('back', 'back_typ')
+@section('meta')
+    <script>
+        fbq('track', 'RegistroExitosoEmpacale´');
+    </script>
+@endsection
 
 @section('content')
     <div class="content_typ">

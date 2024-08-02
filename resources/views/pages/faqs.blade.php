@@ -291,6 +291,21 @@
                         </div>
                     </div>
 
+                    <div class="content_item m">
+                        <div class="partTexto">
+                            <img src="{{ url('assets/images/faqs/pregunta2.png') }}" class="mas" alt=""
+                                id="img_16" onclick="openFaqs(16)">
+                            <span>¿Cuál es el código del lote y dónde lo puedo encontrar?</span>
+                        </div>
+                        <div class="partDescripcion">
+                            <p id="text_16">
+                                El código del lote se conforma de letras y números que podrás encontrar en el empaque de tu
+                                Maruchan favorita en la parte de abajo después de la palabra LOTE, son mínimo 17 y máximo 23
+                                caracteres, dependiendo del producto. Aquí puedes conocerlo más a detalle
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -300,7 +315,7 @@
     <script>
         const openFaqs = (fq) => {
             let u = document.getElementById('url').value;
-            for (let index = 1; index <= 15; index++) {
+            for (let index = 1; index <= 16; index++) {
                 closeFaqs(index)
             }
             var faq = document.getElementById('img_' + fq)
