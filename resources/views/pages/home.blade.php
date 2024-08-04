@@ -16,6 +16,18 @@
                             <li class="glide__slide">
                                 <img src="{{ url('assets/images/home/pueblo.gif') }}" class="img_gif" alt="">
                             </li>
+                        @elseif($week && $week->id == 3)
+                            <li class="glide__slide">
+                                <img src="{{ url('assets/images/home/gif_montana.gif') }}" class="img_gif" alt="">
+                            </li>
+                        @elseif($week && $week->id == 4)
+                            <li class="glide__slide">
+                                <img src="{{ url('assets/images/home/gif_ciudad.gif') }}" class="img_gif" alt="">
+                            </li>
+                        @else
+                            <li class="glide__slide">
+                                <img src="{{ url('assets/images/home/pueblo.gif') }}" class="img_gif" alt="">
+                            </li>
                         @endif
                     </ul>
                 </div>

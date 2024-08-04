@@ -27,22 +27,24 @@
                         <div class="content_blanco">
                             <p class="text">VIDAS: {{ $vidas }}</p>
                         </div>
-                        @if ($vidas > 0)
-                            <div class="content_button">
-                                <a href="{{ route('game.index') }}">
-                                    <img src="{{ url('assets/images/mi_perfil/jugar.png') }}" alt="">
-                                </a>
-                            </div>
-                        @else
-                            <div class="content_button pt">
-                                <h6 class="texto">¿Crees poder mejorar tu puntaje en menor tiempo?</h6>
-                                <h6 class="texto_small">Registra otro código LOTE de cualquier producto de la Familia
-                                    Maruchan y
-                                    obtén 3 vidas extras para jugar</h6>
-                                <a href="{{ route('participation.create') }}">
-                                    <img src="{{ url('assets/images/mi_perfil/lote.png') }}" alt="">
-                                </a>
-                            </div>
+                        @if ($week)
+                            @if ($vidas > 0)
+                                <div class="content_button">
+                                    <a href="{{ route('game.index') }}">
+                                        <img src="{{ url('assets/images/mi_perfil/jugar.png') }}" alt="">
+                                    </a>
+                                </div>
+                            @else
+                                <div class="content_button pt">
+                                    <h6 class="texto">¿Crees poder mejorar tu puntaje en menor tiempo?</h6>
+                                    <h6 class="texto_small">Registra otro código LOTE de cualquier producto de la Familia
+                                        Maruchan y
+                                        obtén 3 vidas extras para jugar</h6>
+                                    <a href="{{ route('participation.create') }}">
+                                        <img src="{{ url('assets/images/mi_perfil/lote.png') }}" alt="">
+                                    </a>
+                                </div>
+                            @endif
                         @endif
                     </div>
                 </div>

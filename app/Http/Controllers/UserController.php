@@ -238,6 +238,7 @@ class UserController extends Controller
      * -------------------------------------------------------------------------------------------*/
     function profile()
     {
+        $week = Week::currentWeek();
         $user = Auth::guard('user')->user();
         $participation = Participation::where('user_id', $user->id)->latest()->first();
         $score = Score::where('user_id', $user->id)->orderBy('score', 'desc')->first();
@@ -248,12 +249,14 @@ class UserController extends Controller
                 'user'                  => $user,
                 'vidas'                 => $vidas,
                 'score'                 => $score,
+                'week'                 => $week,
             ]);
         } else {
             return view('pages.perfil', [
                 'user'                  => $user,
                 'vidas'                 => 0,
                 'score'                 => $score,
+                'week'                 => $week,
             ]);
         }
     }

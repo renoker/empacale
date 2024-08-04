@@ -27,9 +27,15 @@ class ParticipationController extends Controller
     {
         $products = Product::all();
 
-        return view('pages.codigo_lote', [
-            'products'  => $products
-        ]);
+        $week = Week::currentWeek();
+
+        if ($week) {
+            return view('pages.codigo_lote', [
+                'products'  => $products
+            ]);
+        } else {
+            return redirect()->route('user.profile');
+        }
     }
 
     /**
