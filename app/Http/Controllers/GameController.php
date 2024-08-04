@@ -108,7 +108,7 @@ class GameController extends Controller
     {
         $request->validate([
             'id' => 'required|integer',
-            'score' => 'required|integer',
+            'score' => 'required|integer|min:0|max:230',
         ]);
 
         $now = Carbon::now();
