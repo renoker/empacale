@@ -117,6 +117,7 @@ class ParticipationController extends Controller
                 'scores.score as score',
                 'scores.start as start',
                 'scores.end as end',
+                'scores.id as score_id',
                 DB::raw('TIMESTAMPDIFF(SECOND, scores.start, scores.end) as duration_seconds'),
                 DB::raw('CONCAT(FLOOR(TIMESTAMPDIFF(SECOND, scores.start, scores.end) / 60), "m ", MOD(TIMESTAMPDIFF(SECOND, scores.start, scores.end), 60), "s") as duration_minutes_seconds'),
                 DB::raw('SEC_TO_TIME(TIMESTAMPDIFF(SECOND, scores.start, scores.end)) as duration_hms')

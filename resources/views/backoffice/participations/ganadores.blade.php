@@ -33,6 +33,7 @@
                     id="datatable-example">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Usuario</th>
                             <th>Semana</th>
                             <th>Score</th>
@@ -43,6 +44,7 @@
                     <tbody>
                         @foreach ($participations as $item)
                             <tr>
+                                <td>{{ $item->score_id }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $week->name }}</td>
                                 <td>{{ $item->score }}</td>
