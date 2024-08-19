@@ -188,13 +188,13 @@
                 const points = parseInt(draggedElement.dataset.points, 10);
                 const id = parseInt(draggedElement.dataset.id);
 
-                if (id == 65) {
-                    document.getElementById('draggable14').style.display = 'none';
-                    let index = itemsWithPoints.findIndex(elemento => elemento.id === 'draggable14');
+                if (id == 168) {
+                    document.getElementById('draggable12').style.display = 'none';
+                    let index = itemsWithPoints.findIndex(elemento => elemento.id === 'draggable12');
                     if (index !== -1) {
                         itemsWithPoints.splice(index, 1);
                     }
-                } else if (id == 66) {
+                } else if (id == 167) {
                     document.getElementById('draggable13').style.display = 'none';
                     let index = itemsWithPoints.findIndex(elemento => elemento.id === 'draggable13');
                     if (index !== -1) {
@@ -207,7 +207,7 @@
                         agregarProducto(id);
                         score += points;
                         hits++;
-                        if (hits % 30 === 0) { // Every four hits, increase the speed multiplier
+                        if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
                             speedMultiplier += 0.3;
                             updateSpeed();
                         }
