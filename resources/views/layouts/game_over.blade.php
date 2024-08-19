@@ -207,7 +207,7 @@
                         agregarProducto(id);
                         score += points;
                         hits++;
-                        if (hits % 4 === 0) { // Every four hits, increase the speed multiplier
+                        if (hits % 30 === 0) { // Every four hits, increase the speed multiplier
                             speedMultiplier += 0.3;
                             updateSpeed();
                         }
